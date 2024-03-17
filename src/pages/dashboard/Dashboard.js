@@ -10,6 +10,7 @@ import { MdOutlineShoppingCart } from "react-icons/md";
 import { useEffect, useState } from "react";
 import products from "../../products.json";
 import Navbar from "../../components/navbar/Navbar";
+import Footer from "../../components/footer/Footer";
 
 const Dashboard = () => {
   const [view, setView] = useState("grid");
@@ -190,6 +191,10 @@ const Dashboard = () => {
           <h1>Loading</h1>
         )}
       </div>
+
+      <section className={styles.siteFooter}>
+        <Footer />
+      </section>
     </>
   );
 };

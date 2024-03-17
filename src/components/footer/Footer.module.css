@@ -1,0 +1,14 @@
+.siteFooter {
+    width: 100vw;
+    height: 7vh;
+    background-color: #2E0052;
+    color: #fff;
+    font-family: Roboto;
+    font-size: 1rem;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+

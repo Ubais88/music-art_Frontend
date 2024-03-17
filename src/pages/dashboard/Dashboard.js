@@ -9,6 +9,7 @@ import imgCart from "../../assets/imgCart.svg";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { useEffect, useState } from "react";
 import products from "../../products.json";
+import Navbar from "../../components/navbar/Navbar";
 
 const Dashboard = () => {
   const [view, setView] = useState("grid");
@@ -22,6 +23,9 @@ const Dashboard = () => {
 
   return (
     <>
+    <div className={styles.navbar}>
+        <Navbar />
+      </div>
       <div className={styles.dashboardContainer}>
         <section className={styles.headerSection}>
           <div className={styles.logoWrapper}>

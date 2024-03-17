@@ -5,7 +5,6 @@ import { CiSearch } from "react-icons/ci";
 import { BsFillGridFill, BsGrid } from "react-icons/bs";
 import ListIcon from "../../assets/list.svg";
 import FilledList from "../../assets/filledList.svg";
-import imgCart from "../../assets/imgCart.svg";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { useEffect, useState } from "react";
 import products from "../../products.json";

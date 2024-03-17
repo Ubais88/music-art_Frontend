@@ -1,0 +1,63 @@
+.form {
+  font-family: Roboto;
+  width: 35vw;
+  border: 3px solid #d9d9d9;
+  border-radius: 0.6rem;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 2rem;
+  gap: 1rem;
+}
+
+.heading {
+  font-size: 2.4rem;
+  font-weight: 400;
+  color: #000000;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5vh;
+}
+
+.label {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #000000;
+}
+
+.notification {
+  text-align: justify;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #000000;
+}
+
+.privacyNotice {
+  font-size: 0.75rem;
+  font-weight: 400;
+}
+
+.input {
+  height: 6vh;
+  padding: 0 0.2rem;
+  border: none;
+  outline: none;
+  border: 2px solid #b6b6b6;
+  border-radius: 0.4rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.continueButton {
+  border: none;
+  border-radius: 0.3rem;
+  height: 6vh;
+  background-color: #2e0052;
+  font-size: 1.5rem;
+  font-weight: 500;
+  text-align: center;
+  color: #ffffff;
+  cursor: pointer;
+}

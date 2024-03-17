@@ -11,6 +11,7 @@ import { useEffect, useState } from "react";
 import products from "../../products.json";
 import Navbar from "../../components/navbar/Navbar";
 import Footer from "../../components/footer/Footer";
+import Product from "../../components/product/Product";
 
 const Dashboard = () => {
   const [view, setView] = useState("grid");
@@ -24,7 +25,7 @@ const Dashboard = () => {
 
   return (
     <>
-    <div className={styles.navbar}>
+      <div className={styles.navbar}>
         <Navbar />
       </div>
       <div className={styles.dashboardContainer}>
@@ -39,23 +40,35 @@ const Dashboard = () => {
               Invoice
             </a>
           </div>
-          <div className={styles.cartWrapper}>
-            <MdOutlineShoppingCart size={35} />
-            <span>View Cart</span>
+          <div className={styles.cartContainer}>
+            <div className={styles.cartWrapper}>
+              <MdOutlineShoppingCart size={35} />
+              <span>View Cart</span> 8
+            </div>
+            <div className={styles.userName}>UB</div>
           </div>
         </section>
         <section className={styles.promotionSection}>
           <div className={styles.promotionContent}>
-            <h1>
+            <h1 className={styles.promotionText}>
               Grab upto 50% off on<br></br> Selected headphones
             </h1>
-            <button>Buy Now</button>
+            <button className={styles.promotionbtn}>Buy Now</button>
           </div>
-          <img src={saleIcon} alt="sale Icon" />
+          <img
+            src={saleIcon}
+            alt="Promotion Icon"
+            className={styles.promotionIcon}
+          />
         </section>
         <section className={styles.searchSection}>
           <CiSearch size={35} />
-          <input type="text" name="search" placeholder="Search Product" />
+          <input
+            type="text"
+            name="search"
+            className={styles.searchField}
+            placeholder="Search by Product Name"
+          />
         </section>
 
         <section className={styles.filterSection}>
@@ -68,6 +81,7 @@ const Dashboard = () => {
             <img
               src={view === "list" ? FilledList : ListIcon}
               alt="ListViewIcon"
+              className={styles.listViewImg}
               onClick={() => {
                 setView("list");
               }}
@@ -75,51 +89,48 @@ const Dashboard = () => {
           </div>
 
           <div className={styles.filters}>
-            {[
-              {
-                name: "headphoneType",
-                label: "Headphone type",
-                options: ["", "In ear", "On ear", "Over ear"],
-              },
-              {
-                name: "company",
-                label: "Company",
-                options: [
-                  "",
-                  "JBL",
-                  "Sony",
-                  "Boat",
-                  "Zebronics",
-                  "Marshall",
-                  "Ptron",
-                ],
-              },
-              {
-                name: "colour",
-                label: "Colour",
-                options: ["", "Blue", "Black", "White", "Brown"],
-              },
-              {
-                name: "price",
-                label: "Price",
-                options: ["", "₹0-₹1000", "₹1,000-₹10,000", "₹10000-₹20000"],
-              },
-            ].map((filter, index) => (
-              <select
-                key={index}
-                name={filter.name}
-                className={styles.selectFilter}
-              >
-                <option value="" disabled hidden>
-                  {filter.label}
-                </option>
-                {filter.options.map((option, index) => (
-                  <option key={index} value={option}>
-                    {option || "Featured"}
-                  </option>
-                ))}
-              </select>
-            ))}
+            <select name="headphoneType" className={styles.dropDown}>
+              <option value="" disabled selected hidden>
+                Headphone type
+              </option>
+              <option value="featured">Featured</option>
+              <option value="In ear">In-ear headphone</option>
+              <option value="On ear">On-ear headphobe</option>
+
+              <option value="Over ear">Over-ear headphone</option>
+            </select>
+
+            <select name="company" className={styles.dropDown}>
+              <option value="" disabled selected hidden>
+                Company
+              </option>
+              <option value="featured">Featured</option>
+              <option value="jbl">JBL</option>
+              <option value="sony">Sony</option>
+              <option value="boat">Boat</option>
+              <option value="zebronics">zebronics</option>
+              <option value="marshall">Marshall</option>
+              <option value="ptron">Ptron</option>
+            </select>
+            <select name="colour" className={styles.dropDown}>
+              <option value="" disabled selected hidden>
+                Colour
+              </option>
+              <option value="featured">Featured</option>
+              <option value="blue">Blue</option>
+              <option value="black">Black</option>
+              <option value="white">White</option>
+              <option value="brown">Brown</option>
+            </select>
+            <select name="price" className={styles.dropDown}>
+              <option value="" disabled selected hidden>
+                Price
+              </option>
+              <option value="featured">Featured</option>
+              <option value="0-1000">₹0-₹1000</option>
+              <option value="1000-2000">₹1,000-₹10,000</option>
+              <option value="10000-20000">₹10000-₹20000</option>
+            </select>
           </div>
 
           <div className={styles.sortOptions}>
@@ -136,57 +147,16 @@ const Dashboard = () => {
           </div>
         </section>
 
-        {product.length ? (
-          view === "grid" ? (
-            <section className={styles.productGrid}>
-              {product.map((item, index) => (
-                <div key={index} className={styles.productItem}>
-                  <div className={styles.imageWrapper}>
-                    <img src={imgCart} alt="cartImg" />
-                    <img src={item.images[0]} alt="headphoneIcon" />
-                  </div>
-                  <div className={styles.productInfo}>
-                    <span className={styles.productName}>
-                      {item.brand} {item.model}
-                    </span>
-                    <span className={styles.productPrice}>
-                      Price-₹ {item.price}
-                    </span>
-                    <span className={styles.productDetails}>
-                      {item.color} | {item.headphoneType}
-                    </span>
-                  </div>
-                </div>
-              ))}
-            </section>
-          ) : (
-            <section className={styles.productList}>
-              {product.map((item, index) => (
-                <div key={index} className={styles.productItem}>
-                  <div className={styles.imageWrapper}>
-                    <img src={item.images[0]} alt="headphoneIcon" />
-                    <img src={imgCart} alt="cart icon" />
-                  </div>
-
-                  <div className={styles.productInfo}>
-                    <span className={styles.productName}>
-                      {item.brand} {item.model}
-                    </span>
-                    <span className={styles.productPrice}>
-                      Price - ₹ {item.price}
-                    </span>
-                    <span className={styles.productDetails}>
-                      {item.color} | {item.headphoneType}
-                    </span>
-                    <span className={styles.productDescription}>
-                      {item.shortDescription}
-                    </span>
-                    <button className={styles.detailsButton}>Details</button>
-                  </div>
-                </div>
-              ))}
-            </section>
-          )
+        {product.length > 0 ? (
+          <section
+            className={`${
+              view === "grid" ? styles.productGrid : styles.productList
+            }`}
+          >
+            {product.map((item, index) => (
+              <Product item={item} view={view} key={index} />
+            ))}
+          </section>
         ) : (
           <h1>Loading</h1>
         )}

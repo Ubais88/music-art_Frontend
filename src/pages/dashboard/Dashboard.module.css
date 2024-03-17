@@ -1,13 +1,16 @@
-
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 .dashboardContainer {
-  margin-top: 12vh;
-  width: 100vw;
-  padding: 0 2vw 0 2vw;
+  margin-top: 11vh;
+  /* width: 100vw; */
+  padding: 0 2vw;
 }
 
 .headerSection {
-  width: 100%;
   height: 10vh;
   display: flex;
   justify-content: space-between;
@@ -29,113 +32,113 @@
   font-family: Roboto;
   font-size: 2.3rem;
   font-weight: 600;
-  letter-spacing: 0em;
-  color: rgba(46, 0, 82, 1);
+  color: #2e0052;
 }
 
-.logoWrapper > a {
+.navLink {
   margin-left: 1vw;
   padding-top: 4%;
   text-decoration: none;
   font-family: Roboto;
   font-size: 1rem;
   font-weight: 400;
-  letter-spacing: 0em;
-  color: rgba(0, 0, 0, 1);
+  color: #000000;
+}
+
+.cartContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .cartWrapper {
-  width: max-content;
-  height: 70%;
-  padding: 1vh 3vh 1vh 3vh;
-  background-color: rgba(29, 112, 0, 1);
-  border-radius: 50px;
   display: flex;
   align-items: center;
-  gap: 1vh;
+  padding: 0.7rem;
+  background-color: #1d7000;
+  border-radius: 3rem;
+  gap: 0.4rem;
   font-family: Roboto;
   font-size: 1.3rem;
   font-weight: 400;
-  letter-spacing: 0em;
-  color: rgba(255, 255, 255, 1);
+  color: #fff;
+  cursor: pointer;
+}
+
+.userName {
+  border: 1px solid #2e0052;
+  color: #000000;
+  font-family: Roboto;
+  font-size: 2rem;
+  font-weight: 500;
+  border-radius: 50%;
+  padding: 0.7rem;
   cursor: pointer;
 }
 
 .promotionSection {
-  margin-top: 5vh;
-  width: 100%;
-  height: 32vh;
+  margin-top: 2rem;
+  /* width: 100%; */
+  height: 35vh;
   background: linear-gradient(90deg, #7286b4 0%, #e794ce 100%);
-  border-radius: 10px;
+  border-radius: 1.7rem;
   display: flex;
   justify-content: space-between;
 }
 
-.promotionSection > div {
+.promotionContent {
   padding-left: 8vh;
-  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   font-family: Roboto;
   font-weight: 500;
-  letter-spacing: 0em;
 }
 
-.promotionSection > div > h1 {
-  font-size: 3.5vw;
-  color: rgba(46, 0, 82, 1);
+.promotionText {
+  font-size: 3rem;
+  color: #2e0052;
 }
 
-.promotionSection > div > button {
+.promotionbtn {
   width: 33%;
   height: 20%;
   border: none;
-  border-radius: 50px;
-  background-color: rgba(46, 0, 82, 1);
-  color: rgba(255, 255, 255, 1);
+  border-radius: 3rem;
+  background-color: #2e0052;
+  color: #ffffff;
   font-size: 1.5vw;
 }
 
-.promotionSection > img {
+.promotionIcon {
   position: relative;
   bottom: 20%;
   height: 120%;
 }
 
 .searchSection {
-  margin-top: 5vh;
-  width: 100%;
-  height: 8vh;
-  border: 3px solid rgba(200, 200, 200, 1);
-  border-radius: 50px;
+  margin-top: 1rem;
+  border: 0.2rem solid #c8c8c8;
+  padding: 0.5rem 1rem;
+  border-radius: 3rem;
   display: flex;
-  align-items: center;
-  padding: 1% 1.5% 1% 1.5%;
-  gap: 1vh;
+  gap: 0.5rem;
 }
 
-.searchSection > input {
+.searchField {
+  outline: none;
   border: none;
   width: 100%;
-  outline: none;
   font-family: Roboto;
-  font-size: 1.8vw;
+  font-size: 1.4rem;
   font-weight: 400;
-  letter-spacing: 0em;
-  color: rgba(0, 0, 0, 1);
-}
-
-.searchSection > img {
-  height: 5.5vh;
+  color: #000000;
 }
 
 .filterSection {
-  width: 100%;
+  /* width: 100%; */
   height: 6vh;
-  overflow-x: visible;
-  overflow-y: hidden;
-  margin-top: 4vh;
+  margin-top: 2rem;
   display: flex;
   align-items: center;
 }
@@ -143,263 +146,80 @@
 .viewOptions {
   display: flex;
   align-items: center;
-  height: 100%;
-  gap: 0.5vw;
+  /* height: 100%; */
+  gap: 0.5rem;
 }
 
-.viewOptions > img {
-  height: 80%;
+.listViewImg {
+  height: 2rem;
   cursor: pointer;
 }
 
 .filters {
-  width: 100%;
+  width: 70%;
   height: 100%;
   margin-left: 1vw;
   margin-right: 5vw;
   display: flex;
-  gap: 1vh;
+  gap: 0.5rem;
 }
 
-.filters > select {
-  padding: 0.5% 0% 0.5% 2%;
-  height: 100%;
-  width: 15vw;
+.dropDown {
+  padding-left: 1.2rem;
+  width: 12rem;
+}
+
+.dropDown,
+.sortSelect {
   font-family: Roboto;
-  font-size: 1.3vw;
+  font-size: 1rem;
   font-weight: 500;
-  letter-spacing: -0.02em;
-  background-color: rgba(217, 217, 217, 1);
+  background-color: #d9d9d9;
   border: none;
   outline: none;
-  border-radius: 50px;
+  border-radius: 3rem;
   appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
   background-image: url("../../assets/dropDown.svg");
   background-repeat: no-repeat;
   background-position: right 7% center;
-  background-position-y: center;
   cursor: pointer;
 }
 
-.filters > select option {
-  background-color: rgba(255, 255, 255, 1);
-  font-size: 0.8rem;
+.dropDown > option,
+.sortSelect > select {
+  background-color: #ffffff;
+  font-size: 1rem;
   font-weight: 400;
 }
 
 .sortOptions {
-  width: 15vw;
+  /* width: 15vw; */
   height: 100%;
-  align-self: flex-end;
-  border: 2px solid rgba(225, 225, 225, 1);
+  border: 0.15rem solid #e1e1e1;
   border-radius: 50px;
-  padding: 0.5% 2% 0.5% 2%;
+  padding: 1rem;
   font-family: Roboto;
-  font-size: 1.3vw;
+  font-size: 1rem;
   font-weight: 400;
-  letter-spacing: 0em;
-  white-space: nowrap;
   display: flex;
   align-items: center;
-  justify-content: center;
 }
 
-.sortOptions > select {
-  padding-right: 15%;
+.sortSelect {
   background-color: transparent;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  color: rgba(0, 0, 0, 1);
-  font-family: Roboto;
-  font-size: 1.3vw;
   font-weight: 400;
-  letter-spacing: 0em;
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  background-image: url("../../assets/dropDown.svg");
-  background-repeat: no-repeat;
-  background-position: right 2% center;
-  cursor: pointer;
-}
-
-.sortOptions > select option {
-  background-color: rgba(255, 255, 255, 1);
-  font-size: 0.8rem;
 }
 
 .productGrid {
   margin-top: 10vh;
-  width: 100%;
-  display: flex;
-  justify-content: flex-start;
-  flex-wrap: wrap;
-  gap: 2vw;
+  /* width: 100%; */
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 2rem;
 }
 
-.productGrid > div {
-  width: calc(24% - 10px);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 1vh;
-  cursor: pointer;
-}
-
-.imageWrapper {
-  width: 100%;
-  height: 40vh;
-  background-color: rgba(212, 229, 255, 1);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-}
-
-.imageWrapper img:first-child {
-  height: 25%;
-  position: absolute;
-  bottom: 0;
-  left: 44%;
-  cursor: pointer;
-}
-
-
-
-.imageWrapper > img {
-  height: 80%;
-  width: 80%;
-}
-
-.productInfo {
-  display: flex;
-  flex-direction: column;
-}
-
-.productName {
-  font-family: Roboto;
-  font-size: 2vw;
-  font-weight: 600;
-  letter-spacing: 0em;
-  color: rgba(0, 0, 0, 1);
-}
-
-.productPrice,
-.productDetails {
-  font-family: Roboto;
-  font-size: 1.5vw;
-  font-weight: 500;
-  letter-spacing: 0em;
-  text-align: left;
-}
-
-/* list type view */
-.productContainerList {
+.productList {
   margin-top: 10vh;
   width: 100%;
   height: 100%;
-}
-
-.singleProductBox {
-  width: 100%;
-  height: 40vh;
-  display: flex;
-  align-items: center;
-  gap: 2vw;
-  margin-bottom: 10vh;
-}
-
-.imgDiv {
-  position: relative;
-  width: 25%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: rgba(212, 229, 255, 1);
-}
-
-.imgDiv > img:first-child {
-  width: 80%;
-  height: 80%;
-}
-
-.cartProductImg {
-  position: absolute;
-  width: 30%;
-  height: 30%;
-  bottom: 0;
-  right: 0;
-  cursor: pointer;
-}
-
-.productSpecLIst {
-  width: 75%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 1vh;
-  font-family: Roboto;
-  letter-spacing: 0em;
-}
-
-.productListTitle {
-  font-size: 2.7vw;
-  font-weight: 600;
-}
-
-.shortSpec,
-.colorType,
-.productListPrice {
-  font-size: 1.4vw;
-  font-weight: 500;
-}
-
-.productSpecLIst > button {
-  margin-top: 1%;
-  border: none;
-  border-radius: 50px;
-  color: rgba(255, 255, 255, 1);
-  width: 20%;
-  height: 20%;
-  background-color: rgba(46, 0, 82, 1);
-  font-family: Roboto;
-  font-size: 1.6vw;
-  font-weight: 400;
-  line-height: 29px;
-  letter-spacing: 0em;
-  text-align: center;
-  cursor: pointer;
-}
-
-.footer {
-  margin-top: 15vh;
-}
-
-.noProductFound {
-  width: 100vw;
-  font-family: Roboto;
-  font-size: 3vw;
-  display: flex;
-  justify-content: center;
-  white-space: nowrap;
-}
-
-@media (max-width: 600px) {
-  .container {
-    display: none;
-  }
-
-  .footer {
-    display: none;
-  }
-
-  .header {
-    display: none;
-  }
 }

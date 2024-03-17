@@ -1,7 +1,6 @@
 {
     "data": [
         {
-            "_id": "658e4327d2c514726671e29c",
             "brand": "Sony",
             "model": "WH-CH720N",
             "images": [
@@ -16,7 +15,6 @@
             "shortDescription": "Sony WH-CH720N, Wireless Over-Ear Active Noise Cancellation Headphones with Mic, up to 50 Hours Playtime, Multi-Point Connection, App Support, AUX & Voice Assistant Support for Mobile Phones (Black)"
         },
         {
-            "_id": "658e48698e813eaa38e18dee",
             "brand": "Sony",
             "model": "WH-CH520",
             "images": [
@@ -31,7 +29,6 @@
             "shortDescription": "SONY WH-CH520 with 50 Hrs Playtime, DSEE Upscale, Multipoint Connection/Dual Pairing Bluetooth Headset  (Taupe, On the Ear)"
         },
         {
-            "_id": "658e4a008e813eaa38e18df0",
             "brand": "OnePlus",
             "model": "Nord Buds 2",
             "images": [
@@ -46,7 +43,6 @@
             "shortDescription": "OnePlus Nord Buds 2 True Wireless Earbuds with 25dB Active Noise Cancellation Bluetooth Headset (Gray, True Wireless)"
         },
         {
-            "_id": "658e4f728e813eaa38e18df2",
             "brand": "OnePlus",
             "model": "Bullets Z2",
             "images": [
@@ -61,7 +57,6 @@
             "shortDescription": "OnePlus Bullets Z2 Bluetooth Wireless in Ear Earphones with Mic, Bombastic Bass - 12.4 Mm Drivers, 10 Mins Charge - 20 Hrs Music, 30 Hrs Battery Life (Black)"
         },
         {
-            "_id": "658e52318e813eaa38e18df4",
             "brand": "OnePlus",
             "model": "Buds Z2",
             "images": [
@@ -76,7 +71,6 @@
             "shortDescription": "OnePlus Buds Z2 Bluetooth Truly Wireless in Ear Earbuds with mic, Active Noise Cancellation, 10 Minutes Flash Charge & Upto 38 Hours Battery (White)"
         },
         {
-            "_id": "658e53e58e813eaa38e18df6",
             "brand": "Boat",
             "model": "Rockerz 450",
             "images": [
@@ -91,7 +85,6 @@
             "shortDescription": "boAt Rockerz 450 Bluetooth On Ear Headphones with Mic, Upto 15 Hours Playback, 40MM Drivers, Padded Ear Cushions, Integrated Controls and Dual Modes(Black)"
         },
         {
-            "_id": "658e551f8e813eaa38e18df8",
             "brand": "Boat",
             "model": "Nirvana",
             "images": [
@@ -106,7 +99,6 @@
             "shortDescription": "boAt Nirvana 751 ANC Hybrid Active Noise Cancelling Bluetooth Wireless Over Ear Headphones with Up to 65H Playtime, ASAP Charge, Ambient Sound Mode, Immersive Sound, Carry Pouch(Grey)"
         },
         {
-            "_id": "658e56288e813eaa38e18dfa",
             "brand": "Boat",
             "model": "BassHeads 100",
             "images": [
@@ -121,7 +113,6 @@
             "shortDescription": "boAt BassHeads 100 in-Ear Wired Headphones with Mic (Black)"
         },
         {
-            "_id": "658e57738e813eaa38e18dfc",
             "brand": "Boat",
             "model": "Airdopes Flex",
             "images": [
@@ -136,7 +127,6 @@
             "shortDescription": "boAt Newly Launched Airdopes Flex 454 ANC TWS in Ear Earbuds with Smart Features,ANC,60Hrs Playback,Beast Mode(Low Latency),Quad Mics Enx Tech,Multi Point Connectivity,ASAP Charge(Black)"
         },
         {
-            "_id": "658e58658e813eaa38e18dfe",
             "brand": "Boat",
             "model": "Bassheads 228",
             "images": [
@@ -151,7 +141,6 @@
             "shortDescription": "boAt Bassheads 228 in-Ear Wired Earphones with Super Extra Bass, Metallic Finish, Tangle-Free Cable and Gold Plated Angled Jack (Orange)"
         },
         {
-            "_id": "658e5b5b8e813eaa38e18e00",
             "brand": "Boult Audio",
             "model": "Anchor",
             "images": [
@@ -166,7 +155,6 @@
             "shortDescription": "Boult Audio Anchor Bluetooth Wireless Over Ear Headphones with Mic, Active Noise Cancellation, 30H Playtime, AUX Option, Balanced Audio 40mm Drivers, Voice Assistant Sweatproof Gaming ANC Headphones"
         },
         {
-            "_id": "658e5c708e813eaa38e18e02",
             "brand": "Marshall",
             "model": "Major IV",
             "images": [
@@ -181,7 +169,6 @@
             "shortDescription": "Marshall Major IV Wireless Bluetooth On Ear Headphone with Mic (Brown)"
         },
         {
-            "_id": "658e5d5d8e813eaa38e18e04",
             "brand": "Zebronics",
             "model": "Duke",
             "images": [
@@ -196,7 +183,6 @@
             "shortDescription": "ZEBRONICS Duke 60hrs Playtime Bluetooth Wireless Over Ear Headphone with Mic (Blue)"
         },
         {
-            "_id": "658e5eaf8e813eaa38e18e06",
             "brand": "Zebronics",
             "model": "Duke2",
             "images": [
@@ -211,7 +197,6 @@
             "shortDescription": "ZEBRONICS Zeb-Duke 2 Wireless Headphone That Comes with 40mm Drivers and has Dual Pairing Function and has 32 hrs. of Playback time.(Black)"
         },
         {
-            "_id": "658e5fb18e813eaa38e18e08",
             "brand": "pTron",
             "model": "Bassbuds Deo",
             "images": [
@@ -226,7 +211,6 @@
             "shortDescription": "pTron Bassbuds Duo in-Ear Wireless Earbuds with Immersive Sound,32Hrs Playtime,Clear Calls TWS Earbuds,Bluetooth V5.1 Headphone,Type-C Fast Charging,Voice Assistant&Ipx4 Water Resistant (Brown)"
         },
         {
-            "_id": "658e61078e813eaa38e18e0a",
             "brand": "Marshall",
             "model": "4090939",
             "images": [
@@ -241,7 +225,6 @@
             "shortDescription": "Marshall 4090939 Mode Wired in Ear Headphone with Mic (Black)"
         },
         {
-            "_id": "658e623c8e813eaa38e18e0c",
             "brand": "JBL",
             "model": "Tune 215BT",
             "images": [
@@ -256,7 +239,6 @@
             "shortDescription": "JBL Tune 215BT, 16 Hrs Playtime with Quick Charge, in Ear Bluetooth Wireless Earphones with Mic, 12.5mm Premium Earbuds with Pure Bass, BT 5.0, Dual Pairing, Type C & Voice Assistant Support (White)"
         },
         {
-            "_id": "658e62ec8e813eaa38e18e0e",
             "brand": "JBL",
             "model": "Tune 510BT",
             "images": [
@@ -271,7 +253,6 @@
             "shortDescription": "JBL Tune 510BT, On Ear Wireless Headphones with Mic, up to 40 Hours Playtime, Pure Bass, Quick Charging, Dual Pairing, Bluetooth 5.0 & Voice Assistant Support for Mobile Phones (Blue)"
         },
         {
-            "_id": "658e63468e813eaa38e18e10",
             "brand": "pTron",
             "model": "Tune 510BT",
             "images": [
@@ -286,7 +267,6 @@
             "shortDescription": "pTron Bassbuds Duo in Ear Earbuds with 32Hrs Total Playtime, Bluetooth 5.1 Wireless Headphones, Stereo Audio, Touch Control TWS, with Mic, Type-C Fast Charging, IPX4 & Voice Assistance (White)"
         },
         {
-            "_id": "658e65108e813eaa38e18e12",
             "brand": "Zebronics",
             "model": "Bang",
             "images": [

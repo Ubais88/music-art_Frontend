@@ -8,7 +8,7 @@ import FilledList from "../../assets/filledList.svg";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { useEffect, useState } from "react";
 import products from "../../products.json";
-import Navbar from "../../components/navbar/Navbar";
+import Navbar from "../../components/preNavbar/PreNavbar";
 import Footer from "../../components/footer/Footer";
 import Product from "../../components/product/Product";
 

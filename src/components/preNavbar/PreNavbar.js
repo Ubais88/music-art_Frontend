@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styles from "./PreNavbar.module.css";
 import { TbPhoneCall } from "react-icons/tb";
 
-const Navbar = () => {
+const PreNavbar = () => {
   const [login, setLogin] = useState(false);
   
   return (
@@ -28,4 +28,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default PreNavbar;

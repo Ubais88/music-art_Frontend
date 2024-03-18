@@ -1,15 +1,12 @@
 import styles from "./ProductDetails.module.css";
 import PreNavbar from "../../components/preNavbar/PreNavbar";
 import Footer from "../../components/footer/Footer";
-import musicIcon from "../../assets/musicIcon.svg";
-import cart from "../../assets/cart.svg";
-import starImage from "../../assets/star.svg";
+import { FaStar } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import products from "../../products.json";
 import Navbar from "../../components/navbar/Navbar";
 
 const ProductDetails = () => {
-  const [login, setLogin] = useState(true);
   const [product, setProduct] = useState(null);
   const [navData, setNavData] = useState({
     brand: "",
@@ -55,8 +52,8 @@ const ProductDetails = () => {
                   {product.brand} {product.model}
                 </h1>
                 <div className={styles.ratingBox}>
-                  {[0, 1, 2, 3].map((item) => (
-                    <img key={item} src={starImage} alt="starIcon" />
+                  {[0, 1, 2, 3 ,4].map(() => (
+                    <FaStar color="#FFD600" size={25}/>
                   ))}
                   <span>({product.reviewCount} Customer reviews)</span>
                 </div>

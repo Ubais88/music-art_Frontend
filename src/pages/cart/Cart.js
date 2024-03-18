@@ -17,8 +17,8 @@ const Cart = () => {
   useEffect(() => {
     setProducts([Products.data[0]]);
     setNavData({
-        brand: Products.data[0].brand,
-        model: Products.data[0].model,
+        brand: "",
+        model: "View Cart",
       });
   });
   console.log(products);

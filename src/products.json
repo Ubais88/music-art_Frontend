@@ -1,284 +1,295 @@
 {
-    "data": [
-        {
-            "brand": "Sony",
-            "model": "WH-CH720N",
-            "images": [
-                "https://www.bhphotovideo.com/cdn-cgi/image/format=auto,fit=scale-down,width=500,quality=95/https://www.bhphotovideo.com/images/images500x500/sony_whch720n_b_wireless_noise_cancelling_over_the_eat_1677771658_1754497.jpg",
-                "https://static.bhphoto.com/images/multiple_images/images500x500/1677771995_IMG_1948746.jpg",
-                "https://static.bhphoto.com/images/multiple_images/images500x500/1677771995_IMG_1948748.jpg",
-                "https://static.bhphoto.com/images/multiple_images/images500x500/1677771995_IMG_1948747.jpg"
-            ],
-            "price": 3500,
-            "color": "Black",
-            "headphoneType": "Over ear headphone",
-            "shortDescription": "Sony WH-CH720N, Wireless Over-Ear Active Noise Cancellation Headphones with Mic, up to 50 Hours Playtime, Multi-Point Connection, App Support, AUX & Voice Assistant Support for Mobile Phones (Black)"
-        },
-        {
-            "brand": "Sony",
-            "model": "WH-CH520",
-            "images": [
-                "https://rukminim2.flixcart.com/image/832/832/xif0q/headphone/e/0/c/wh-ch510-sony-original-imagz5rcxcudrdnz.jpeg?q=70",
-                "https://rukminim2.flixcart.com/image/832/832/xif0q/headphone/x/v/o/wh-ch510-sony-original-imagz5rcrggwyxhf.jpeg?q=70",
-                "https://rukminim2.flixcart.com/image/832/832/xif0q/headphone/f/h/k/wh-ch510-sony-original-imagz5rc4whjgq4k.jpeg?q=70",
-                "https://rukminim2.flixcart.com/image/832/832/xif0q/headphone/s/y/q/wh-ch510-sony-original-imagz5rcafwhyjvz.jpeg?q=70"
-            ],
-            "price": 3990,
-            "color": "Taupe",
-            "headphoneType": "Over ear headphone",
-            "shortDescription": "SONY WH-CH520 with 50 Hrs Playtime, DSEE Upscale, Multipoint Connection/Dual Pairing Bluetooth Headset  (Taupe, On the Ear)"
-        },
-        {
-            "brand": "OnePlus",
-            "model": "Nord Buds 2",
-            "images": [
-                "https://rukminim2.flixcart.com/image/832/832/xif0q/headphone/0/v/m/nord-buds-2-oneplus-original-imagnwf7sgjetqwg.jpeg?q=70",
-                "https://rukminim2.flixcart.com/image/832/832/xif0q/headphone/a/r/v/-original-imagzkaz3eexazkq.jpeg?q=70",
-                "https://rukminim2.flixcart.com/image/832/832/xif0q/headphone/q/v/t/-original-imagzkazpnse4jcg.jpeg?q=70",
-                "https://rukminim2.flixcart.com/image/832/832/xif0q/headphone/h/y/r/-original-imagzkazemccdfdj.jpeg?q=70"
-            ],
-            "price": 4500,
-            "color": "Gray",
-            "headphoneType": "In ear headphone",
-            "shortDescription": "OnePlus Nord Buds 2 True Wireless Earbuds with 25dB Active Noise Cancellation Bluetooth Headset (Gray, True Wireless)"
-        },
-        {
-            "brand": "OnePlus",
-            "model": "Bullets Z2",
-            "images": [
-                "https://m.media-amazon.com/images/I/51UhwaQXCpL._SX679_.jpg",
-                "https://m.media-amazon.com/images/I/51tdhnb9hBL._SX679_.jpg",
-                "https://m.media-amazon.com/images/I/51LkC94UraL._SX679_.jpg",
-                "https://m.media-amazon.com/images/I/61VyK3V84ML._SX679_.jpg"
-            ],
-            "price": 1999,
-            "color": "Balck",
-            "headphoneType": "In ear headphone",
-            "shortDescription": "OnePlus Bullets Z2 Bluetooth Wireless in Ear Earphones with Mic, Bombastic Bass - 12.4 Mm Drivers, 10 Mins Charge - 20 Hrs Music, 30 Hrs Battery Life (Black)"
-        },
-        {
-            "brand": "OnePlus",
-            "model": "Buds Z2",
-            "images": [
-                "https://m.media-amazon.com/images/I/419Pe9doxrL._SX679_.jpg",
-                "https://m.media-amazon.com/images/I/41ugWtpTDrL._SX679_.jpg",
-                "https://m.media-amazon.com/images/I/61a03Uc7ccL._SX679_.jpg",
-                "https://m.media-amazon.com/images/I/512qwDN+orL._SX679_.jpg"
-            ],
-            "price": 2500,
-            "color": "White",
-            "headphoneType": "In ear headphone",
-            "shortDescription": "OnePlus Buds Z2 Bluetooth Truly Wireless in Ear Earbuds with mic, Active Noise Cancellation, 10 Minutes Flash Charge & Upto 38 Hours Battery (White)"
-        },
-        {
-            "brand": "Boat",
-            "model": "Rockerz 450",
-            "images": [
-                "https://m.media-amazon.com/images/I/315vj6oj-FL._SX300_SY300_QL70_FMwebp_.jpg",
-                "https://m.media-amazon.com/images/I/71QDnQWrVNL._SX679_.jpg",
-                "https://m.media-amazon.com/images/I/71-bbXujTLL._SX679_.jpg",
-                "https://m.media-amazon.com/images/I/51LYseQyugL._SX679_.jpg"
-            ],
-            "price": 1700,
-            "color": "Black",
-            "headphoneType": "On ear headphone",
-            "shortDescription": "boAt Rockerz 450 Bluetooth On Ear Headphones with Mic, Upto 15 Hours Playback, 40MM Drivers, Padded Ear Cushions, Integrated Controls and Dual Modes(Black)"
-        },
-        {
-            "brand": "Boat",
-            "model": "Nirvana",
-            "images": [
-                "https://m.media-amazon.com/images/I/31dXEvtxidL._SX300_SY300_QL70_FMwebp_.jpg",
-                "https://m.media-amazon.com/images/I/71sI3x7ZkyL._SX679_.jpg",
-                "https://m.media-amazon.com/images/I/71w3s2UJNlL._SX679_.jpg",
-                "https://m.media-amazon.com/images/I/61u81pV72AL._SX679_.jpg"
-            ],
-            "price": 2499,
-            "color": "Grey",
-            "headphoneType": "Over ear headphone",
-            "shortDescription": "boAt Nirvana 751 ANC Hybrid Active Noise Cancelling Bluetooth Wireless Over Ear Headphones with Up to 65H Playtime, ASAP Charge, Ambient Sound Mode, Immersive Sound, Carry Pouch(Grey)"
-        },
-        {
-            "brand": "Boat",
-            "model": "BassHeads 100",
-            "images": [
-                "https://m.media-amazon.com/images/I/719elVA3FvL._SX679_.jpg",
-                "https://m.media-amazon.com/images/I/616ZjT2IBvL._SX679_.jpg",
-                "https://m.media-amazon.com/images/I/61sRbJncwbL._SX679_.jpg",
-                "https://m.media-amazon.com/images/I/61UgSQ9UB2L._SX679_.jpg"
-            ],
-            "price": 399,
-            "color": "Black",
-            "headphoneType": "In ear headphone",
-            "shortDescription": "boAt BassHeads 100 in-Ear Wired Headphones with Mic (Black)"
-        },
-        {
-            "brand": "Boat",
-            "model": "Airdopes Flex",
-            "images": [
-                "https://m.media-amazon.com/images/I/61-MCZZSl6L._SX679_.jpg",
-                "https://m.media-amazon.com/images/I/71P0bP6asSL._SX679_.jpg",
-                "https://m.media-amazon.com/images/I/71kc+WxMGML._SX679_.jpg",
-                "https://m.media-amazon.com/images/I/71Az5wZP4xL._SX679_.jpg"
-            ],
-            "price": 1999,
-            "color": "Black",
-            "headphoneType": "In ear headphone",
-            "shortDescription": "boAt Newly Launched Airdopes Flex 454 ANC TWS in Ear Earbuds with Smart Features,ANC,60Hrs Playback,Beast Mode(Low Latency),Quad Mics Enx Tech,Multi Point Connectivity,ASAP Charge(Black)"
-        },
-        {
-            "brand": "Boat",
-            "model": "Bassheads 228",
-            "images": [
-                "https://m.media-amazon.com/images/I/512d7sK2fZL._SX679_.jpg",
-                "https://m.media-amazon.com/images/I/61ZLY9A7oTS._SX679_.jpg",
-                "https://m.media-amazon.com/images/I/61bZyhkhZsS._SX679_.jpg",
-                "https://m.media-amazon.com/images/I/61gmeERXatS._SX679_.jpg"
-            ],
-            "price": 499,
-            "color": "Orange",
-            "headphoneType": "In ear headphone",
-            "shortDescription": "boAt Bassheads 228 in-Ear Wired Earphones with Super Extra Bass, Metallic Finish, Tangle-Free Cable and Gold Plated Angled Jack (Orange)"
-        },
-        {
-            "brand": "Boult Audio",
-            "model": "Anchor",
-            "images": [
-                "https://m.media-amazon.com/images/I/715jcYvT9pL._SX679_.jpg",
-                "https://m.media-amazon.com/images/I/81S1nKrMm1L._SX679_.jpg",
-                "https://m.media-amazon.com/images/I/81CjmTXzhGL._SX679_.jpg",
-                "https://m.media-amazon.com/images/I/81ST3Bqoc5L._SX679_.jpg"
-            ],
-            "price": 3999,
-            "color": "Black",
-            "headphoneType": "On ear headphone",
-            "shortDescription": "Boult Audio Anchor Bluetooth Wireless Over Ear Headphones with Mic, Active Noise Cancellation, 30H Playtime, AUX Option, Balanced Audio 40mm Drivers, Voice Assistant Sweatproof Gaming ANC Headphones"
-        },
-        {
-            "brand": "Marshall",
-            "model": "Major IV",
-            "images": [
-                "https://m.media-amazon.com/images/I/61x4yN6eUVL._SX679_.jpg",
-                "https://m.media-amazon.com/images/I/61ag5oPn-rL._SX679_.jpg",
-                "https://m.media-amazon.com/images/I/512Ls0shnDL._SX679_.jpg",
-                "https://m.media-amazon.com/images/I/61dvGHScU1L._SX679_.jpg"
-            ],
-            "price": 12999,
-            "color": "Brown",
-            "headphoneType": "On ear headphone",
-            "shortDescription": "Marshall Major IV Wireless Bluetooth On Ear Headphone with Mic (Brown)"
-        },
-        {
-            "brand": "Zebronics",
-            "model": "Duke",
-            "images": [
-                "https://m.media-amazon.com/images/I/71qLc3uTqSL._SX679_.jpg",
-                "https://m.media-amazon.com/images/I/7179d5-34fL._SX679_.jpg",
-                "https://m.media-amazon.com/images/I/71RJfL7SvXL._SX679_.jpg",
-                "https://m.media-amazon.com/images/I/71AvluszjlL._SX679_.jpg"
-            ],
-            "price": 1399,
-            "color": "Blue",
-            "headphoneType": "Over ear headphone",
-            "shortDescription": "ZEBRONICS Duke 60hrs Playtime Bluetooth Wireless Over Ear Headphone with Mic (Blue)"
-        },
-        {
-            "brand": "Zebronics",
-            "model": "Duke2",
-            "images": [
-                "https://m.media-amazon.com/images/I/61SHkCsRUtL._SX679_.jpg",
-                "https://m.media-amazon.com/images/I/61URRxlFTxL._SX679_.jpg",
-                "https://m.media-amazon.com/images/I/71YaJb959CL._SX679_.jpg",
-                "https://m.media-amazon.com/images/I/71NeBVpitRL._SX679_.jpg"
-            ],
-            "price": 999,
-            "color": "Black",
-            "headphoneType": "On ear headphone",
-            "shortDescription": "ZEBRONICS Zeb-Duke 2 Wireless Headphone That Comes with 40mm Drivers and has Dual Pairing Function and has 32 hrs. of Playback time.(Black)"
-        },
-        {
-            "brand": "pTron",
-            "model": "Bassbuds Deo",
-            "images": [
-                "https://m.media-amazon.com/images/I/51F70dMzS1L._SX679_.jpg",
-                "https://m.media-amazon.com/images/I/61014jwZ2yL._SX679_.jpg",
-                "https://m.media-amazon.com/images/I/71eP+5+4xdL._SX679_.jpg",
-                "https://m.media-amazon.com/images/I/61EDlGIQNrL._SX679_.jpg"
-            ],
-            "price": 599,
-            "color": "Brown",
-            "headphoneType": "In ear headphone",
-            "shortDescription": "pTron Bassbuds Duo in-Ear Wireless Earbuds with Immersive Sound,32Hrs Playtime,Clear Calls TWS Earbuds,Bluetooth V5.1 Headphone,Type-C Fast Charging,Voice Assistant&Ipx4 Water Resistant (Brown)"
-        },
-        {
-            "brand": "Marshall",
-            "model": "4090939",
-            "images": [
-                "https://m.media-amazon.com/images/I/517O1b6KKUL._SX679_.jpg",
-                "https://m.media-amazon.com/images/I/61aNbkYqxNL._SX679_.jpg",
-                "https://m.media-amazon.com/images/I/51G+leFnzEL._SX679_.jpg",
-                "https://m.media-amazon.com/images/I/51jGrFP3UML._SX679_.jpg"
-            ],
-            "price": 599,
-            "color": "Black",
-            "headphoneType": "In ear headphone",
-            "shortDescription": "Marshall 4090939 Mode Wired in Ear Headphone with Mic (Black)"
-        },
-        {
-            "brand": "JBL",
-            "model": "Tune 215BT",
-            "images": [
-                "https://m.media-amazon.com/images/I/51ind0AlUVL._SX679_.jpg",
-                "https://m.media-amazon.com/images/I/51UQJANPbYL._SX679_.jpg",
-                "https://m.media-amazon.com/images/I/61TOcbycHBL._SX679_.jpg",
-                "https://m.media-amazon.com/images/I/51aLI-tVeZL._SX679_.jpg"
-            ],
-            "price": 1499,
-            "color": "White",
-            "headphoneType": "In ear headphone",
-            "shortDescription": "JBL Tune 215BT, 16 Hrs Playtime with Quick Charge, in Ear Bluetooth Wireless Earphones with Mic, 12.5mm Premium Earbuds with Pure Bass, BT 5.0, Dual Pairing, Type C & Voice Assistant Support (White)"
-        },
-        {
-            "brand": "JBL",
-            "model": "Tune 510BT",
-            "images": [
-                "https://m.media-amazon.com/images/I/516lVkS243L._SX679_.jpg",
-                "https://m.media-amazon.com/images/I/41Bz1DRFy6L._SX679_.jpg",
-                "https://m.media-amazon.com/images/I/51zpMx05SPL._SX679_.jpg",
-                "https://m.media-amazon.com/images/I/51dXN5M0hvL._SX679_.jpg"
-            ],
-            "price": 2499,
-            "color": "Blue",
-            "headphoneType": "On ear headphone",
-            "shortDescription": "JBL Tune 510BT, On Ear Wireless Headphones with Mic, up to 40 Hours Playtime, Pure Bass, Quick Charging, Dual Pairing, Bluetooth 5.0 & Voice Assistant Support for Mobile Phones (Blue)"
-        },
-        {
-            "brand": "pTron",
-            "model": "Tune 510BT",
-            "images": [
-                "https://m.media-amazon.com/images/I/414we1a2KDL._SX679_.jpg",
-                "https://m.media-amazon.com/images/I/61mTNLmStGL._SX679_.jpg",
-                "https://m.media-amazon.com/images/I/61eq6x+792L._SX679_.jpg",
-                "https://m.media-amazon.com/images/I/61eLQP2qESL._SX679_.jpg"
-            ],
-            "price": 2499,
-            "color": "White",
-            "headphoneType": "In ear headphone",
-            "shortDescription": "pTron Bassbuds Duo in Ear Earbuds with 32Hrs Total Playtime, Bluetooth 5.1 Wireless Headphones, Stereo Audio, Touch Control TWS, with Mic, Type-C Fast Charging, IPX4 & Voice Assistance (White)"
-        },
-        {
-            "brand": "Zebronics",
-            "model": "Bang",
-            "images": [
-                "https://m.media-amazon.com/images/I/71JmAlJ8ggL._SX679_.jpg",
-                "https://m.media-amazon.com/images/I/81FJkd2VXqL._SX679_.jpg",
-                "https://m.media-amazon.com/images/I/81rvkoZ19aL._SX679_.jpg",
-                "https://m.media-amazon.com/images/I/814FZXfxVqL._SX679_.jpg"
-            ],
-            "price": 1699,
-            "color": "Blue",
-            "headphoneType": "Over ear headphone",
-            "shortDescription": "Zebronics-Bang over the ear headphones with Foldable Design and Bluetooth v5.0 headphones, Providing up to 20h* Playback(Blue)"
-        }
-    ]
+  "data": [
+    {
+      "brand": "Sony",
+      "model": "WH-CH720N",
+      "images": [
+        "https://www.bhphotovideo.com/cdn-cgi/image/format=auto,fit=scale-down,width=500,quality=95/https://www.bhphotovideo.com/images/images500x500/sony_whch720n_b_wireless_noise_cancelling_over_the_eat_1677771658_1754497.jpg",
+        "https://static.bhphoto.com/images/multiple_images/images500x500/1677771995_IMG_1948746.jpg",
+        "https://static.bhphoto.com/images/multiple_images/images500x500/1677771995_IMG_1948748.jpg",
+        "https://static.bhphoto.com/images/multiple_images/images500x500/1677771995_IMG_1948747.jpg"
+      ],
+      "price": 3500,
+      "color": "Black",
+      "headphoneType": "Over ear headphone",
+      "shortDescription": [
+        "Sony WH-CH720N",
+        "Wireless Over-Ear Active Noise Cancellation Headphones with Mic",
+        "up to 50 Hours Playtime",
+        "Multi-Point Connection",
+        " App Support",
+        " AUX & Voice Assistant Support for Mobile Phones (Black)"
+      ]
+    },
+    {
+      "brand": "Sony",
+      "model": "WH-CH520",
+      "images": [
+        "https://rukminim2.flixcart.com/image/832/832/xif0q/headphone/e/0/c/wh-ch510-sony-original-imagz5rcxcudrdnz.jpeg?q=70",
+        "https://rukminim2.flixcart.com/image/832/832/xif0q/headphone/x/v/o/wh-ch510-sony-original-imagz5rcrggwyxhf.jpeg?q=70",
+        "https://rukminim2.flixcart.com/image/832/832/xif0q/headphone/f/h/k/wh-ch510-sony-original-imagz5rc4whjgq4k.jpeg?q=70",
+        "https://rukminim2.flixcart.com/image/832/832/xif0q/headphone/s/y/q/wh-ch510-sony-original-imagz5rcafwhyjvz.jpeg?q=70"
+      ],
+      "price": 3990,
+      "color": "Taupe",
+      "headphoneType": "Over ear headphone",
+      "shortDescription": [
+        "SONY WH-CH520 with 50 Hrs Playtime",
+        "DSEE Upscale",
+        "Multipoint Connection/Dual Pairing Bluetooth Headset  (Taupe, On the Ear)"
+      ]
+    },
+    {
+      "brand": "OnePlus",
+      "model": "Nord Buds 2",
+      "images": [
+        "https://rukminim2.flixcart.com/image/832/832/xif0q/headphone/0/v/m/nord-buds-2-oneplus-original-imagnwf7sgjetqwg.jpeg?q=70",
+        "https://rukminim2.flixcart.com/image/832/832/xif0q/headphone/a/r/v/-original-imagzkaz3eexazkq.jpeg?q=70",
+        "https://rukminim2.flixcart.com/image/832/832/xif0q/headphone/q/v/t/-original-imagzkazpnse4jcg.jpeg?q=70",
+        "https://rukminim2.flixcart.com/image/832/832/xif0q/headphone/h/y/r/-original-imagzkazemccdfdj.jpeg?q=70"
+      ],
+      "price": 4500,
+      "color": "Gray",
+      "headphoneType": "In ear headphone",
+      "shortDescription": "OnePlus Nord Buds 2 True Wireless Earbuds with 25dB Active Noise Cancellation Bluetooth Headset (Gray, True Wireless)"
+    },
+    {
+      "brand": "OnePlus",
+      "model": "Bullets Z2",
+      "images": [
+        "https://m.media-amazon.com/images/I/51UhwaQXCpL._SX679_.jpg",
+        "https://m.media-amazon.com/images/I/51tdhnb9hBL._SX679_.jpg",
+        "https://m.media-amazon.com/images/I/51LkC94UraL._SX679_.jpg",
+        "https://m.media-amazon.com/images/I/61VyK3V84ML._SX679_.jpg"
+      ],
+      "price": 1999,
+      "color": "Balck",
+      "headphoneType": "In ear headphone",
+      "shortDescription": "OnePlus Bullets Z2 Bluetooth Wireless in Ear Earphones with Mic, Bombastic Bass - 12.4 Mm Drivers, 10 Mins Charge - 20 Hrs Music, 30 Hrs Battery Life (Black)"
+    },
+    {
+      "brand": "OnePlus",
+      "model": "Buds Z2",
+      "images": [
+        "https://m.media-amazon.com/images/I/419Pe9doxrL._SX679_.jpg",
+        "https://m.media-amazon.com/images/I/41ugWtpTDrL._SX679_.jpg",
+        "https://m.media-amazon.com/images/I/61a03Uc7ccL._SX679_.jpg",
+        "https://m.media-amazon.com/images/I/512qwDN+orL._SX679_.jpg"
+      ],
+      "price": 2500,
+      "color": "White",
+      "headphoneType": "In ear headphone",
+      "shortDescription": "OnePlus Buds Z2 Bluetooth Truly Wireless in Ear Earbuds with mic, Active Noise Cancellation, 10 Minutes Flash Charge & Upto 38 Hours Battery (White)"
+    },
+    {
+      "brand": "Boat",
+      "model": "Rockerz 450",
+      "images": [
+        "https://m.media-amazon.com/images/I/315vj6oj-FL._SX300_SY300_QL70_FMwebp_.jpg",
+        "https://m.media-amazon.com/images/I/71QDnQWrVNL._SX679_.jpg",
+        "https://m.media-amazon.com/images/I/71-bbXujTLL._SX679_.jpg",
+        "https://m.media-amazon.com/images/I/51LYseQyugL._SX679_.jpg"
+      ],
+      "price": 1700,
+      "color": "Black",
+      "headphoneType": "On ear headphone",
+      "shortDescription": "boAt Rockerz 450 Bluetooth On Ear Headphones with Mic, Upto 15 Hours Playback, 40MM Drivers, Padded Ear Cushions, Integrated Controls and Dual Modes(Black)"
+    },
+    {
+      "brand": "Boat",
+      "model": "Nirvana",
+      "images": [
+        "https://m.media-amazon.com/images/I/31dXEvtxidL._SX300_SY300_QL70_FMwebp_.jpg",
+        "https://m.media-amazon.com/images/I/71sI3x7ZkyL._SX679_.jpg",
+        "https://m.media-amazon.com/images/I/71w3s2UJNlL._SX679_.jpg",
+        "https://m.media-amazon.com/images/I/61u81pV72AL._SX679_.jpg"
+      ],
+      "price": 2499,
+      "color": "Grey",
+      "headphoneType": "Over ear headphone",
+      "shortDescription": "boAt Nirvana 751 ANC Hybrid Active Noise Cancelling Bluetooth Wireless Over Ear Headphones with Up to 65H Playtime, ASAP Charge, Ambient Sound Mode, Immersive Sound, Carry Pouch(Grey)"
+    },
+    {
+      "brand": "Boat",
+      "model": "BassHeads 100",
+      "images": [
+        "https://m.media-amazon.com/images/I/719elVA3FvL._SX679_.jpg",
+        "https://m.media-amazon.com/images/I/616ZjT2IBvL._SX679_.jpg",
+        "https://m.media-amazon.com/images/I/61sRbJncwbL._SX679_.jpg",
+        "https://m.media-amazon.com/images/I/61UgSQ9UB2L._SX679_.jpg"
+      ],
+      "price": 399,
+      "color": "Black",
+      "headphoneType": "In ear headphone",
+      "shortDescription": "boAt BassHeads 100 in-Ear Wired Headphones with Mic (Black)"
+    },
+    {
+      "brand": "Boat",
+      "model": "Airdopes Flex",
+      "images": [
+        "https://m.media-amazon.com/images/I/61-MCZZSl6L._SX679_.jpg",
+        "https://m.media-amazon.com/images/I/71P0bP6asSL._SX679_.jpg",
+        "https://m.media-amazon.com/images/I/71kc+WxMGML._SX679_.jpg",
+        "https://m.media-amazon.com/images/I/71Az5wZP4xL._SX679_.jpg"
+      ],
+      "price": 1999,
+      "color": "Black",
+      "headphoneType": "In ear headphone",
+      "shortDescription": "boAt Newly Launched Airdopes Flex 454 ANC TWS in Ear Earbuds with Smart Features,ANC,60Hrs Playback,Beast Mode(Low Latency),Quad Mics Enx Tech,Multi Point Connectivity,ASAP Charge(Black)"
+    },
+    {
+      "brand": "Boat",
+      "model": "Bassheads 228",
+      "images": [
+        "https://m.media-amazon.com/images/I/512d7sK2fZL._SX679_.jpg",
+        "https://m.media-amazon.com/images/I/61ZLY9A7oTS._SX679_.jpg",
+        "https://m.media-amazon.com/images/I/61bZyhkhZsS._SX679_.jpg",
+        "https://m.media-amazon.com/images/I/61gmeERXatS._SX679_.jpg"
+      ],
+      "price": 499,
+      "color": "Orange",
+      "headphoneType": "In ear headphone",
+      "shortDescription": "boAt Bassheads 228 in-Ear Wired Earphones with Super Extra Bass, Metallic Finish, Tangle-Free Cable and Gold Plated Angled Jack (Orange)"
+    },
+    {
+      "brand": "Boult Audio",
+      "model": "Anchor",
+      "images": [
+        "https://m.media-amazon.com/images/I/715jcYvT9pL._SX679_.jpg",
+        "https://m.media-amazon.com/images/I/81S1nKrMm1L._SX679_.jpg",
+        "https://m.media-amazon.com/images/I/81CjmTXzhGL._SX679_.jpg",
+        "https://m.media-amazon.com/images/I/81ST3Bqoc5L._SX679_.jpg"
+      ],
+      "price": 3999,
+      "color": "Black",
+      "headphoneType": "On ear headphone",
+      "shortDescription": "Boult Audio Anchor Bluetooth Wireless Over Ear Headphones with Mic, Active Noise Cancellation, 30H Playtime, AUX Option, Balanced Audio 40mm Drivers, Voice Assistant Sweatproof Gaming ANC Headphones"
+    },
+    {
+      "brand": "Marshall",
+      "model": "Major IV",
+      "images": [
+        "https://m.media-amazon.com/images/I/61x4yN6eUVL._SX679_.jpg",
+        "https://m.media-amazon.com/images/I/61ag5oPn-rL._SX679_.jpg",
+        "https://m.media-amazon.com/images/I/512Ls0shnDL._SX679_.jpg",
+        "https://m.media-amazon.com/images/I/61dvGHScU1L._SX679_.jpg"
+      ],
+      "price": 12999,
+      "color": "Brown",
+      "headphoneType": "On ear headphone",
+      "shortDescription": "Marshall Major IV Wireless Bluetooth On Ear Headphone with Mic (Brown)"
+    },
+    {
+      "brand": "Zebronics",
+      "model": "Duke",
+      "images": [
+        "https://m.media-amazon.com/images/I/71qLc3uTqSL._SX679_.jpg",
+        "https://m.media-amazon.com/images/I/7179d5-34fL._SX679_.jpg",
+        "https://m.media-amazon.com/images/I/71RJfL7SvXL._SX679_.jpg",
+        "https://m.media-amazon.com/images/I/71AvluszjlL._SX679_.jpg"
+      ],
+      "price": 1399,
+      "color": "Blue",
+      "headphoneType": "Over ear headphone",
+      "shortDescription": "ZEBRONICS Duke 60hrs Playtime Bluetooth Wireless Over Ear Headphone with Mic (Blue)"
+    },
+    {
+      "brand": "Zebronics",
+      "model": "Duke2",
+      "images": [
+        "https://m.media-amazon.com/images/I/61SHkCsRUtL._SX679_.jpg",
+        "https://m.media-amazon.com/images/I/61URRxlFTxL._SX679_.jpg",
+        "https://m.media-amazon.com/images/I/71YaJb959CL._SX679_.jpg",
+        "https://m.media-amazon.com/images/I/71NeBVpitRL._SX679_.jpg"
+      ],
+      "price": 999,
+      "color": "Black",
+      "headphoneType": "On ear headphone",
+      "shortDescription": "ZEBRONICS Zeb-Duke 2 Wireless Headphone That Comes with 40mm Drivers and has Dual Pairing Function and has 32 hrs. of Playback time.(Black)"
+    },
+    {
+      "brand": "pTron",
+      "model": "Bassbuds Deo",
+      "images": [
+        "https://m.media-amazon.com/images/I/51F70dMzS1L._SX679_.jpg",
+        "https://m.media-amazon.com/images/I/61014jwZ2yL._SX679_.jpg",
+        "https://m.media-amazon.com/images/I/71eP+5+4xdL._SX679_.jpg",
+        "https://m.media-amazon.com/images/I/61EDlGIQNrL._SX679_.jpg"
+      ],
+      "price": 599,
+      "color": "Brown",
+      "headphoneType": "In ear headphone",
+      "shortDescription": "pTron Bassbuds Duo in-Ear Wireless Earbuds with Immersive Sound,32Hrs Playtime,Clear Calls TWS Earbuds,Bluetooth V5.1 Headphone,Type-C Fast Charging,Voice Assistant&Ipx4 Water Resistant (Brown)"
+    },
+    {
+      "brand": "Marshall",
+      "model": "4090939",
+      "images": [
+        "https://m.media-amazon.com/images/I/517O1b6KKUL._SX679_.jpg",
+        "https://m.media-amazon.com/images/I/61aNbkYqxNL._SX679_.jpg",
+        "https://m.media-amazon.com/images/I/51G+leFnzEL._SX679_.jpg",
+        "https://m.media-amazon.com/images/I/51jGrFP3UML._SX679_.jpg"
+      ],
+      "price": 599,
+      "color": "Black",
+      "headphoneType": "In ear headphone",
+      "shortDescription": "Marshall 4090939 Mode Wired in Ear Headphone with Mic (Black)"
+    },
+    {
+      "brand": "JBL",
+      "model": "Tune 215BT",
+      "images": [
+        "https://m.media-amazon.com/images/I/51ind0AlUVL._SX679_.jpg",
+        "https://m.media-amazon.com/images/I/51UQJANPbYL._SX679_.jpg",
+        "https://m.media-amazon.com/images/I/61TOcbycHBL._SX679_.jpg",
+        "https://m.media-amazon.com/images/I/51aLI-tVeZL._SX679_.jpg"
+      ],
+      "price": 1499,
+      "color": "White",
+      "headphoneType": "In ear headphone",
+      "shortDescription": "JBL Tune 215BT, 16 Hrs Playtime with Quick Charge, in Ear Bluetooth Wireless Earphones with Mic, 12.5mm Premium Earbuds with Pure Bass, BT 5.0, Dual Pairing, Type C & Voice Assistant Support (White)"
+    },
+    {
+      "brand": "JBL",
+      "model": "Tune 510BT",
+      "images": [
+        "https://m.media-amazon.com/images/I/516lVkS243L._SX679_.jpg",
+        "https://m.media-amazon.com/images/I/41Bz1DRFy6L._SX679_.jpg",
+        "https://m.media-amazon.com/images/I/51zpMx05SPL._SX679_.jpg",
+        "https://m.media-amazon.com/images/I/51dXN5M0hvL._SX679_.jpg"
+      ],
+      "price": 2499,
+      "color": "Blue",
+      "headphoneType": "On ear headphone",
+      "shortDescription": "JBL Tune 510BT, On Ear Wireless Headphones with Mic, up to 40 Hours Playtime, Pure Bass, Quick Charging, Dual Pairing, Bluetooth 5.0 & Voice Assistant Support for Mobile Phones (Blue)"
+    },
+    {
+      "brand": "pTron",
+      "model": "Tune 510BT",
+      "images": [
+        "https://m.media-amazon.com/images/I/414we1a2KDL._SX679_.jpg",
+        "https://m.media-amazon.com/images/I/61mTNLmStGL._SX679_.jpg",
+        "https://m.media-amazon.com/images/I/61eq6x+792L._SX679_.jpg",
+        "https://m.media-amazon.com/images/I/61eLQP2qESL._SX679_.jpg"
+      ],
+      "price": 2499,
+      "color": "White",
+      "headphoneType": "In ear headphone",
+      "shortDescription": "pTron Bassbuds Duo in Ear Earbuds with 32Hrs Total Playtime, Bluetooth 5.1 Wireless Headphones, Stereo Audio, Touch Control TWS, with Mic, Type-C Fast Charging, IPX4 & Voice Assistance (White)"
+    },
+    {
+      "brand": "Zebronics",
+      "model": "Bang",
+      "images": [
+        "https://m.media-amazon.com/images/I/71JmAlJ8ggL._SX679_.jpg",
+        "https://m.media-amazon.com/images/I/81FJkd2VXqL._SX679_.jpg",
+        "https://m.media-amazon.com/images/I/81rvkoZ19aL._SX679_.jpg",
+        "https://m.media-amazon.com/images/I/814FZXfxVqL._SX679_.jpg"
+      ],
+      "price": 1699,
+      "color": "Blue",
+      "headphoneType": "Over ear headphone",
+      "shortDescription": "Zebronics-Bang over the ear headphones with Foldable Design and Bluetooth v5.0 headphones, Providing up to 20h* Playback(Blue)"
+    }
+  ]
 }

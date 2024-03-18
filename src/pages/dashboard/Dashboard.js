@@ -1,16 +1,15 @@
 import styles from "./Dashboard.module.css";
-import musicIcon from "../../assets/musicIcon.svg";
 import saleIcon from "../../assets/saleIcon.png";
 import { CiSearch } from "react-icons/ci";
 import { BsFillGridFill, BsGrid } from "react-icons/bs";
 import ListIcon from "../../assets/list.svg";
 import FilledList from "../../assets/filledList.svg";
-import { MdOutlineShoppingCart } from "react-icons/md";
 import { useEffect, useState } from "react";
 import products from "../../products.json";
-import Navbar from "../../components/preNavbar/PreNavbar";
+import PreNavbar from "../../components/preNavbar/PreNavbar";
 import Footer from "../../components/footer/Footer";
 import Product from "../../components/product/Product";
+import Navbar from "../../components/navbar/Navbar";
 
 const Dashboard = () => {
   const [view, setView] = useState("grid");
@@ -25,27 +24,11 @@ const Dashboard = () => {
   return (
     <>
       <div className={styles.navbar}>
-        <Navbar />
+        <PreNavbar />
       </div>
       <div className={styles.dashboardContainer}>
         <section className={styles.headerSection}>
-          <div className={styles.logoWrapper}>
-            <img src={musicIcon} alt="musicIcon" />
-            <span>Musicart</span>
-            <a href="#" className={styles.navLink}>
-              Home
-            </a>
-            <a href="#" className={styles.navLink}>
-              Invoice
-            </a>
-          </div>
-          <div className={styles.cartContainer}>
-            <div className={styles.cartWrapper}>
-              <MdOutlineShoppingCart size={35} />
-              <span>View Cart</span> 8
-            </div>
-            <div className={styles.userName}>UB</div>
-          </div>
+          <Navbar />
         </section>
         <section className={styles.promotionSection}>
           <div className={styles.promotionContent}>

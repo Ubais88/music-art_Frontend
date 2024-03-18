@@ -1,10 +1,12 @@
 import React from "react";
 import Dashboard from "./pages/dashboard/Dashboard";
+import ProductDetails from "./pages/productDetails/ProductDetails";
 
 const App = () => {
   return (
     <div>
-      <Dashboard />
+      {/* <Dashboard /> */}
+      <ProductDetails/>
     </div>
   );
 };

@@ -1,15 +1,13 @@
 .backToProductBtn {
-    margin-top: 5vh;
-    padding: 0.5% 2% 0.5% 2%;
-    width: max-content;
-    border: none;
-    border-radius: 10px;
-    background-color: #2e0052;
-    color: #ffffff;
-    font-family: Roboto;
-    font-size: 1.3rem;
-    font-weight: 500;
-    letter-spacing: 0em;
-    text-align: center;
-    cursor: pointer;
+  margin-top: 5vh;
+  padding: 0.5% 2%;
+  border: none;
+  border-radius: 0.6rem;
+  background-color: #2e0052;
+  color: #ffffff;
+  font-family: Roboto;
+  font-size: 1.3rem;
+  font-weight: 500;
+  text-align: center;
+  cursor: pointer;
 }

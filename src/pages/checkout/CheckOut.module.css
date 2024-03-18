@@ -1,0 +1,201 @@
+.checkoutContainer {
+  margin-top: 5rem;
+  padding: 2vh 2vw;
+  font-family: Roboto;
+}
+
+.productInfoSection {
+  height: 10vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.checkoutHeader {
+  margin-top: 2vh;
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: #000000;
+  text-decoration: underline;
+}
+
+.main {
+  margin-top: 1rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.checkoutSteps {
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.deliveryStep,
+.paymentStep,
+.reviewStep {
+  padding-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 2px solid #e1e1e1;
+}
+
+.checkoutSteps > div > span:first-of-type {
+  font-size: 2vw;
+  font-weight: 500;
+  color: #b52b00;
+}
+
+.checkoutSteps > div > span:nth-of-type(2) {
+  width: 40%;
+  font-size: 1.6vw;
+  font-weight: 400;
+  color: #797979;
+}
+
+.reviewStep > div {
+  display: flex;
+  width: 40%;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.reviewStep > div > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.reviewStep > div > div > img {
+  width: 35%;
+  height: 45%;
+  object-fit: contain;
+  border: 2px solid black;
+  border-radius: 0.3rem;
+}
+
+.reviewStep > div > div > span:first-of-type {
+  font-size: 2vw;
+  font-weight: 600;
+  line-height: 3vw;
+  color: #000000;
+}
+
+.reviewStep > div > div > span:nth-of-type(2),
+.reviewStep > div > div > span:nth-of-type(3) {
+  color: #797979;
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+
+.reviewStep > div > div > span:nth-of-type(4),
+.reviewStep > div > div > span:nth-of-type(5) {
+  font-size: 1.6vw;
+  font-weight: 400;
+  color: #000000;
+}
+
+.orderSummary {
+  padding: 0.8rem;
+  width: 23%;
+  height: max-content;
+  display: flex;
+  flex-direction: column;
+  border: 3px solid #e1e1e1;
+  border-radius: 0.6rem;
+}
+
+.orderSummary > button {
+  border: none;
+  background-color: #ffd600;
+  height: 8vh;
+  font-size: 1.4rem;
+  font-weight: 400;
+  border-radius: 0.6rem;
+  cursor: pointer;
+}
+
+.orderSummary > span:first-of-type {
+  margin: 1vh 0 1.5vh 0;
+  font-size: 1vw;
+  font-weight: 400;
+  text-align: center;
+  color: #000000;
+}
+
+.orderSummary > div > h5 {
+  padding-top: 1vh;
+  border-top: 2px solid #e1e1e1;
+  color: #000000;
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 1vh;
+}
+
+.orderSummary > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.orderSummary > div > div {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: #797979;
+}
+
+.orderSummary > div > div > span:last-of-type {
+  width: 30%;
+}
+
+.orderSummary > div > div:last-of-type {
+  padding-top: 0.5rem;
+  border-top: 2px solid #e1e1e1;
+  color: #b52b00;
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+
+.orderDetails {
+  margin: 4vh 0 5vh 0;
+  padding: 0 0.8rem;
+  width: 75%;
+  height: 13vh;
+  display: flex;
+  gap: 1.8rem;
+  align-items: center;
+  border: 2px solid #e1e1e1;
+  border-radius: 0.6rem;
+}
+
+.orderDetails > button {
+  border: none;
+  background-color:#ffd600;
+  width: 30%;
+  height: 8vh;
+  font-size: 1.4rem;
+  font-weight: 400;
+  text-align: center;
+  border-radius: 0.6rem;
+  cursor: pointer;
+}
+
+.orderDetails > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.orderDetails > div > span:first-of-type {
+  color: #b52b00;
+  font-weight: 550;
+  font-size: 2vw;
+  font-weight: 600;
+}
+
+.orderDetails > div > span:last-of-type {
+  font-size: 1.3vw;
+  font-weight: 400;
+}

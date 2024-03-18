@@ -31,4 +31,42 @@
 }
 .authCheck > a {
   font-weight: 500;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.newAccount {
+  display: flex;
+  width: 35vw;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.3rem;
+}
+
+.breakLine {
+  border-radius: 0.4rem;
+  height: 2px;
+  width: 100%;
+  background-color: #bdbdbd;
+}
+
+.newToMusic {
+  font-family: Roboto;
+  font-size: 1rem;
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+.registerButton {
+  border: none;
+  border: 2px solid #bdbdbd;
+  height: 8vh;
+  width: 35vw;
+  font-family: Roboto;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #000000;
+  background-color: #ffffff;
+  border-radius: 0.6rem;
+  cursor: pointer;
 }

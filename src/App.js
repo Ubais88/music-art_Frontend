@@ -12,9 +12,9 @@ const App = () => {
       {/* <Dashboard /> */}
       {/* <ProductDetails/> */}
       {/* <Cart/> */}
-      {/* <Checkout/> */}
+      <Checkout/>
       {/* <OrderSuccess/> */}
-      <Invoices/>
+      {/* <Invoices/> */}
     </div>
   );
 };

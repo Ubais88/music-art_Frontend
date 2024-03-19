@@ -1,0 +1,91 @@
+
+
+.navbar {
+  height: 10vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 5rem;
+  padding: 0 1.5rem;
+}
+
+.backButton {
+  padding: 0 2rem;
+}
+
+.invoiceTitle {
+  font-family: Roboto;
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: auto;
+  padding: 1rem;
+}
+
+.invoiceContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.2rem 7rem;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.invoiceImage {
+  width: 5rem;
+}
+
+.invoiceInfo {
+  color: #797979;
+  font-family: Roboto;
+  font-weight: 400;
+}
+
+.invoiceName {
+  font-size: 1.2rem;
+  width: 25vw;
+}
+
+.invoiceAddress {
+  font-size: 1rem;
+  width: 17vw;
+}
+
+.viewInvoiceButton {
+  border-radius: 0.8rem;
+  border: none;
+  outline: none;
+  background-color: #2e0052;
+  color: #ffffff;
+  font-family: Roboto;
+  font-size: 1.2rem;
+  font-weight: 500;
+  padding: 0.6rem 2.4rem;
+  cursor: pointer;
+}
+
+
+.divider{
+  border: 2.87px solid #E1E1E1;
+  width: 80%;
+  align-self: center;
+  margin: 1rem 0;
+}
+
+.footer {
+  margin-top: 3rem;
+}
+
+
+

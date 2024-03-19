@@ -9,7 +9,7 @@
   width: 100%;
   object-fit: cover;
   height: 40vh;
-  background: #0066FF2B;
+  background: #0066ff2b;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -50,14 +50,8 @@
   font-weight: 500;
 }
 
-
-
-
-
-
-
 /* list type view */
-.listProduct{
+.listProduct {
   width: 100%;
   height: 40vh;
   display: flex;
@@ -101,7 +95,7 @@
   letter-spacing: 0em;
 }
 
-.productListName{
+.productListName {
   font-size: 1.8rem;
   font-weight: 600;
 }
@@ -127,4 +121,36 @@
   cursor: pointer;
 }
 
+@media screen and (min-width: 300px) and (max-width: 480px) {
 
+  .productItem {
+    border: 1.13px solid #cecece;
+    border-radius: 0.4rem;
+  }
+
+  .imageWrapper {
+    height: 25vh;
+  }
+
+  .productInfo {
+    padding: 0.6rem;
+  }
+
+  .productName {
+    font-family: Roboto;
+    font-size: 1.7rem;
+    font-weight: 600;
+    color: #000000;
+  }
+
+  .productPrice,
+  .productDetails {
+    font-family: Roboto;
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
+
+  .listProduct{
+    display: none;
+  }
+}

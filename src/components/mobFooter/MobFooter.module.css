@@ -1,0 +1,29 @@
+.container {
+  display: flex;
+  align-items: center;
+  border: 1px solid #c8c8c8;
+  height: 8vh;
+}
+
+.footerItem {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* border-top: 1px solid salmon; */
+  cursor: pointer;
+}
+
+.footerItem > span {
+  font-family: Roboto;
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: #000000;
+}
+
+.userIcon{
+    height: 3vh;
+    
+}

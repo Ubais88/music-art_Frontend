@@ -10,6 +10,7 @@ import PreNavbar from "../../components/preNavbar/PreNavbar";
 import Footer from "../../components/footer/Footer";
 import Product from "../../components/product/Product";
 import Navbar from "../../components/navbar/Navbar";
+import MobFooter from "../../components/mobFooter/MobFooter";
 
 const Dashboard = () => {
   const [view, setView] = useState("grid");
@@ -146,6 +147,9 @@ const Dashboard = () => {
 
       <section className={styles.siteFooter}>
         <Footer />
+      </section>
+      <section className={styles.mobileFooter}>
+        <MobFooter />
       </section>
     </>
   );

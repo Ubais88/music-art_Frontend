@@ -17,10 +17,8 @@
   align-items: center;
 }
 
-
 .promotionSection {
   margin-top: 2rem;
-  /* width: 100%; */
   height: 35vh;
   background: linear-gradient(90deg, #7286b4 0%, #e794ce 100%);
   border-radius: 1.7rem;
@@ -164,4 +162,111 @@
   margin-top: 10vh;
   width: 100%;
   height: 100%;
+}
+.mobileFooter {
+  display: none;
+}
+
+@media screen and (min-width: 300px) and (max-width: 480px) {
+  .navbar {
+    display: none;
+  }
+  .headerSection {
+    display: none;
+  }
+
+  .dashboardContainer {
+    margin-top: 11vh;
+    margin-bottom: 7rem;
+  }
+
+  .promotionSection {
+    height: 20vh;
+    border-radius: 0.6rem;
+    position: relative;
+  }
+
+  .promotionContent {
+    padding-left: 2vh;
+    gap: 1rem;
+  }
+
+  .promotionText {
+    font-size: 1.4rem;
+  }
+
+  .promotionbtn {
+    width: 70%;
+    height: 15%;
+    border-radius: 0.7rem;
+    font-size: 0.7rem;
+  }
+
+  .promotionIcon {
+    position: absolute;
+    bottom: 0%;
+    height: 120%;
+    right: 0;
+    object-fit: cover;
+    width: 55%;
+  }
+
+  .searchSection {
+    display: none;
+  }
+
+  .filterSection {
+    width: 100%;
+    height: 6vh;
+    flex-direction: row-reverse;
+    overflow-y: auto;
+  }
+
+  .viewOptions {
+    display: none;
+  }
+
+  .filters {
+    width: 150%;
+    margin-right: 0vw;
+  }
+
+  .dropDown {
+    padding-left: 0.5rem;
+    width: 12rem;
+  }
+
+  .dropDown,
+  .sortSelect {
+    border-radius: 0.4rem;
+  }
+
+  .sortOptions {
+    border: 0.89px solid #e1e1e1;
+    border-radius: 0.4rem;
+  }
+
+  .productGrid {
+    margin-top: 4vh;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1rem;
+  }
+
+  .productList {
+    margin-top: 4vh;
+    width: 100%;
+    height: 100%;
+  }
+
+  .mobileFooter {
+    display: block;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    background-color: #ffffff;
+  }
+
+  .siteFooter {
+    display: none;
+  }
 }

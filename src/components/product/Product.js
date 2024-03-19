@@ -8,7 +8,7 @@ const Product = ({ item, view }) => {
       {view === "grid" ? (
         <div className={styles.productItem}>
           <div className={styles.imageWrapper}>
-            <img src={imgCart} alt="cartImg"/>
+            <img src={imgCart} alt="cartImg" />
             <img src={item.images[0]} alt="headphoneIcon" />
           </div>
           <div className={styles.productInfo}>
@@ -25,14 +25,20 @@ const Product = ({ item, view }) => {
         <div className={styles.listProduct}>
           <div className={styles.listProductImage}>
             <img src={item.images[0]} alt="headphoneIcon" />
-            <img src={imgCart} alt="cart icon" className={styles.cartProductImg} />
+            <img
+              src={imgCart}
+              alt="cart icon"
+              className={styles.cartProductImg}
+            />
           </div>
 
           <div className={styles.productListInfo}>
             <span className={styles.productListName}>
               {item.brand} {item.model}
             </span>
-            <span className={styles.productListPrice}>Price - ₹ {item.price}</span>
+            <span className={styles.productListPrice}>
+              Price - ₹ {item.price}
+            </span>
             <span className={styles.productListDetails}>
               {item.color} | {item.headphoneType}
             </span>

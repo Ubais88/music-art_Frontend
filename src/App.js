@@ -5,14 +5,16 @@ import Cart from "./pages/cart/Cart";
 import Checkout from "./pages/checkout/CheckOut";
 import OrderSuccess from "./pages/orderSuccess/OrderSucess";
 import Invoices from "./pages/invoices/Invoices";
+import Auth from "./pages/auth/Auth";
 
 const App = () => {
   return (
     <div>
+    <Auth/>
       {/* <Dashboard /> */}
       {/* <ProductDetails/> */}
       {/* <Cart/> */}
-      <Checkout/>
+      {/* <Checkout/> */}
       {/* <OrderSuccess/> */}
       {/* <Invoices/> */}
     </div>

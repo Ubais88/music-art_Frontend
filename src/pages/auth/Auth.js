@@ -4,22 +4,22 @@ import musicIcon from "../../assets/musicIcon.svg";
 import Footer from "../../components/footer/Footer";
 import Register from "../../components/register/Register";
 import Login from "../../components/login/Login";
+import MobNavbar from "../../components/mobNavbar/MobNavbar";
 
 const Auth = () => {
   const [login, setLogin] = useState(true);
 
   return (
-    <div>
+    <div className={styles.topContainer}>
+      <div className={styles.mobileNav}>
+        <MobNavbar />
+      </div>
       <div className={styles.container}>
         <div className={styles.title}>
           <img src={musicIcon} alt="musicIcon" />
           <span>Musicart</span>
         </div>
-        {login ? (
-          <Login/>
-        ) : (
-          <Register/>
-        )}
+        {login ? <Login /> : <Register />}
         {login ? (
           <>
             <div className={styles.newAccount}>
@@ -41,7 +41,9 @@ const Auth = () => {
           </aside>
         )}
       </div>
-      <Footer />
+      <div className={styles.footer}>
+        <Footer />
+      </div>
     </div>
   );
 };

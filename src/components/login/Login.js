@@ -4,8 +4,12 @@ import styles from "./Login.module.css";
 const Login = () => {
   return (
     <>
+      <p className={styles.welcome}>Welcome</p>
       <div className={styles.loginContainer}>
-        <h1 className={styles.heading}>Sign in</h1>
+        <h1 className={styles.heading}>
+          Sign in<span>.</span>
+          <i className={styles.alreadyText}>Already a customer?</i>
+        </h1>
         <div className={styles.inputGroup}>
           <span className={styles.label}>
             Enter your email or mobile number
@@ -22,7 +26,6 @@ const Login = () => {
           use.
         </span>
       </div>
-      
     </>
   );
 };

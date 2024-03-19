@@ -5,6 +5,7 @@ import Products from "../../products.json"
 import { useState, useEffect } from "react";
 import Navbar from "../../components/navbar/Navbar";
 import BackButton from '../../components/backButton/BackButton'
+
 const CheckOut = () => {
   const [products, setProducts] = useState(null);
   const [amount, setAmount] = useState(null);

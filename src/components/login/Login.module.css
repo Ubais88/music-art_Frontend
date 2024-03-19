@@ -56,3 +56,38 @@
   color: #ffffff;
   cursor: pointer;
 }
+.welcome {
+  display: none;
+}
+.alreadyText {
+  display: none;}
+
+@media screen and (min-width: 300px) and (max-width: 480px) {
+  .welcome {
+    display: block;
+    text-align: left;
+    font-family: Roboto;
+    font-size: 1.9rem;
+    font-weight: 400;
+    width: 100%;
+  }
+
+  .loginContainer {
+    width: 90vw;
+  }
+
+  .heading {
+    font-size: 1rem;
+    font-weight: 500;
+    display: flex;
+    align-items: end;
+  }
+
+  .alreadyText {
+    display: block;
+    font-family: Roboto;
+    font-size: 0.8rem;
+    font-weight: 300;
+    margin-left: 0.2rem;
+  }
+}

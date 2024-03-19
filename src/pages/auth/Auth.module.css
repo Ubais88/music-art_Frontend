@@ -70,3 +70,49 @@
   border-radius: 0.6rem;
   cursor: pointer;
 }
+
+.mobileNav{
+  display: none;
+}
+
+@media screen and (min-width: 300px) and (max-width: 480px){
+  .mobileNav{
+    display: block;
+  }
+  .title{
+    display: none;
+  }
+
+  .container {
+    padding: 1rem;
+  }
+  
+  .authCheck > span,
+  .authCheck > a {
+    font-family: Roboto;
+    font-size: 1.4rem;
+  }
+  
+  .authCheck > span {
+    font-weight: 400;
+  }
+  .authCheck > a {
+    font-weight: 500;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  
+  .newAccount {
+    width: 90vw;
+  }
+  
+  .registerButton {
+    height: 7vh;
+    width: 90vw;
+  }
+
+
+
+  
+}
+

@@ -11,4 +11,9 @@
     align-items: center;
 }
 
+@media screen and (min-width: 300px) and (max-width: 480px){
+    .siteFooter {       
+        font-size: 0.6rem;
+    }
+}
 

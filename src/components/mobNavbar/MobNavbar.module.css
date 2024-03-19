@@ -1,0 +1,25 @@
+.productInfoSection {
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  background-color: #2e0052;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #fff;
+  padding: 0 1.3rem;
+}
+
+.icon > img {
+  width: 15vw;
+}
+
+.icon > span {
+  font-family: Roboto;
+  font-size: 1.4rem;
+  letter-spacing: 0.09em;
+  font-weight: 500;
+}

@@ -4,7 +4,8 @@ import styles from "./Register.module.css";
 const Register = () => {
   return (
     <div className={styles.form}>
-      <h1 className={styles.heading}>Create Account</h1>
+      <h1 className={styles.heading}>Create Account<span>.</span>
+          <i className={styles.alreadyText}>Don’t have an account?</i></h1>
       <div className={styles.inputGroup}>
         <span className={styles.label}>Your name</span>
         <input type="text" className={styles.input} />

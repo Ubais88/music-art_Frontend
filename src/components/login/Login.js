@@ -4,7 +4,7 @@ import styles from "./Login.module.css";
 const Login = () => {
   return (
     <>
-      <p className={styles.welcome}>Welcome</p>
+      {/* <p className={styles.welcome}>Welcome</p> */}
       <div className={styles.loginContainer}>
         <h1 className={styles.heading}>
           Sign in<span>.</span>

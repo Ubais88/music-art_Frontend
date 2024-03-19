@@ -74,8 +74,22 @@
 .mobileNav{
   display: none;
 }
+.welcome{
+  display: none;
+}
 
 @media screen and (min-width: 300px) and (max-width: 480px){
+
+  .welcome {
+    display: block;
+    text-align: left;
+    font-family: Roboto;
+    font-size: 1.9rem;
+    font-weight: 400;
+    width: 100%;
+    padding:1rem  0 0 1rem;
+  }
+
   .mobileNav{
     display: block;
   }

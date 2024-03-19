@@ -11,9 +11,11 @@ const Auth = () => {
 
   return (
     <div className={styles.topContainer}>
+
       <div className={styles.mobileNav}>
         <MobNavbar />
       </div>
+      <p className={styles.welcome}>Welcome</p>
       <div className={styles.container}>
         <div className={styles.title}>
           <img src={musicIcon} alt="musicIcon" />

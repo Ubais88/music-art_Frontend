@@ -166,6 +166,9 @@
 .mobileFooter {
   display: none;
 }
+.mobileSearch{
+  display: none;
+}
 
 @media screen and (min-width: 300px) and (max-width: 480px) {
   .navbar {
@@ -174,9 +177,11 @@
   .headerSection {
     display: none;
   }
-
+  .mobileSearch{
+    display: block;
+  }
   .dashboardContainer {
-    margin-top: 11vh;
+    margin-top: 4vh;
     margin-bottom: 7rem;
   }
 

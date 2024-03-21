@@ -1,0 +1,22 @@
+.searchSectionMoile{
+    background-color:#2E0052;
+    padding: 1rem 1rem;
+}
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    border-radius: 0.4rem;
+    padding: 0.3rem;
+}
+.searchField {
+    outline: none;
+    border: none;
+    width: 100%;
+    padding: 0.3rem;
+    font-family: Roboto;
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: #000000;
+  }

@@ -11,6 +11,7 @@ import Footer from "../../components/footer/Footer";
 import Product from "../../components/product/Product";
 import Navbar from "../../components/navbar/Navbar";
 import MobFooter from "../../components/mobFooter/MobFooter";
+import MobileSearch from "../../components/mobileSearch/MobileSearch";
 
 const Dashboard = () => {
   const [view, setView] = useState("grid");
@@ -24,6 +25,9 @@ const Dashboard = () => {
 
   return (
     <>
+      <div className={styles.mobileSearch}>
+        <MobileSearch />
+      </div>
       <div className={styles.navbar}>
         <PreNavbar />
       </div>
@@ -53,7 +57,6 @@ const Dashboard = () => {
             placeholder="Search by Product Name"
           />
         </section>
-
         <section className={styles.filterSection}>
           <div className={styles.viewOptions}>
             {view === "grid" ? (

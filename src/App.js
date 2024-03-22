@@ -13,8 +13,8 @@ const App = () => {
     {/* <Auth/> */}
       {/* <Dashboard /> */}
       {/* <ProductDetails/> */}
-      <Cart/>
-      {/* <Checkout/> */}
+      {/* <Cart/> */}
+      <Checkout/>
       {/* <OrderSuccess/> */}
       {/* <Invoices/> */}
     </div>

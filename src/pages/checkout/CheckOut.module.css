@@ -20,7 +20,7 @@
   text-decoration: underline;
 }
 
-.main{
+.main {
   margin-top: 1rem;
   width: 100%;
   display: flex;
@@ -140,7 +140,8 @@
   flex-direction: column;
 }
 
-.orderSummary > div > div {
+.orderSummary > div > div,
+.dropDown {
   display: flex;
   justify-content: space-between;
   font-size: 1.1rem;
@@ -174,7 +175,7 @@
 
 .orderDetails > button {
   border: none;
-  background-color:#ffd600;
+  background-color: #ffd600;
   width: 30%;
   height: 8vh;
   font-size: 1.4rem;
@@ -199,4 +200,159 @@
 .orderDetails > div > span:last-of-type {
   font-size: 1.3vw;
   font-weight: 400;
+}
+.dropDownWrapper {
+  width: 40%;
+}
+.dropDown {
+  width: 100%;
+  height: 3rem;
+  outline: none;
+  border: 1px solid #919191;
+  border-radius: 0.4rem;
+}
+.MobNavbar {
+  display: none;
+}
+
+@media screen and (min-width: 300px) and (max-width: 480px) {
+  .preNavbar,
+  .productInfoSection,
+  .backbutton {
+    display: none;
+  }
+  .MobNavbar {
+    display: block;
+  }
+
+  .backArrow {
+    margin: 0.5rem;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background-color: (255, 255, 255, 1);
+    box-shadow: 0px 1px 4px 0px #00000054;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .checkoutContainer {
+    margin-top: 0rem;
+    padding: 0.5rem;
+  }
+
+  .checkoutHeader {
+    margin-top: 0;
+    text-align: left;
+    text-decoration: none;
+  }
+
+  .main {
+    margin-top: 1rem;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .checkoutSteps {
+    width: 100%;
+  }
+
+  .deliveryStep,
+  .paymentStep,
+  .reviewStep {
+    padding-bottom: 1rem;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .checkoutSteps > div > span:first-of-type {
+    font-size: 1.2rem;
+  }
+
+  .product{
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .checkoutSteps > div > span:nth-of-type(2) {
+    width: 40%;
+    font-size: 1rem;
+    padding-left: 1rem;
+  }
+
+  .reviewStep > div {
+    width: 100%;
+    gap: 1rem;
+  }
+
+  .reviewStep > div > div > img {
+    width: 30%;
+    height: 40%;
+  }
+
+  .reviewStep > div > div > span:first-of-type {
+    font-size: 1.2rem;
+  }
+
+  .reviewStep > div > div > span:nth-of-type(2),
+  .reviewStep > div > div > span:nth-of-type(3) {
+    font-size: 1rem;
+  }
+
+  .reviewStep > div > div > span:nth-of-type(4),
+  .reviewStep > div > div > span:nth-of-type(5) {
+    font-size: 1rem;
+  }
+
+  .orderSummary {
+    padding: 0.8rem;
+    width: 100%;
+    border: none;
+  }
+
+  .orderSummary > button {
+    display: none;
+  }
+
+  .orderSummary > span:first-of-type {
+    display: none;
+  }
+
+  .orderSummary > div > h5 {
+    padding-top: 0rem;
+    border: none;
+  }
+
+  .orderSummary > div {
+    gap: 0.3rem;
+  }
+
+  .orderSummary > div > div:last-of-type {
+    padding-top: 0.5rem;
+    width: 100%;
+    font-size: 1.3rem;
+  }
+
+  .orderDetails {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    border: none;
+    padding: 1rem;
+  }
+
+  .orderDetails > .placeOrderButton {
+    width: 100%;
+  }
+
+  .orderDetails > div {
+    display: none;
+  }
+
+  .dropDownWrapper {
+    width: 100%;
+  }
 }

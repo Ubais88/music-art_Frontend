@@ -19,8 +19,11 @@ const MobProductDetail = () => {
     <>
       <MobileSearch />
       <div className={styles.container}>
-        <div className={styles.backArrow}>
+        {/* <div className={styles.backArrow}>
           <img src={backIcon} alt="backArrow" />
+        </div> */}
+        <div className={styles.backArrow}>
+          <IoMdArrowRoundBack size={30}/>
         </div>
         <button className={styles.buybtn}>Buy Now</button>
 

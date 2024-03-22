@@ -1,15 +1,17 @@
 import styles from "./CheckOut.module.css";
 import PreNavbar from "../../components/preNavbar/PreNavbar";
 import Footer from "../../components/footer/Footer";
-import Products from "../../products.json"
+import Products from "../../products.json";
 import { useState, useEffect } from "react";
 import Navbar from "../../components/navbar/Navbar";
-import BackButton from '../../components/backButton/BackButton'
+import BackButton from "../../components/backButton/BackButton";
+import MobNavbar from "../../components/mobNavbar/MobNavbar"
+import { IoMdArrowRoundBack } from "react-icons/io";
 
 const CheckOut = () => {
   const [products, setProducts] = useState(null);
   const [amount, setAmount] = useState(null);
-  const [orderfrom , setOrderForm] = useState("cart")
+  const [orderfrom, setOrderForm] = useState("cart");
   const [navData, setNavData] = useState({
     brand: "",
     model: "",
@@ -18,19 +20,31 @@ const CheckOut = () => {
   useEffect(() => {
     setProducts([Products.data[0]]);
     setNavData({
-        brand: "",
-        model: "Checkout",
-      });
+      brand: "",
+      model: "Checkout",
+    });
   }, []);
 
   return (
     <>
-      <PreNavbar />
+      <div className={styles.preNavbar}>
+        <PreNavbar />
+      </div>
+      <div className={styles.MobNavbar}>
+        <MobNavbar/>
+      </div>
+      <div className={styles.backArrow}>
+          <IoMdArrowRoundBack size={30}/>
+        </div>
+
+
       <div className={styles.checkoutContainer}>
         <section className={styles.productInfoSection}>
-          <Navbar navData={navData}  />
+          <Navbar navData={navData} />
         </section>
-        <BackButton/>
+        <div className={styles.backbutton}>
+          <BackButton />
+        </div>
         <h2 className={styles.checkoutHeader}>Checkout</h2>
         <main className={styles.main}>
           <div className={styles.checkoutSteps}>
@@ -45,7 +59,14 @@ const CheckOut = () => {
             </div>
             <div className={styles.paymentStep}>
               <span>2. Payment method</span>
-              <span>Pay on delivery(Cash/Card)</span>
+              <div className={styles.dropDownWrapper}>
+                <select className={styles.dropDown}>
+                  <option value="" >Mode of payment</option>
+                  <option value="">Pay On Delivery</option>
+                  <option value="">UPI</option>
+                  <option value="">Card</option>
+                </select>
+              </div>
             </div>
             <div className={styles.reviewStep}>
               <span>3. Review items and delivery</span>
@@ -53,40 +74,61 @@ const CheckOut = () => {
                 {products === null ? (
                   <h1>Loading...</h1>
                 ) : orderfrom === "cart" ? (
-                  products.map((item, index) =>  (
-                      <div key={index} className={styles.product}>
-                        <img
-                          src={item.images[0]}
-                          alt="headphoneIcon"
-                          className={styles.productImage}
-                        />
-                        <span className={styles.productDetails}>
-                          {item.brand}{" "}
-                          {item.model}
-                        </span>
-                        <span className={styles.productDetails}>Colour: {item.color}</span>
-                        <span className={styles.productDetails}>{item.availale}</span>
-                        <span className={styles.productDetails}>Estimated delivery:</span>
-                        <span className={styles.productDetails}>Monday-FREE Standard Delivery</span>
-                      </div>
-                    ))
+                  products.map((item, index) => (
+                    <div key={index} className={styles.product}>
+                      <img
+                        src={item.images[0]}
+                        alt="headphoneIcon"
+                        className={styles.productImage}
+                      />
+                      <span className={styles.productDetails}>
+                        {item.brand} {item.model}
+                      </span>
+                      <span className={styles.productDetails}>
+                        Colour: {item.color}
+                      </span>
+                      <span className={styles.productDetails}>
+                        {item.availale}
+                      </span>
+                      <span className={styles.productDetails}>
+                        Estimated delivery:
+                      </span>
+                      <span className={styles.productDetails}>
+                        Monday-FREE Standard Delivery
+                      </span>
+                    </div>
+                  ))
                 ) : (
                   <div className={styles.product}>
-                    <img src={products.images[0]} alt="headphoneIcon" className={styles.productImage} />
+                    <img
+                      src={products.images[0]}
+                      alt="headphoneIcon"
+                      className={styles.productImage}
+                    />
                     <span className={styles.productDetails}>
                       {products.brand} {products.model}
                     </span>
-                    <span className={styles.productDetails}>Colour: {products.color}</span>
-                    <span className={styles.productDetails}>{products.availale}</span>
-                    <span className={styles.productDetails}>Estimated delivery:</span>
-                    <span className={styles.productDetails}>Monday-FREE Standard Delivery</span>
+                    <span className={styles.productDetails}>
+                      Colour: {products.color}
+                    </span>
+                    <span className={styles.productDetails}>
+                      {products.availale}
+                    </span>
+                    <span className={styles.productDetails}>
+                      Estimated delivery:
+                    </span>
+                    <span className={styles.productDetails}>
+                      Monday-FREE Standard Delivery
+                    </span>
                   </div>
                 )}
               </div>
             </div>
           </div>
           <div className={styles.orderSummary}>
-            <button className={styles.placeOrderButton}>Place your order</button>
+            <button className={styles.placeOrderButton}>
+              Place your order
+            </button>
             <span>
               By placing your order, you agree to Musicart privacy notice and
               conditions of use.
@@ -108,6 +150,7 @@ const CheckOut = () => {
             </div>
           </div>
         </main>
+
         <div className={styles.orderDetails}>
           <button className={styles.placeOrderButton}>Place your order</button>
           <div className={styles.orderDetailsContent}>

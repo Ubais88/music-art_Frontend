@@ -166,7 +166,7 @@
 .mobileFooter {
   display: none;
 }
-.mobileSearch{
+.mobileSearch {
   display: none;
 }
 
@@ -177,7 +177,7 @@
   .headerSection {
     display: none;
   }
-  .mobileSearch{
+  .mobileSearch {
     display: block;
   }
   .dashboardContainer {

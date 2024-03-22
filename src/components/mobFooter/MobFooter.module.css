@@ -12,7 +12,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* border-top: 1px solid salmon; */
   cursor: pointer;
 }
 
@@ -23,7 +22,27 @@
   color: #000000;
 }
 
-.userIcon{
-    height: 3vh;
-    
+.cartContainer {
+  position: relative;
+}
+
+.cartQuantity {
+  background-color: #2dad00;
+  padding: 0.1rem;
+  border-radius: 50%;
+  position: absolute;
+  top: -5px;
+  left: 20px;
+  font-size: 0.8rem;
+  color: #fff;
+  font-family: Roboto;
+  font-weight: 500;
+}
+
+.userIcon {
+  height: 3vh;
+}
+
+.not {
+  font-size: 2rem;
 }

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import styles from "./MobileProductDetail.module.css";
-import backIcon from "../../../assets/backIcon.svg";
 import MobFooter from "../../../components/mobFooter/MobFooter";
 import { FaStar } from "react-icons/fa";
 import products from "../../../products.json";

@@ -241,6 +241,7 @@
   .checkoutContainer {
     margin-top: 0rem;
     padding: 0.5rem;
+    margin-bottom: 4rem;
   }
 
   .checkoutHeader {
@@ -354,5 +355,17 @@
 
   .dropDownWrapper {
     width: 100%;
+  }
+  .footerSection{
+    display: none;
+  }
+
+  .mobileFooterSection{
+    display: block;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    background-color: #fff;
+    margin-top: 2rem;
   }
 }

@@ -5,8 +5,9 @@ import Products from "../../products.json";
 import { useState, useEffect } from "react";
 import Navbar from "../../components/navbar/Navbar";
 import BackButton from "../../components/backButton/BackButton";
-import MobNavbar from "../../components/mobNavbar/MobNavbar"
+import MobNavbar from "../../components/mobNavbar/MobNavbar";
 import { IoMdArrowRoundBack } from "react-icons/io";
+import MobFooter from "../../components/mobFooter/MobFooter";
 
 const CheckOut = () => {
   const [products, setProducts] = useState(null);
@@ -31,12 +32,11 @@ const CheckOut = () => {
         <PreNavbar />
       </div>
       <div className={styles.MobNavbar}>
-        <MobNavbar/>
+        <MobNavbar />
       </div>
       <div className={styles.backArrow}>
-          <IoMdArrowRoundBack size={30}/>
-        </div>
-
+        <IoMdArrowRoundBack size={30} />
+      </div>
 
       <div className={styles.checkoutContainer}>
         <section className={styles.productInfoSection}>
@@ -61,7 +61,7 @@ const CheckOut = () => {
               <span>2. Payment method</span>
               <div className={styles.dropDownWrapper}>
                 <select className={styles.dropDown}>
-                  <option value="" >Mode of payment</option>
+                  <option value="">Mode of payment</option>
                   <option value="">Pay On Delivery</option>
                   <option value="">UPI</option>
                   <option value="">Card</option>
@@ -166,6 +166,9 @@ const CheckOut = () => {
       </div>
       <section className={styles.footerSection}>
         <Footer />
+      </section>
+      <section className={styles.mobileFooterSection}>
+        <MobFooter/>
       </section>
     </>
   );

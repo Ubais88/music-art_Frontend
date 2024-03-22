@@ -70,3 +70,53 @@
   bottom: 0;
   width: 100%;
 }
+.MobNavbar,
+.mobileFooterSection {
+  display: none;
+}
+
+@media screen and (min-width: 300px) and (max-width: 480px) {
+  .header,
+  .footer {
+    display: none;
+  }
+  .MobNavbar {
+    display: block;
+  }
+  .mobileFooterSection {
+    display: block;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    background-color: #fff;
+    margin-top: 2rem;
+  }
+
+  .main {
+    height: 65vh;
+    padding: 1rem;
+    margin-top: 2rem;
+  }
+
+  .successMessage {
+    width: 100%;
+    padding: 0rem;
+    text-align: center;
+  }
+
+  .successImage {
+    height: 35%;
+    width: 35%;
+    margin-bottom: 1.7rem;
+  }
+
+  .successSpan1 {
+    font-size: 1.5rem;
+  }
+
+  .successSpan2 {
+    margin-top: 0.5rem;
+    font-size: 1rem;
+    padding: 0 0.2rem;
+  }
+}

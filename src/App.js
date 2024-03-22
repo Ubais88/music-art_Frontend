@@ -12,8 +12,8 @@ const App = () => {
     <div>
     {/* <Auth/> */}
       {/* <Dashboard /> */}
-      <ProductDetails/>
-      {/* <Cart/> */}
+      {/* <ProductDetails/> */}
+      <Cart/>
       {/* <Checkout/> */}
       {/* <OrderSuccess/> */}
       {/* <Invoices/> */}

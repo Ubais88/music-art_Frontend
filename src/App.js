@@ -14,8 +14,8 @@ const App = () => {
       {/* <Dashboard /> */}
       {/* <ProductDetails/> */}
       {/* <Cart/> */}
-      {/* <Checkout/> */}
-      <OrderSuccess/>
+      <Checkout/>
+      {/* <OrderSuccess/> */}
       {/* <Invoices/> */}
     </div>
   );

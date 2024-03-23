@@ -124,11 +124,11 @@
   font-weight: 400;
   text-align: center;
   color: #000000;
+  border-bottom: 2px solid #e1e1e1;
 }
 
 .orderSummary > div > h5 {
   padding-top: 1vh;
-  border-top: 2px solid #e1e1e1;
   color: #000000;
   font-size: 1.5rem;
   font-weight: 500;
@@ -211,7 +211,7 @@
   border: 1px solid #919191;
   border-radius: 0.4rem;
 }
-.MobNavbar {
+.MobNavbar,.mobileFooterSection {
   display: none;
 }
 
@@ -221,7 +221,7 @@
   .backbutton {
     display: none;
   }
-  .MobNavbar {
+  .MobNavbar,.mobileFooterSection {
     display: block;
   }
 

@@ -12,7 +12,7 @@ import MobFooter from "../../components/mobFooter/MobFooter";
 const CheckOut = () => {
   const [products, setProducts] = useState(null);
   const [amount, setAmount] = useState(null);
-  const [orderfrom, setOrderForm] = useState("cart");
+  const [invoicefrom, setInvoiceForm] = useState(true);
   const [navData, setNavData] = useState({
     brand: "",
     model: "",
@@ -25,6 +25,7 @@ const CheckOut = () => {
       model: "Checkout",
     });
   }, []);
+  console.log("products", products);
 
   return (
     <>
@@ -45,7 +46,11 @@ const CheckOut = () => {
         <div className={styles.backbutton}>
           <BackButton />
         </div>
-        <h2 className={styles.checkoutHeader}>Checkout</h2>
+
+        <h2 className={styles.checkoutHeader}>
+          {invoicefrom ? "Invoice" : "Checkout"}
+        </h2>
+
         <main className={styles.main}>
           <div className={styles.checkoutSteps}>
             <div className={styles.deliveryStep}>
@@ -60,12 +65,16 @@ const CheckOut = () => {
             <div className={styles.paymentStep}>
               <span>2. Payment method</span>
               <div className={styles.dropDownWrapper}>
-                <select className={styles.dropDown}>
-                  <option value="">Mode of payment</option>
-                  <option value="">Pay On Delivery</option>
-                  <option value="">UPI</option>
-                  <option value="">Card</option>
-                </select>
+                {invoicefrom ? (
+                  <h3>Payemnt</h3>
+                ) : (
+                  <select className={styles.dropDown}>
+                    <option value="">Mode of payment</option>
+                    <option value="">Pay On Delivery</option>
+                    <option value="">UPI</option>
+                    <option value="">Card</option>
+                  </select>
+                )}
               </div>
             </div>
             <div className={styles.reviewStep}>
@@ -73,7 +82,7 @@ const CheckOut = () => {
               <div>
                 {products === null ? (
                   <h1>Loading...</h1>
-                ) : orderfrom === "cart" ? (
+                ) : (
                   products.map((item, index) => (
                     <div key={index} className={styles.product}>
                       <img
@@ -98,41 +107,22 @@ const CheckOut = () => {
                       </span>
                     </div>
                   ))
-                ) : (
-                  <div className={styles.product}>
-                    <img
-                      src={products.images[0]}
-                      alt="headphoneIcon"
-                      className={styles.productImage}
-                    />
-                    <span className={styles.productDetails}>
-                      {products.brand} {products.model}
-                    </span>
-                    <span className={styles.productDetails}>
-                      Colour: {products.color}
-                    </span>
-                    <span className={styles.productDetails}>
-                      {products.availale}
-                    </span>
-                    <span className={styles.productDetails}>
-                      Estimated delivery:
-                    </span>
-                    <span className={styles.productDetails}>
-                      Monday-FREE Standard Delivery
-                    </span>
-                  </div>
                 )}
               </div>
             </div>
           </div>
           <div className={styles.orderSummary}>
-            <button className={styles.placeOrderButton}>
-              Place your order
-            </button>
-            <span>
-              By placing your order, you agree to Musicart privacy notice and
-              conditions of use.
-            </span>
+            {!invoicefrom && (
+              <>
+                <button className={styles.placeOrderButton}>
+                  Place your order
+                </button>
+                <span>
+                  By placing your order, you agree to Musicart privacy notice
+                  and conditions of use.
+                </span>
+              </>
+            )}
             <div className={styles.summary}>
               <h5>Order Summary</h5>
               <div className={styles.summaryItem}>
@@ -151,24 +141,28 @@ const CheckOut = () => {
           </div>
         </main>
 
-        <div className={styles.orderDetails}>
-          <button className={styles.placeOrderButton}>Place your order</button>
-          <div className={styles.orderDetailsContent}>
-            <span>
-              Order Total : ₹{amount !== null ? (amount + 45).toFixed(2) : ""}
-            </span>
-            <span>
-              By placing your order, you agree to Musicart privacy notice and
-              conditions of use.
-            </span>
+        {!invoicefrom && (
+          <div className={styles.orderDetails}>
+            <button className={styles.placeOrderButton}>
+              Place your order
+            </button>
+            <div className={styles.orderDetailsContent}>
+              <span>
+                Order Total : ₹{amount !== null ? (amount + 45).toFixed(2) : ""}
+              </span>
+              <span>
+                By placing your order, you agree to Musicart privacy notice and
+                conditions of use.
+              </span>
+            </div>
           </div>
-        </div>
+        )}
       </div>
       <section className={styles.footerSection}>
         <Footer />
       </section>
       <section className={styles.mobileFooterSection}>
-        <MobFooter/>
+        <MobFooter />
       </section>
     </>
   );

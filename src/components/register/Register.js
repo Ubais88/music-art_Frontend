@@ -5,7 +5,7 @@ import { useAuth } from "../../store/auth";
 import toast from "react-hot-toast";
 
 const Register = () => {
-  const { BASE_URL , storeTokenInLS } = useAuth();
+  const { BASE_URL, storeTokenInLS } = useAuth();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -54,7 +54,7 @@ const Register = () => {
     if (isFormValid()) {
       console.log("Valid:", formData);
       const response = await register(formData, BASE_URL);
-      console.log("response.status",response)
+      console.log("response.status", response);
       if (response.status === 200) {
         setFormData({
           name: "",
@@ -81,46 +81,56 @@ const Register = () => {
         <input
           type="text"
           name="name"
-          className={styles.input}
+          className={`${styles.input} ${errors.mobile && styles.errorInput}`}
           value={formData.name}
           onChange={handleInputChange}
         />
-        {errors.name && <span className={styles.error}>{errors.name}</span>}
+        <div className={styles.errorContainer}>
+          {errors.name && <span className={styles.error}>{errors.name}</span>}
+        </div>
       </div>
       <div className={styles.inputGroup}>
         <span className={styles.label}>Mobile number</span>
         <input
           type="text"
           name="mobile"
-          className={styles.input}
+          className={`${styles.input} ${errors.mobile && styles.errorInput}`}
           value={formData.mobile}
           onChange={handleInputChange}
         />
-        {errors.mobile && <span className={styles.error}>{errors.mobile}</span>}
+        <div className={styles.errorContainer}>
+          {errors.mobile && (
+            <span className={styles.error}>{errors.mobile}</span>
+          )}
+        </div>
       </div>
       <div className={styles.inputGroup}>
         <span className={styles.label}>Email id</span>
         <input
           type="text"
           name="email"
-          className={styles.input}
+          className={`${styles.input} ${errors.mobile && styles.errorInput}`}
           value={formData.email}
           onChange={handleInputChange}
         />
-        {errors.email && <span className={styles.error}>{errors.email}</span>}
+        <div className={styles.errorContainer}>
+          {errors.email && <span className={styles.error}>{errors.email}</span>}
+        </div>
       </div>
       <div className={styles.inputGroup}>
         <span className={styles.label}>Password</span>
         <input
           type="password"
           name="password"
-          className={styles.input}
+          className={`${styles.input} ${errors.mobile && styles.errorInput}`}
           value={formData.password}
           onChange={handleInputChange}
         />
-        {errors.password && (
-          <span className={styles.error}>{errors.password}</span>
-        )}
+        <div className={styles.errorContainer}>
+          {errors.password && (
+            <span className={styles.error}>{errors.password}</span>
+          )}
+        </div>
       </div>
       <span className={styles.notification}>
         By enrolling your mobile phone number, you consent to receive automated

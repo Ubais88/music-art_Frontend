@@ -61,6 +61,21 @@
   color: #ffffff;
   cursor: pointer;
 }
+
+.errorContainer{
+  display: flex;
+  width: 100%;
+}
+.error{
+  color: red;
+  text-align: left;
+  height: 0vh;
+  margin-top: -0.2rem;
+}
+.errorInput{
+  border: 2px solid red;
+}
+
 .alreadyText{
   display: none;
 }

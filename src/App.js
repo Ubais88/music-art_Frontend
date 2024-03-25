@@ -10,11 +10,11 @@ import Auth from "./pages/auth/Auth";
 const App = () => {
   return (
     <div>
-    {/* <Auth/> */}
+    <Auth/>
       {/* <Dashboard /> */}
       {/* <ProductDetails/> */}
       {/* <Cart/> */}
-      <Checkout/>
+      {/* <Checkout/> */}
       {/* <OrderSuccess/> */}
       {/* <Invoices/> */}
     </div>

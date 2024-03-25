@@ -61,8 +61,14 @@
   color: #ffffff;
   cursor: pointer;
 }
+.alreadyText{
+  display: none;
+}
 
 @media screen and (min-width: 300px) and (max-width: 480px) {
+  .alreadyText{
+    display: block;
+  }
   .form {
     width: 90vw;
   }

@@ -5,23 +5,67 @@ import { BsFillGridFill, BsGrid } from "react-icons/bs";
 import ListIcon from "../../assets/list.svg";
 import FilledList from "../../assets/filledList.svg";
 import { useEffect, useState } from "react";
-import products from "../../products.json";
 import PreNavbar from "../../components/preNavbar/PreNavbar";
 import Footer from "../../components/footer/Footer";
 import Product from "../../components/product/Product";
 import Navbar from "../../components/navbar/Navbar";
 import MobFooter from "../../components/mobFooter/MobFooter";
 import MobileSearch from "../../components/mobileSearch/MobileSearch";
+import { useAuth } from "../../store/auth";
+import { allProducts } from "../../apis/auth/Auth";
 
 const Dashboard = () => {
+  const { loading, BASE_URL } = useAuth();
   const [view, setView] = useState("grid");
   const [product, setProduct] = useState([]);
+  const [headphoneType, setHeadphoneType] = useState("");
+  const [company, setCompany] = useState("");
+  const [color, setColor] = useState("");
+  const [price, setPrice] = useState("");
+  const [search, setSearch] = useState("");
+  const [sortBy, setSortBy] = useState("");
+
+  const productFetch = async () => {
+    const response = await allProducts(
+      BASE_URL,
+      headphoneType,
+      company,
+      color,
+      price,
+      search,
+      sortBy
+    );
+    setProduct(response.data.products);
+  };
 
   useEffect(() => {
-    console.log("Product :", products.data);
-    setProduct(products.data);
-    console.log("Product :", product);
-  });
+    productFetch();
+  }, [headphoneType, company, color, price, search, sortBy]);
+
+  const handleHeadphoneTypeChange = (event) => {
+    setHeadphoneType(event.target.value);
+  };
+
+  const handleCompanyChange = (event) => {
+    setCompany(event.target.value);
+  };
+
+  const handleColourChange = (event) => {
+    setColor(event.target.value);
+  };
+
+  const handlePriceChange = (event) => {
+    setPrice(event.target.value);
+  };
+
+  const handleSearchChange = (event) => {
+    setSearch(event.target.value);
+  };
+
+  const handleSortChange = (event) => {
+    console.log("sorttt", event.target.value);
+    setSortBy(event.target.value);
+  };
 
   return (
     <>
@@ -48,103 +92,129 @@ const Dashboard = () => {
             className={styles.promotionIcon}
           />
         </section>
-        <section className={styles.searchSection}>
-          <CiSearch size={35} />
-          <input
-            type="text"
-            name="search"
-            className={styles.searchField}
-            placeholder="Search by Product Name"
-          />
-        </section>
-        <section className={styles.filterSection}>
-          <div className={styles.viewOptions}>
-            {view === "grid" ? (
-              <BsFillGridFill size={35} />
-            ) : (
-              <BsGrid size={35} onClick={() => setView("grid")} />
-            )}
-            <img
-              src={view === "list" ? FilledList : ListIcon}
-              alt="ListViewIcon"
-              className={styles.listViewImg}
-              onClick={() => {
-                setView("list");
-              }}
-            />
-          </div>
 
-          <div className={styles.filters}>
-            <select name="headphoneType" className={styles.dropDown}>
-              <option value="" disabled selected hidden>
-                Headphone type
-              </option>
-              <option value="featured">Featured</option>
-              <option value="In ear">In-ear headphone</option>
-              <option value="On ear">On-ear headphobe</option>
-
-              <option value="Over ear">Over-ear headphone</option>
-            </select>
-
-            <select name="company" className={styles.dropDown}>
-              <option value="" disabled selected hidden>
-                Company
-              </option>
-              <option value="featured">Featured</option>
-              <option value="jbl">JBL</option>
-              <option value="sony">Sony</option>
-              <option value="boat">Boat</option>
-              <option value="zebronics">zebronics</option>
-              <option value="marshall">Marshall</option>
-              <option value="ptron">Ptron</option>
-            </select>
-            <select name="colour" className={styles.dropDown}>
-              <option value="" disabled selected hidden>
-                Colour
-              </option>
-              <option value="featured">Featured</option>
-              <option value="blue">Blue</option>
-              <option value="black">Black</option>
-              <option value="white">White</option>
-              <option value="brown">Brown</option>
-            </select>
-            <select name="price" className={styles.dropDown}>
-              <option value="" disabled selected hidden>
-                Price
-              </option>
-              <option value="featured">Featured</option>
-              <option value="0-1000">₹0-₹1000</option>
-              <option value="1000-2000">₹1,000-₹10,000</option>
-              <option value="10000-20000">₹10000-₹20000</option>
-            </select>
-          </div>
-
-          <div className={styles.sortOptions}>
-            <span>Sort by:</span>
-            <select name="sort" className={styles.sortSelect}>
-              <option value="featured" selected>
-                Featured
-              </option>
-              <option value="PriceLowest">Price:Lowest</option>
-              <option value="PriceHighest">Price:Highest</option>
-              <option value="a-z">Name:(A-Z)</option>
-              <option value="z-a">Name:(Z-A)</option>
-            </select>
-          </div>
-        </section>
-
-        {product.length > 0 ? (
-          <section
-            className={`${
-              view === "grid" ? styles.productGrid : styles.productList
-            }`}
-          >
-            {product.map((item, index) => (
-              <Product item={item} view={view} key={index} />
-            ))}
-          </section>
-        ) : (
+        {loading ? (
           <h1>Loading</h1>
+        ) : (
+          <>
+            <section className={styles.searchSection}>
+              <CiSearch size={35} />
+              <input
+                type="text"
+                name="search"
+                className={styles.searchField}
+                placeholder="Search by Product Name"
+                onChange={handleSearchChange}
+              />
+            </section>
+            <section className={styles.filterSection}>
+              <div className={styles.viewOptions}>
+                {view === "grid" ? (
+                  <BsFillGridFill size={35} />
+                ) : (
+                  <BsGrid size={35} onClick={() => setView("grid")} />
+                )}
+                <img
+                  src={view === "list" ? FilledList : ListIcon}
+                  alt="ListViewIcon"
+                  className={styles.listViewImg}
+                  onClick={() => {
+                    setView("list");
+                  }}
+                />
+              </div>
+
+              <div className={styles.filters}>
+                <select
+                  name="headphoneType"
+                  className={styles.dropDown}
+                  onChange={handleHeadphoneTypeChange}
+                >
+                  <option value="Headphone type" disabled selected hidden>
+                    Headphone type
+                  </option>
+                  <option value="featured">Featured</option>
+                  <option value="In-ear headphone">In-ear headphone</option>
+                  <option value="On-ear headphone">On-ear headphobe</option>
+
+                  <option value="Over-ear headphone">Over-ear headphone</option>
+                </select>
+
+                <select
+                  name="company"
+                  className={styles.dropDown}
+                  onChange={handleCompanyChange}
+                >
+                  <option value="Company" disabled selected hidden>
+                    Company
+                  </option>
+                  <option value="featured">Featured</option>
+                  <option value="jbl">JBL</option>
+                  <option value="sony">Sony</option>
+                  <option value="boat">Boat</option>
+                  <option value="zebronics">zebronics</option>
+                  <option value="marshall">Marshall</option>
+                  <option value="ptron">Ptron</option>
+                </select>
+                <select
+                  name="colour"
+                  className={styles.dropDown}
+                  onChange={handleColourChange}
+                >
+                  <option value="Colour" disabled selected hidden>
+                    Colour
+                  </option>
+                  <option value="featured">Featured</option>
+                  <option value="blue">Blue</option>
+                  <option value="black">Black</option>
+                  <option value="white">White</option>
+                  <option value="brown">Brown</option>
+                </select>
+                <select
+                  name="price"
+                  className={styles.dropDown}
+                  onChange={handlePriceChange}
+                >
+                  <option value="Price" disabled selected hidden>
+                    Price
+                  </option>
+                  <option value="featured">Featured</option>
+                  <option value="0-1000">₹0-₹1000</option>
+                  <option value="1000-2000">₹1,000-₹10,000</option>
+                  <option value="10000-20000">₹10000-₹20000</option>
+                </select>
+              </div>
+
+              <div className={styles.sortOptions}>
+                <span>Sort by:</span>
+                <select
+                  name="sort"
+                  className={styles.sortSelect}
+                  onChange={handleSortChange}
+                >
+                  <option value="featured">Featured</option>
+                  <option value="PriceLowest">Price:Lowest</option>
+                  <option value="PriceHighest">Price:Highest</option>
+                  <option value="a-z">Name:(A-Z)</option>
+                  <option value="z-a">Name:(Z-A)</option>
+                </select>
+              </div>
+            </section>
+
+            {!product.length > 0 ? (
+              <p className={styles.noProduct}>No Product Found</p>
+            ) : (
+              <section
+                className={`${
+                  view === "grid" ? styles.productGrid : styles.productList
+                }`}
+              >
+                {product.map((item, index) => (
+                  <Product item={item} view={view} key={index} />
+                ))}
+              </section>
+            )}
+          </>
         )}
       </div>
 

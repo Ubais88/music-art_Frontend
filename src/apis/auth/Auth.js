@@ -37,3 +37,32 @@ export const login = async (formData, BASE_URL) => {
     }
   }
 };
+
+export const allProducts = async (
+  BASE_URL,
+  headphoneType,
+  company,
+  color,
+  price,
+  searchTerm,
+  sortBy
+) => {
+  try {
+    const response = await axios.get(`${BASE_URL}/product/allproducts`, {
+      params: {
+        headphoneType,
+        company,
+        color,
+        price,
+        searchTerm,
+        sortBy,
+      },
+    });
+    return response;
+  } catch (error) {
+    if (error) {
+      console.log("error: ", error);
+      return error.response.data;
+    }
+  }
+};

@@ -6,8 +6,8 @@
 
 .dashboardContainer {
   margin-top: 11vh;
-  /* width: 100vw; */
   padding: 0 2vw;
+  font-family: Roboto;
 }
 
 .headerSection {
@@ -31,23 +31,12 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  font-family: Roboto;
   font-weight: 500;
 }
 
 .promotionText {
   font-size: 3rem;
   color: #2e0052;
-}
-
-.promotionbtn {
-  width: 33%;
-  height: 20%;
-  border: none;
-  border-radius: 3rem;
-  background-color: #2e0052;
-  color: #ffffff;
-  font-size: 1.5vw;
 }
 
 .promotionIcon {
@@ -69,14 +58,12 @@
   outline: none;
   border: none;
   width: 100%;
-  font-family: Roboto;
   font-size: 1.4rem;
   font-weight: 400;
   color: #000000;
 }
 
 .filterSection {
-  /* width: 100%; */
   height: 6vh;
   margin-top: 2rem;
   display: flex;
@@ -111,7 +98,6 @@
 
 .dropDown,
 .sortSelect {
-  font-family: Roboto;
   font-size: 1rem;
   font-weight: 500;
   background-color: #d9d9d9;
@@ -138,7 +124,6 @@
   border: 0.15rem solid #e1e1e1;
   border-radius: 50px;
   padding: 1rem;
-  font-family: Roboto;
   font-size: 1rem;
   font-weight: 400;
   display: flex;
@@ -152,7 +137,6 @@
 
 .productGrid {
   margin-top: 10vh;
-  /* width: 100%; */
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 2rem;
@@ -163,22 +147,40 @@
   width: 100%;
   height: 100%;
 }
-.mobileFooter {
-  display: none;
+
+.noProduct{
+  width: 100%;
+  margin: 2rem 0;
+  text-align: center;
+  font-size: 4rem;
+  color: #2E0052;
 }
-.mobileSearch {
+
+.mobileSearch,
+.promotionbtn,
+.mobileFooter {
   display: none;
 }
 
 @media screen and (min-width: 300px) and (max-width: 480px) {
-  .navbar {
-    display: none;
-  }
+  .navbar,
   .headerSection {
     display: none;
   }
-  .mobileSearch {
+
+  .mobileSearch,
+  .promotionbtn {
     display: block;
+  }
+
+  .promotionbtn {
+    width: 33%;
+    height: 20%;
+    border: none;
+    border-radius: 3rem;
+    background-color: #2e0052;
+    color: #ffffff;
+    font-size: 1.5vw;
   }
   .dashboardContainer {
     margin-top: 4vh;

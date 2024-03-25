@@ -19,6 +19,10 @@ const PreNavbar = () => {
     navigate('/auth')
   };
 
+  const logoutClickHandler = () => {
+    LogoutUser();
+  }
+
   return (
     <header className={styles.header}>
       <div className={styles.contactInfo}>
@@ -30,7 +34,7 @@ const PreNavbar = () => {
       </div>
       <div className={styles.auth}>
         {isLoggedIn ? (
-          <button className={styles.logoutButton} onClick={() => loginHandler()}>
+          <button className={styles.logoutButton} onClick={logoutClickHandler}>
             Logout
           </button>
         ) : (

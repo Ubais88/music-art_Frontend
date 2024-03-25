@@ -14,6 +14,7 @@ const Register = () => {
     password: "",
   });
   const [errors, setErrors] = useState({});
+  const navigate = useNavigate()
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -65,6 +66,7 @@ const Register = () => {
         });
         storeTokenInLS(response.data.token);
         toast.success("Signup successful");
+        navigate('/')
       } else {
         toast.error(response.message);
       }

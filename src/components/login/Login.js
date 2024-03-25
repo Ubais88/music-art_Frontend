@@ -3,6 +3,7 @@ import styles from "./Login.module.css";
 import { login } from "../../apis/auth/Auth";
 import { useAuth } from "../../store/auth";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const { BASE_URL, storeTokenInLS } = useAuth();
@@ -11,6 +12,7 @@ const Login = () => {
     password: "",
   });
   const [errors, setErrors] = useState({});
+  const navigate = useNavigate()
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -50,6 +52,7 @@ const Login = () => {
         });
         storeTokenInLS(response.data.token);
         toast.success("Login successful");
+        navigate('/')
       } else {
         toast.error(response.message);
       }

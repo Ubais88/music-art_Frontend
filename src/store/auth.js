@@ -6,6 +6,7 @@ export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(localStorage.getItem("token") || "");
+  const [login, setLogin] = useState(true);
   const navigate = useNavigate();
 
   const authorizationToken = `Bearer ${token}`;
@@ -32,6 +33,8 @@ export const AuthProvider = ({ children }) => {
         authorizationToken,
         BASE_URL,
         LogoutUser,
+        login, 
+        setLogin
       }}
     >
       {children}

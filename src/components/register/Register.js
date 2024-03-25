@@ -3,6 +3,7 @@ import styles from "./Register.module.css";
 import { register } from "../../apis/auth/Auth";
 import { useAuth } from "../../store/auth";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
   const { BASE_URL, storeTokenInLS } = useAuth();

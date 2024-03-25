@@ -56,10 +56,22 @@
   color: #ffffff;
   cursor: pointer;
 }
-.welcome {
-  display: none;
+
+.errorContainer{
+  display: flex;
+  width: 100%;
 }
-.alreadyText {
+.error{
+  color: red;
+  text-align: left;
+  height: 0vh;
+  margin-top: -0.2rem;
+}
+.errorInput{
+  border: 2px solid red;
+}
+
+.alreadyText, .welcome{
   display: none;}
 
 @media screen and (min-width: 300px) and (max-width: 480px) {

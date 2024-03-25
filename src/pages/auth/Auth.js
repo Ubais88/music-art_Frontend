@@ -5,13 +5,13 @@ import Footer from "../../components/footer/Footer";
 import Register from "../../components/register/Register";
 import Login from "../../components/login/Login";
 import MobNavbar from "../../components/mobNavbar/MobNavbar";
+import { useAuth } from "../../store/auth";
 
 const Auth = () => {
-  const [login, setLogin] = useState(true);
+  const { login, setLogin } = useAuth();
 
   return (
     <div className={styles.topContainer}>
-
       <div className={styles.mobileNav}>
         <MobNavbar />
       </div>

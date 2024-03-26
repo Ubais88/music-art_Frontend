@@ -40,9 +40,11 @@ const Product = ({ item, view }) => {
               alt="cartImg"
               onClick={() => addToCartHandler(item._id)}
             />
-            <img src={item.images[0]} alt="headphoneIcon"
-            onClick={() => handleProductDetails(item._id)}
-             />
+            <img
+              src={item.images[0]}
+              alt="headphoneIcon"
+              onClick={() => handleProductDetails(item._id)}
+            />
           </div>
           <div className={styles.productInfo}>
             <span className={styles.productName}>
@@ -79,7 +81,12 @@ const Product = ({ item, view }) => {
             <span className={styles.productListDescription}>
               {item.shortDescription}
             </span>
-            <button className={styles.detailsButton}>Details</button>
+            <button
+              className={styles.detailsButton}
+              onClick={() => handleProductDetails(item._id)}
+            >
+              Details
+            </button>
           </div>
         </div>
       )}

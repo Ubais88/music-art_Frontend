@@ -1,18 +1,17 @@
 .main {
   margin-top: 5rem;
   padding: 0 2vw;
-  margin-bottom: 12rem;
+  margin-bottom: 7rem;
 }
 
 .section1 {
-  height: 10vh;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 .section2 {
-  margin-top: 2rem;
+  margin-top: 1rem;
 }
 
 .title {
@@ -36,7 +35,9 @@
 
 .productList {
   width: 72%;
+  height: 100%;
   display: flex;
+  flex-direction: column;
 }
 
 .product {
@@ -48,14 +49,15 @@
 }
 
 .productInfo {
-  margin-top: 5vh;
+  margin: 2vh;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .productInfo > img {
-  width: 20%;
-  height: 80%;
+  width: 18%;
+  object-fit: cover;
   border: 2px solid #2e0052;
   border-radius: 0.3rem;
 }
@@ -99,12 +101,18 @@
   border-radius: 0.25rem;
   cursor: pointer;
 }
+.details{
+  display: flex;
+  gap: 1rem;
+}
 
 .priceDetails {
-  position: relative;
   border-left: 2.87px solid #e1e1e1;
   width: 26%;
   padding-left: 1.5vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .priceDetails > div > h5 {
@@ -123,7 +131,6 @@
   font-family: Roboto;
   font-size: 1.4vw;
   font-weight: 400;
-  line-height: 1.6rem;
 }
 
 .priceDetails > div > div > span:last-of-type {
@@ -132,8 +139,6 @@
 
 .totalAmount {
   width: 95%;
-  position: absolute;
-  top: 93%;
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -166,4 +171,3 @@
   font-weight: 500;
   cursor: pointer;
 }
-

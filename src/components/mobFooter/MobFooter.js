@@ -5,32 +5,53 @@ import loginUser from "../../assets/loginuser.png";
 import loginVector from "../../assets/loginVector.png";
 import styles from "./MobFooter.module.css";
 import { CiUser } from "react-icons/ci";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../store/auth";
 
 const MobFooter = () => {
+  const navigate = useNavigate();
+  const { isLoggedIn, LogoutUser, cartItemCount } = useAuth();
+
+  const logoutHandler = () => {
+    LogoutUser();
+  };
+  const loginHandler = () => {
+    navigate("/auth");
+  };
+
   return (
     <div className={styles.container}>
-      <div className={styles.footerItem}>
+      <div className={styles.footerItem} onClick={() => navigate("/")}>
         <GoHome color="#2E0052" size={30} />
         <span>Home</span>
       </div>
       <div className={styles.footerItem}>
-        <div className={styles.cartContainer}>
+        <div className={styles.cartContainer} onClick={() => navigate("/cart")}>
           <MdOutlineAddShoppingCart color="#2E0052" size={30} />
-          <span className={styles.cartQuantity}>12</span>
+          <span className={styles.cartQuantity}>{cartItemCount}</span>
         </div>
         <span>Cart</span>
       </div>
       <div className={styles.footerItem}>
-        {true ? (
-          <img
-            src={loginVector}
-            alt="mobilefooter"
-            className={styles.userIcon}
-          />
+        {isLoggedIn ? (
+          <div className={styles.authMain} onClick={logoutHandler}>
+            <img
+              src={loginVector}
+              alt="mobilefooter"
+              className={styles.userIcon}
+            />
+            <span>Logout</span>
+          </div>
         ) : (
-          <img src={loginUser} alt="mobilefooter" className={styles.userIcon} />
+          <div className={styles.authMain} onClick={loginHandler}>
+            <img
+              src={loginUser}
+              alt="mobilefooter"
+              className={styles.userIcon}
+            />
+            <span>Login</span>
+          </div>
         )}
-        <span>Login</span>
       </div>
     </div>
   );

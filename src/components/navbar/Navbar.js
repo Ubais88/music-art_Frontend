@@ -4,12 +4,20 @@ import { MdOutlineShoppingCart } from "react-icons/md";
 import styles from "./Navbar.module.css";
 import { useAuth } from "../../store/auth";
 import { cartLength } from "../../apis/cart/Cart";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = ({ navData }) => {
-  const {  BASE_URL, authorizationToken ,isLoggedIn, cartItemCount , setCartItemCount } = useAuth();
+  const navigate = useNavigate();
+  const {
+    BASE_URL,
+    authorizationToken,
+    isLoggedIn,
+    cartItemCount,
+    setCartItemCount,
+  } = useAuth();
 
   const cartQuantity = async () => {
-    const response = await cartLength( BASE_URL, authorizationToken);
+    const response = await cartLength(BASE_URL, authorizationToken);
     if (response.status === 200) {
       setCartItemCount(response.data.cartLength);
     }
@@ -18,6 +26,11 @@ const Navbar = ({ navData }) => {
   useEffect(() => {
     cartQuantity();
   }, []);
+
+  const cartHandler = () => {
+    navigate("/cart");
+  };
+
   return (
     <>
       <div className={styles.logoWrapper}>
@@ -34,9 +47,11 @@ const Navbar = ({ navData }) => {
       </div>
       {isLoggedIn && (
         <div className={styles.cartContainer}>
-          <div className={styles.cartWrapper}>
+          <div className={styles.cartWrapper} onClick={cartHandler}>
             <MdOutlineShoppingCart size={35} />
-            <span>View Cart {cartItemCount}</span>
+            <span>
+              View Cart {navData.brand !== "view Cart" && cartItemCount}
+            </span>
           </div>
           {!navData && <div className={styles.userName}>UB</div>}
         </div>

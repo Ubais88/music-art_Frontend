@@ -3,24 +3,51 @@ import PreNavbar from "../../../components/preNavbar/PreNavbar";
 import Footer from "../../../components/footer/Footer";
 import bag from "../../../assets/bag.svg";
 import { useState, useEffect } from "react";
-import Products from "../../../products.json";
 import BackButton from "../../../components/backButton/BackButton";
 import Navbar from "../../../components/navbar/Navbar";
+import { useNavigate } from "react-router-dom";
+import { cartProducts, updateCartQuantity } from "../../../apis/cart/Cart";
+import { useAuth } from "../../../store/auth";
 
 const Cart = () => {
+  const navigate = useNavigate();
+  const { BASE_URL, authorizationToken, isLoggedIn, setCartItemCount } =
+    useAuth();
   const [products, setProducts] = useState(null);
+  const [totalAmount, setTotalAmount] = useState({
+    totalAmount: "",
+    withConveniencefee: "",
+  });
   const [navData, setNavData] = useState({
     brand: "",
     model: "",
   });
-  useEffect(() => {
-    setProducts([Products.data[0]]);
+
+  const userCart = async () => {
+    const response = await cartProducts(BASE_URL, authorizationToken);
+
+    setProducts(response.cart);
+    setTotalAmount({
+      totalAmount: response.totalAmount,
+      withConveniencefee: response.withConveniencefee,
+    });
     setNavData({
-        brand: "",
-        model: "View Cart",
-      });
-  },[]);
-  console.log(products);
+      brand: "view Cart",
+      model: "",
+    });
+  };
+
+  useEffect(() => {
+    userCart();
+  }, []);
+
+  const handleQuantityChange = (index, productId, event) => {
+    const quantity = event.target.value;
+    updateCartQuantity(BASE_URL, authorizationToken, quantity, productId);
+    const updatedProducts = [...products];
+    updatedProducts[index].quantity = quantity;
+    setProducts(updatedProducts);
+  };
 
   return (
     <>
@@ -29,9 +56,11 @@ const Cart = () => {
       </section>
       <main className={styles.main}>
         <section className={styles.section1}>
-        <Navbar navData={navData} />
+          <Navbar navData={navData} />
         </section>
-        <BackButton className={styles.backButton} />
+        <div className={styles.backButton}>
+          <BackButton />
+        </div>
         <section className={styles.section2}>
           <title className={styles.title}>
             <img src={bag} alt="cartbagicon" />
@@ -49,26 +78,32 @@ const Cart = () => {
                 {products.map((item, index) => (
                   <div className={styles.product} key={index}>
                     <div className={styles.productInfo}>
-                      <img src={item.images[0]} alt="productImage" />
+                      <img src={item.product.images[0]} alt="productImage" />
                       <div className={styles.details}>
                         <span>
-                          {item.brand} {item.model}
+                          {item.product.brand} {item.product.model}
                         </span>
-                        <span className={styles.color}>Color: {item.color}</span>
-                        <span>{item.available}</span>
+                        <span className={styles.color}>
+                          Color: {item.product.color}
+                        </span>
+                        <span>{item.product.available}</span>
                       </div>
                       <div className={styles.price}>
                         <span>Price</span>
-                        <span>₹{item.price}</span>
+                        <span>₹{item.product.price}</span>
                       </div>
                       <div className={styles.quantity}>
                         <span>Quantity</span>
-                        <select name="quantity">
-                          <option value={item.quantity} selected hidden>
-                            {item.quantity}
-                          </option>
-                          {[1, 2, 3, 4, 5, 6, 7, 8].map((val) => (
-                            <option key={val} value={val}>
+                        <select
+                          name="quantity"
+                          value={item.quantity}
+                          onChange={(e) =>
+                            handleQuantityChange(index, item.product._id, e)
+                          }
+                        >
+                          {/* <option disabled>{item.quantity}</option> */}
+                          {[1, 2, 3, 4, 5, 6, 7, 8].map((val, index) => (
+                            <option key={index} value={val}>
                               {val}
                             </option>
                           ))}
@@ -76,24 +111,18 @@ const Cart = () => {
                       </div>
                       <div className={styles.total}>
                         <span>Total</span>
-                        <span>₹{item.price * item.quantity}</span>
+                        <span>₹{item.totalAmount}</span>
                       </div>
                     </div>
                   </div>
                 ))}
               </div>
               <div className={styles.priceDetails}>
-                <div>
+                <div className={styles.details}>
                   <h5>PRICE DETAILS</h5>
                   <div className={styles.priceDetail}>
                     <span>Total MRP</span>
-                    <span>
-                      ₹
-                      {products.reduce(
-                        (acc, item) => acc + item.price * item.quantity,
-                        0
-                      )}
-                    </span>
+                    <span>₹{totalAmount.totalAmount}</span>
                   </div>
                   <div className={styles.priceDetail}>
                     <span>Discounts on MRP</span>
@@ -107,15 +136,9 @@ const Cart = () => {
                 <div className={styles.totalAmount}>
                   <div className={styles.amountFormat}>
                     <span>Total Amount</span>
-                    <span>
-                      ₹
-                      {products.reduce(
-                        (acc, item) => (acc += item.price * item.quantity),
-                        0
-                      ) + 45}
-                    </span>
+                    <span>₹{totalAmount.withConveniencefee}</span>
                   </div>
-                  <button className={styles.placeOrderBtn}>PLACE ORDER</button>
+                  <button className={styles.placeOrderBtn} onClick={() => navigate('/checkout')}>PLACE ORDER</button>
                 </div>
               </div>
             </div>

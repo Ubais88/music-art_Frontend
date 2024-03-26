@@ -24,11 +24,15 @@ const ProductDetails = () => {
 
   const productDetailsFetch = async () => {
     const response = await productDetails(BASE_URL, productId);
-    setProduct(response.productdetails);
-    setNavData({
-      brand: response.productdetails.brand,
-      model: response.productdetails.model,
-    });
+    if (response.status === 200) {
+      setProduct(response.productdetails);
+      setNavData({
+        brand: response.productdetails.brand,
+        model: response.productdetails.model,
+      });
+    } else {
+      console.log("add toast in details", response);
+    }
   };
 
   useEffect(() => {

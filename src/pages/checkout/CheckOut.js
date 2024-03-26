@@ -8,8 +8,12 @@ import BackButton from "../../components/backButton/BackButton";
 import MobNavbar from "../../components/mobNavbar/MobNavbar";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import MobFooter from "../../components/mobFooter/MobFooter";
+import { cartProducts } from "../../apis/cart/Cart";
 
 const CheckOut = () => {
+  const navigate = useNavigate();
+  const { BASE_URL, authorizationToken, isLoggedIn, setCartItemCount } =
+    useAuth();
   const [products, setProducts] = useState(null);
   const [amount, setAmount] = useState(null);
   const [invoicefrom, setInvoiceForm] = useState(true);
@@ -17,6 +21,24 @@ const CheckOut = () => {
     brand: "",
     model: "",
   });
+
+  const userCart = async () => {
+    const response = await cartProducts(BASE_URL, authorizationToken);
+
+    setProducts(response.cart);
+    setTotalAmount({
+      totalAmount: response.totalAmount,
+      withConveniencefee: response.withConveniencefee,
+    });
+    setNavData({
+      brand: "view Cart",
+      model: "",
+    });
+  };
+
+  useEffect(() => {
+    userCart();
+  }, []);
 
   useEffect(() => {
     setProducts([Products.data[0]]);

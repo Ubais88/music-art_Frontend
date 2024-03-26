@@ -65,3 +65,31 @@ export const updateCartQuantity = async (
     }
   }
 };
+
+export const orderplaced = async (
+  BASE_URL,
+  authorizationToken,
+  name,
+  address,
+  paymentMethod,
+  orderFromCart,
+  productId
+) => {
+  try {
+    const response = await axios.put(
+      `${BASE_URL}/product/place-order`,
+      { name, address, paymentMethod, orderFromCart, productId },
+      {
+        headers: { Authorization: authorizationToken },
+      }
+    );
+    console.log("resopnse", response.data);
+    return response.data;
+
+  } catch (error) {
+    if (error) {
+      console.log("error: ", error);
+      return error.response;
+    }
+  }
+};

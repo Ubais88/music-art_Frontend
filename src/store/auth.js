@@ -8,6 +8,7 @@ export const AuthProvider = ({ children }) => {
   const [login, setLogin] = useState(true);
   const [loading, setLoading] = useState(false);
   const [cartItemCount, setCartItemCount] = useState(0);
+  const [orderFromCart, setOrderFromCart] = useState(true);
   const authorizationToken = `Bearer ${token}`;
 
   const storeTokenInLS = (serverToken) => {
@@ -35,6 +36,8 @@ export const AuthProvider = ({ children }) => {
         setLogin,
         cartItemCount,
         setCartItemCount,
+        orderFromCart,
+        setOrderFromCart,
       }}
     >
       {children}

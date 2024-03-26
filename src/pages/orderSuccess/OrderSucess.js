@@ -3,9 +3,12 @@ import confetti from "../../assets/confetti.png";
 import Footer from "../../components/footer/Footer";
 import musicIcon from "../../assets/musicIcon.svg";
 import MobNavbar from "../../components/mobNavbar/MobNavbar";
-import MobFooter from '../../components/mobFooter/MobFooter'
+import MobFooter from "../../components/mobFooter/MobFooter";
+import { useNavigate } from "react-router-dom";
 
 const OrderSuccess = () => {
+  const navigate = useNavigate();
+
   return (
     <>
       <div className={styles.header}>
@@ -24,14 +27,16 @@ const OrderSuccess = () => {
           <span className={styles.successSpan2}>
             You will be receiving a confirmation email with order details
           </span>
-          <button className={styles.homeButton}>Go back to Home page</button>
+          <button className={styles.homeButton} onClick={() => navigate("/")}>
+            Go back to Home page
+          </button>
         </div>
       </main>
       <div className={styles.footer}>
         <Footer />
       </div>
       <section className={styles.mobileFooterSection}>
-        <MobFooter/>
+        <MobFooter />
       </section>
     </>
   );

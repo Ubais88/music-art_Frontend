@@ -38,7 +38,12 @@ const Navbar = ({ navData }) => {
         <span>Musicart</span>
         <a className={styles.navLink}>Home</a>
         {!navData ? (
-          <a className={styles.navLink}>Invoice</a>
+          <a
+            className={styles.navLink}
+            onClick={() => navigate("/my-invoices")}
+          >
+            Invoice
+          </a>
         ) : (
           <a className={styles.navLink} style={{ marginLeft: "0" }}>
             /{navData.brand} {navData.model}
@@ -50,7 +55,8 @@ const Navbar = ({ navData }) => {
           <div className={styles.cartWrapper} onClick={cartHandler}>
             <MdOutlineShoppingCart size={35} />
             <span>
-              View Cart {navData.brand !== "view Cart" && cartItemCount}
+              View Cart{" "}
+              {(navData && navData.brand) !== "view Cart" && cartItemCount}
             </span>
           </div>
           {!navData && <div className={styles.userName}>UB</div>}

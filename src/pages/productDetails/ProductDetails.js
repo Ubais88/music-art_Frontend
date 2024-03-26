@@ -24,7 +24,7 @@ const ProductDetails = () => {
 
   const productDetailsFetch = async () => {
     const response = await productDetails(BASE_URL, productId);
-    if (response.status === 200) {
+    if (response.success) {
       setProduct(response.productdetails);
       setNavData({
         brand: response.productdetails.brand,

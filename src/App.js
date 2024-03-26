@@ -26,6 +26,9 @@ const App = () => {
         />
         <Route path="/cart" element={<Cart />} />
         <Route path="/checkout" element={<Checkout />} />
+        <Route path="/orderplaced/success" element={<OrderSuccess />} />
+        <Route path="/my-invoices" element={<Invoices />} />
+        <Route path="/view-invoice/:orderId" element={<Checkout />} />
       </Routes>
     </div>
   );

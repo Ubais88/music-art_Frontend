@@ -12,7 +12,7 @@ import Navbar from "../../components/navbar/Navbar";
 import MobFooter from "../../components/mobFooter/MobFooter";
 import MobileSearch from "../../components/mobileSearch/MobileSearch";
 import { useAuth } from "../../store/auth";
-import { allProducts } from "../../apis/auth/Auth";
+import { allProducts } from "../../apis/product/Product";
 
 const Dashboard = () => {
   const { loading, BASE_URL } = useAuth();
@@ -129,8 +129,9 @@ const Dashboard = () => {
                   name="headphoneType"
                   className={styles.dropDown}
                   onChange={handleHeadphoneTypeChange}
+                  defaultValue=""
                 >
-                  <option value="Headphone type" disabled selected hidden>
+                  <option value="" disabled hidden>
                     Headphone type
                   </option>
                   <option value="featured">Featured</option>
@@ -144,8 +145,9 @@ const Dashboard = () => {
                   name="company"
                   className={styles.dropDown}
                   onChange={handleCompanyChange}
+                  defaultValue=""
                 >
-                  <option value="Company" disabled selected hidden>
+                  <option value="" disabled hidden>
                     Company
                   </option>
                   <option value="featured">Featured</option>
@@ -160,8 +162,9 @@ const Dashboard = () => {
                   name="colour"
                   className={styles.dropDown}
                   onChange={handleColourChange}
+                  defaultValue=""
                 >
-                  <option value="Colour" disabled selected hidden>
+                  <option value="" disabled hidden>
                     Colour
                   </option>
                   <option value="featured">Featured</option>
@@ -174,8 +177,9 @@ const Dashboard = () => {
                   name="price"
                   className={styles.dropDown}
                   onChange={handlePriceChange}
+                  defaultValue=""
                 >
-                  <option value="Price" disabled selected hidden>
+                  <option value="" disabled hidden>
                     Price
                   </option>
                   <option value="featured">Featured</option>
@@ -191,6 +195,7 @@ const Dashboard = () => {
                   name="sort"
                   className={styles.sortSelect}
                   onChange={handleSortChange}
+                  defaultValue=""
                 >
                   <option value="featured">Featured</option>
                   <option value="PriceLowest">Price:Lowest</option>
@@ -209,8 +214,8 @@ const Dashboard = () => {
                   view === "grid" ? styles.productGrid : styles.productList
                 }`}
               >
-                {product.map((item, index) => (
-                  <Product item={item} view={view} key={index} />
+                {product.map((item) => (
+                  <Product item={item} view={view} key={item._id} />
                 ))}
               </section>
             )}

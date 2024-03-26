@@ -1,5 +1,4 @@
 import { createContext, useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 export const AuthContext = createContext();
@@ -7,9 +6,8 @@ export const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(localStorage.getItem("token") || "");
   const [login, setLogin] = useState(true);
-  const [loading , setLoading] = useState(false);
-  const navigate = useNavigate();
-
+  const [loading, setLoading] = useState(false);
+  const [cartItemCount, setCartItemCount] = useState(0);
   const authorizationToken = `Bearer ${token}`;
 
   const storeTokenInLS = (serverToken) => {
@@ -21,12 +19,10 @@ export const AuthProvider = ({ children }) => {
   const LogoutUser = () => {
     setToken("");
     localStorage.removeItem("token");
-    navigate("/");
-    return;
   };
 
   const isLoggedIn = !!token;
-  
+
   return (
     <AuthContext.Provider
       value={{
@@ -35,8 +31,10 @@ export const AuthProvider = ({ children }) => {
         authorizationToken,
         BASE_URL,
         LogoutUser,
-        login, 
-        setLogin
+        login,
+        setLogin,
+        cartItemCount,
+        setCartItemCount,
       }}
     >
       {children}

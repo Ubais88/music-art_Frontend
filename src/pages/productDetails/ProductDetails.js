@@ -3,29 +3,62 @@ import PreNavbar from "../../components/preNavbar/PreNavbar";
 import Footer from "../../components/footer/Footer";
 import { FaStar } from "react-icons/fa";
 import { useEffect, useState } from "react";
-import products from "../../products.json";
 import Navbar from "../../components/navbar/Navbar";
 import MobProductDetail from "./mobileDetails/MobProductDetail";
+import { useAuth } from "../../store/auth";
+import { productDetails } from "../../apis/product/Product";
+import { useNavigate, useParams } from "react-router-dom";
+import { addToCart } from "../../apis/cart/Cart";
+import toast from "react-hot-toast";
 
 const ProductDetails = () => {
+  const navigate = useNavigate();
+  const { productId } = useParams();
+  const { BASE_URL, authorizationToken, isLoggedIn, setCartItemCount } =
+    useAuth();
   const [product, setProduct] = useState(null);
   const [navData, setNavData] = useState({
     brand: "",
     model: "",
   });
 
-  useEffect(() => {
-    setProduct(products.data[0]);
+  const productDetailsFetch = async () => {
+    const response = await productDetails(BASE_URL, productId);
+    setProduct(response.productdetails);
     setNavData({
-      brand: products.data[0].brand,
-      model: products.data[0].model,
+      brand: response.productdetails.brand,
+      model: response.productdetails.model,
     });
+  };
+
+  useEffect(() => {
+    productDetailsFetch();
   }, []);
+
+  const addToCartHandler = async () => {
+    if (!isLoggedIn) {
+      navigate("/auth");
+    } else {
+      const response = await addToCart(BASE_URL, authorizationToken, productId);
+      if (response.status === 200) {
+        toast.success(response.data.message);
+        setCartItemCount((prev) => prev + 1);
+      } else {
+        toast.error(response.data.message);
+      }
+    }
+  };
+
+  const buyNowHandler = () => {
+    if (!isLoggedIn) {
+      navigate("/auth");
+    } else toast.error("wait for implementation");
+  };
 
   return (
     <>
       <div className={styles.mobileDetailsFile}>
-        <MobProductDetail/>
+        <MobProductDetail product={product} />
       </div>
       <div className={styles.mainContainer}>
         <section className={styles.preNavbar}>
@@ -35,7 +68,12 @@ const ProductDetails = () => {
           <section className={styles.productInfoSection}>
             <Navbar navData={navData} />
           </section>
-          <button className={styles.backToProductsBtn}>Back to products</button>
+          <button
+            className={styles.backToProductsBtn}
+            onClick={() => navigate("/")}
+          >
+            Back to products
+          </button>
           {product === null ? (
             <h1>Loading...</h1>
           ) : (
@@ -57,8 +95,8 @@ const ProductDetails = () => {
                     {product.brand} {product.model}
                   </h1>
                   <div className={styles.ratingBox}>
-                    {[0, 1, 2, 3, 4].map(() => (
-                      <FaStar color="#FFD600" size={25} />
+                    {[...Array(parseInt(product.rating))].map((_, index) => (
+                      <FaStar color="#FFD600" key={index} size={25} />
                     ))}
                     <span>({product.reviewCount} Customer reviews)</span>
                   </div>
@@ -69,7 +107,7 @@ const ProductDetails = () => {
                   <div className={styles.aboutProduct}>
                     <span>About this item</span>
                     <ul>
-                      {product.shortDescription.map((item, index) => (
+                      {product.about.map((item, index) => (
                         <li key={index}>{item}</li>
                       ))}
                     </ul>
@@ -85,8 +123,8 @@ const ProductDetails = () => {
                     </div>
                   </div>
                   <div className={styles.buttons}>
-                    <button>Add to cart</button>
-                    <button>Buy Now</button>
+                    <button onClick={addToCartHandler}>Add to cart</button>
+                    <button onClick={buyNowHandler}>Buy Now</button>
                   </div>
                 </div>
               </section>

@@ -18,8 +18,9 @@ const App = () => {
       {/* <OrderSuccess/> */}
       {/* <Invoices/> */}
       <Routes>
-        <Route path="/auth" element={<Auth />} />
         <Route path="/" element={<Dashboard />} />
+        <Route path="/auth" element={<Auth />} />
+        <Route path="/product-details/:productId" element={<ProductDetails />} />
       </Routes>
     </div>
   );

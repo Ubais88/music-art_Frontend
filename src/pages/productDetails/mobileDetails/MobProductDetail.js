@@ -6,23 +6,21 @@ import products from "../../../products.json";
 import MobileSearch from "../../../components/mobileSearch/MobileSearch";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { IoMdArrowRoundBack } from "react-icons/io";
+import { useNavigate } from "react-router-dom";
 
-const MobProductDetail = () => {
-  const [product, setProduct] = useState(null);
+const MobProductDetail = ({ product }) => {
+  
+  const navigate = useNavigate()
 
-  useEffect(() => {
-    setProduct(products.data[0]);
-  }, []);
+  useEffect(() => {}, []);
 
   return (
     <>
       <MobileSearch />
       <div className={styles.container}>
-        {/* <div className={styles.backArrow}>
-          <img src={backIcon} alt="backArrow" />
-        </div> */}
         <div className={styles.backArrow}>
-          <IoMdArrowRoundBack size={30}/>
+          <IoMdArrowRoundBack size={30}  onClick={() => navigate('/')}/>
         </div>
         <button className={styles.buybtn}>Buy Now</button>
 
@@ -44,8 +42,8 @@ const MobProductDetail = () => {
                 {product.brand} {product.model}
               </h1>
               <div className={styles.ratingBox}>
-                {[0, 1, 2, 3].map((index) => (
-                  <FaStar key={index} color="#FFD600" size={25} />
+                {[...Array(parseInt(product.rating))].map((_, index) => (
+                  <FaStar color="#FFD600" key={index} size={25} />
                 ))}
                 <span>({product.reviewCount} Customer reviews)</span>
               </div>
@@ -59,7 +57,7 @@ const MobProductDetail = () => {
               <div className={styles.productAbout}>
                 <span>About this item</span>
                 <ul>
-                  {product.shortDescription.map((item, index) => (
+                  {product.about.map((item, index) => (
                     <li key={index}>{item}</li>
                   ))}
                 </ul>

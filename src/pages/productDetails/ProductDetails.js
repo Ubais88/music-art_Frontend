@@ -53,10 +53,13 @@ const ProductDetails = () => {
     }
   };
 
-  const buyNowHandler = () => {
+  const buyNowHandler = (productId) => {
     if (!isLoggedIn) {
       navigate("/auth");
-    } else toast.error("wait for implementation");
+    } else {
+      // navigate(`/checkout/${productId}`);
+      toast.error(`wait for implementation ${productId}`);
+    }
   };
 
   return (
@@ -128,7 +131,9 @@ const ProductDetails = () => {
                   </div>
                   <div className={styles.buttons}>
                     <button onClick={addToCartHandler}>Add to cart</button>
-                    <button onClick={buyNowHandler}>Buy Now</button>
+                    <button onClick={() => buyNowHandler(product._id)}>
+                      Buy Now
+                    </button>
                   </div>
                 </div>
               </section>

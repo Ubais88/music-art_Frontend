@@ -15,7 +15,7 @@ import { fetchAllInvoices } from "../../apis/product/Product";
 
 const Invoices = () => {
   const navigate = useNavigate();
-  const { BASE_URL, authorizationToken } = useAuth();
+  const { BASE_URL, authorizationToken ,setOrderFromCart, setInvoiceForm} = useAuth();
   const [invoices, setInvoices] = useState([]);
   const [navData, setNavData] = useState({
     brand: "",
@@ -32,9 +32,10 @@ const Invoices = () => {
     fetchInvoice();
   }, []);
 
-  const viewInvoiceHandler = () => {
-    
-  }
+  const viewInvoiceHandler = (orderId) => {
+    setInvoiceForm(true);
+    navigate(`/view-invoice/${orderId}`);
+  };
 
   return (
     <div className={styles.container}>
@@ -76,8 +77,10 @@ const Invoices = () => {
                   </div>
                 </div>
                 <div className={styles.right}>
-                  <button className={styles.viewInvoiceButton}
-                   onClick={viewInvoiceHandler}>
+                  <button
+                    className={styles.viewInvoiceButton}
+                    onClick={() => viewInvoiceHandler(invoice._id)}
+                  >
                     View Invoice
                   </button>
                 </div>
@@ -87,9 +90,7 @@ const Invoices = () => {
           ))}
         </main>
       )}
-      <section
-        className={`${styles.footer}`}
-      >
+      <section className={`${styles.footer}`}>
         <Footer />
       </section>
 

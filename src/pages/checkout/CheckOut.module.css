@@ -1,5 +1,4 @@
 .checkoutContainer {
-  margin-top: 5rem;
   padding: 2vh 2vw;
   font-family: Roboto;
 }
@@ -44,7 +43,6 @@
   border-bottom: 2px solid #e1e1e1;
 }
 
-
 .checkoutSteps > div > span:first-of-type {
   font-size: 2vw;
   font-weight: 500;
@@ -55,7 +53,8 @@
   width: 40%;
 }
 
-.nameField,.addressField{
+.nameField,
+.addressField {
   width: 100%;
   font-size: 1.6rem;
   font-weight: 400;
@@ -65,17 +64,17 @@
   padding: 0.5rem 0.3rem;
 }
 
-.nameField{
+.nameField {
   border: none;
 }
-.errorInput{
+.errorInput {
   border: 1px solid red;
 }
-.errorHeader{
+.errorHeader {
   height: 1rem;
   color: red;
 }
-.error{
+.error {
   font-size: 0.9rem;
 }
 
@@ -92,7 +91,7 @@
   border-radius: 0.3rem;
   cursor: pointer;
 }
-.productWrapper{
+.productWrapper {
   width: 100%;
 }
 
@@ -103,7 +102,7 @@
   gap: 0.3rem;
 }
 
-.imgHeader{
+.imgHeader {
   width: 40%;
 }
 
@@ -126,7 +125,6 @@
   font-weight: 400;
   color: #000000;
 }
-
 
 .orderSummary {
   padding: 0.8rem;
@@ -234,7 +232,8 @@
 .dropDownWrapper {
   width: 40%;
 }
-.dropDown {
+.dropDown,
+.paymentInvoice {
   width: 100%;
   height: 3rem;
   outline: none;
@@ -242,8 +241,17 @@
   border-radius: 0.4rem;
 }
 
+.paymentInvoice {
+  text-align: left;
+  display: flex;
+  color: #919191;
+  align-items: center;
+  padding: 0 0.4rem;
+}
+
 .MobNavbar,
-.mobileFooterSection {
+.mobileFooterSection,
+.backArrow {
   display: none;
 }
 
@@ -254,7 +262,8 @@
     display: none;
   }
   .MobNavbar,
-  .mobileFooterSection {
+  .mobileFooterSection,
+  .backArrow {
     display: block;
   }
 

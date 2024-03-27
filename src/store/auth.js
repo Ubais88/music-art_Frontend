@@ -7,6 +7,7 @@ export const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(localStorage.getItem("token") || "");
   const [login, setLogin] = useState(true);
   const [loading, setLoading] = useState(false);
+  const [invoicefrom, setInvoiceForm] = useState(false);
   const [cartItemCount, setCartItemCount] = useState(0);
   const [orderFromCart, setOrderFromCart] = useState(true);
   const authorizationToken = `Bearer ${token}`;
@@ -36,6 +37,8 @@ export const AuthProvider = ({ children }) => {
         setLogin,
         cartItemCount,
         setCartItemCount,
+        invoicefrom,
+        setInvoiceForm,
         orderFromCart,
         setOrderFromCart,
       }}

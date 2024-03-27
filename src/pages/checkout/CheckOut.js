@@ -8,20 +8,21 @@ import MobNavbar from "../../components/mobNavbar/MobNavbar";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import MobFooter from "../../components/mobFooter/MobFooter";
 import { cartProducts, orderplaced } from "../../apis/cart/Cart";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useAuth } from "../../store/auth";
 import toast from "react-hot-toast";
+import { fetchOneInvoice } from "../../apis/product/Product";
 
 const CheckOut = () => {
   const navigate = useNavigate();
-  const { BASE_URL, authorizationToken, isLoggedIn, orderFromCart } = useAuth();
+  const { orderId, productId } = useParams();
+  const { BASE_URL, authorizationToken, orderFromCart } = useAuth();
   const [products, setProducts] = useState([]);
   const [totalAmount, setTotalAmount] = useState({
     totalAmount: "",
     withConveniencefee: "",
   });
   const [showData, setShowData] = useState({});
-  const [invoicefrom, setInvoiceForm] = useState(false);
   const [navData, setNavData] = useState({});
   const [name, setName] = useState("");
   const [address, setAddress] = useState("");
@@ -43,14 +44,40 @@ const CheckOut = () => {
       });
       showDataHandler(response.cart[0].product);
     }
-    setNavData({
-      brand: "Checkout",
-      model: "",
+  };
+
+  const invoice = async () => {
+    const response = await fetchOneInvoice(
+      BASE_URL,
+      authorizationToken,
+      orderId
+    );
+    setName(response.order.name);
+    setAddress(response.order.address);
+    setPaymentMethod(response.order.paymentMethod);
+    setTotalAmount({
+      totalAmount: response.order.totalAmount,
+      withConveniencefee: parseInt(response.order.totalAmount) + 45,
     });
+    setProducts(response.order.products);
+    showDataHandler(response.order.products[0]);
   };
 
   useEffect(() => {
-    userCart();
+    console.log("orderid in useeffect", orderId);
+    if (orderId) {
+      invoice();
+      setNavData({
+        brand: "Invoices",
+        model: "",
+      });
+    } else {
+      userCart();
+      setNavData({
+        brand: "Checkout",
+        model: "",
+      });
+    }
   }, []);
 
   const showDataHandler = (product) => {
@@ -91,11 +118,12 @@ const CheckOut = () => {
       );
       if (response.status) {
         toast.success(response.message);
+        orderFromCart(true);
         navigate("/orderplaced/success");
       }
     }
   };
-  console.log("products:", products.length);
+
   return (
     <>
       <div className={styles.preNavbar}>
@@ -117,7 +145,7 @@ const CheckOut = () => {
         </div>
 
         <h2 className={styles.checkoutHeader}>
-          {invoicefrom ? "Invoice" : "Checkout"}
+          {orderId ? "Invoice" : "Checkout"}
         </h2>
 
         {products.length < 1 ? (
@@ -143,6 +171,7 @@ const CheckOut = () => {
                           name: "",
                         });
                       }}
+                      readOnly={!!orderId}
                     />
                     <div className={styles.errorHeader}>
                       {errors.name && (
@@ -163,6 +192,7 @@ const CheckOut = () => {
                           address: "",
                         });
                       }}
+                      readOnly={!!orderId}
                     />
                     <div className={styles.errorHeader}>
                       {errors.address && (
@@ -174,8 +204,8 @@ const CheckOut = () => {
                 <div className={styles.paymentStep}>
                   <span>2. Payment method</span>
                   <div className={styles.dropDownWrapper}>
-                    {invoicefrom ? (
-                      <h3>Payemnt</h3>
+                    {orderId ? (
+                      <h3 className={styles.paymentInvoice}>{paymentMethod}</h3>
                     ) : (
                       <>
                         <select
@@ -213,17 +243,24 @@ const CheckOut = () => {
                   <span>3. Review items and delivery</span>
                   <div className={styles.imgHeader}>
                     <div className={styles.productWrapper}>
-                      {(products === null || !products.length) ? (
+                      {products === null || products.length < 1 ? (
                         <h1>Loading...</h1>
                       ) : (
                         <div className={styles.imgGrid}>
                           {products.map((item, index) => (
                             <img
-                              src={item.product.images[0]}
+                              src={
+                                (item.product &&
+                                  item.product.images &&
+                                  item.product.images[0]) ||
+                                (item.images && item.images[0])
+                              }
                               alt="headphoneIcon"
                               className={styles.productImage}
                               key={index}
-                              onClick={() => showDataHandler(item.product)}
+                              onClick={() =>
+                                showDataHandler(item.product || item)
+                              }
                             />
                           ))}
                         </div>
@@ -248,7 +285,7 @@ const CheckOut = () => {
                 </div>
               </div>
               <div className={styles.orderSummary}>
-                {!invoicefrom && (
+                {!orderId && (
                   <>
                     <button
                       className={styles.placeOrderButton}
@@ -280,7 +317,7 @@ const CheckOut = () => {
               </div>
             </main>
 
-            {!invoicefrom && (
+            {!orderId && (
               <div className={styles.orderDetails}>
                 <button
                   className={styles.placeOrderButton}

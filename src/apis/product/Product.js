@@ -45,13 +45,32 @@ export const productDetails = async (BASE_URL, productId) => {
 
 export const fetchAllInvoices = async (BASE_URL, authorizationToken) => {
   try {
+    const response = await axios.get(`${BASE_URL}/product/get-orders`, {
+      headers: { Authorization: authorizationToken },
+    });
+    // console.log(response.data)
+    return response.data;
+  } catch (error) {
+    if (error) {
+      console.log("error: ", error);
+      return error.response.data;
+    }
+  }
+};
+
+export const fetchOneInvoice = async (
+  BASE_URL,
+  authorizationToken,
+  orderId
+) => {
+  try {
     const response = await axios.get(
-      `${BASE_URL}/product/get-orders`,
+      `${BASE_URL}/product/get-order/${orderId}`,
       {
         headers: { Authorization: authorizationToken },
       }
     );
-      // console.log(response.data)
+    console.log(response.data);
     return response.data;
   } catch (error) {
     if (error) {

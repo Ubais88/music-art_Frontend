@@ -29,6 +29,7 @@ const App = () => {
         <Route path="/orderplaced/success" element={<OrderSuccess />} />
         <Route path="/my-invoices" element={<Invoices />} />
         <Route path="/view-invoice/:orderId" element={<Checkout />} />
+        <Route path="/checkout/:productId" element={<Checkout />} />
       </Routes>
     </div>
   );

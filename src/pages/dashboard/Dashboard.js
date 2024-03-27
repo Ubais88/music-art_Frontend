@@ -13,6 +13,8 @@ import MobFooter from "../../components/mobFooter/MobFooter";
 import MobileSearch from "../../components/mobileSearch/MobileSearch";
 import { useAuth } from "../../store/auth";
 import { allProducts } from "../../apis/product/Product";
+import chatbox from "../../assets/chatbox.png";
+import Chatbox from "../../components/chatbox/Chatbox";
 
 const Dashboard = () => {
   const { loading, BASE_URL } = useAuth();
@@ -24,6 +26,7 @@ const Dashboard = () => {
   const [price, setPrice] = useState("");
   const [search, setSearch] = useState("");
   const [sortBy, setSortBy] = useState("");
+  const [showFeedBack, setShowFeedBack] = useState(false);
 
   const productFetch = async () => {
     const response = await allProducts(
@@ -222,7 +225,19 @@ const Dashboard = () => {
           </>
         )}
       </div>
-
+      <div className={styles.feedBackContainer}>
+        {showFeedBack && (
+          <div className={styles.feedback}>
+            <Chatbox />
+          </div>
+        )}
+        <div
+          className={styles.feedBackMain}
+          onClick={() => setShowFeedBack((prev) => !prev)}
+        >
+          <img src={chatbox} alt="feedback" />
+        </div>
+      </div>
       <section className={styles.siteFooter}>
         <Footer />
       </section>

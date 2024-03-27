@@ -7,7 +7,7 @@ import BackButton from "../../components/backButton/BackButton";
 import MobNavbar from "../../components/mobNavbar/MobNavbar";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import MobFooter from "../../components/mobFooter/MobFooter";
-import { cartProducts, orderplaced } from "../../apis/cart/Cart";
+import { cartProducts, directInCart, orderplaced } from "../../apis/cart/Cart";
 import { useNavigate, useParams } from "react-router-dom";
 import { useAuth } from "../../store/auth";
 import toast from "react-hot-toast";
@@ -16,7 +16,8 @@ import { fetchOneInvoice } from "../../apis/product/Product";
 const CheckOut = () => {
   const navigate = useNavigate();
   const { orderId, productId } = useParams();
-  const { BASE_URL, authorizationToken, orderFromCart } = useAuth();
+  const { BASE_URL, authorizationToken, orderFromCart, setCartItemCount,setOrderFromCart } =
+    useAuth();
   const [products, setProducts] = useState([]);
   const [totalAmount, setTotalAmount] = useState({
     totalAmount: "",
@@ -29,24 +30,30 @@ const CheckOut = () => {
   const [paymentMethod, setPaymentMethod] = useState("");
   const [errors, setErrors] = useState({});
 
-  const userCart = async () => {
-    const response = await cartProducts(
-      BASE_URL,
-      authorizationToken,
-      orderFromCart
-    );
-    console.log("response.cart:", response.cart);
-    if (response.cart.length) {
-      setProducts(response.cart);
+  const userCart = async (productId) => {
+    let response;
+    if (!productId) {
+      response = await cartProducts(BASE_URL, authorizationToken);
+      if (response.cart.length) {
+        setProducts(response.cart);
+        setTotalAmount({
+          totalAmount: response.totalAmount,
+          withConveniencefee: response.withConveniencefee,
+        });
+        showDataHandler(response.cart[0].product);
+      }
+    } else {
+      response = await directInCart(BASE_URL, authorizationToken, productId);
+      setProducts([response.product]);
       setTotalAmount({
         totalAmount: response.totalAmount,
         withConveniencefee: response.withConveniencefee,
       });
-      showDataHandler(response.cart[0].product);
+      showDataHandler(response.product);
     }
   };
 
-  const invoice = async () => {
+  const fetchInvoice = async () => {
     const response = await fetchOneInvoice(
       BASE_URL,
       authorizationToken,
@@ -64,15 +71,14 @@ const CheckOut = () => {
   };
 
   useEffect(() => {
-    console.log("orderid in useeffect", orderId);
     if (orderId) {
-      invoice();
+      fetchInvoice();
       setNavData({
         brand: "Invoices",
         model: "",
       });
     } else {
-      userCart();
+      userCart(productId);
       setNavData({
         brand: "Checkout",
         model: "",
@@ -107,6 +113,7 @@ const CheckOut = () => {
 
   const handlePlaceOrder = async () => {
     if (isValid()) {
+      console.log("orderFromCart", orderFromCart);
       const response = await orderplaced(
         BASE_URL,
         authorizationToken,
@@ -117,8 +124,9 @@ const CheckOut = () => {
         !orderFromCart && productId
       );
       if (response.status) {
+        setCartItemCount(0)
         toast.success(response.message);
-        orderFromCart(true);
+        setOrderFromCart(true);
         navigate("/orderplaced/success");
       }
     }
@@ -132,7 +140,7 @@ const CheckOut = () => {
       <div className={styles.MobNavbar}>
         <MobNavbar />
       </div>
-      <div className={styles.backArrow}>
+      <div className={styles.backArrow} onClick={() => navigate("/")}>
         <IoMdArrowRoundBack size={30} />
       </div>
 

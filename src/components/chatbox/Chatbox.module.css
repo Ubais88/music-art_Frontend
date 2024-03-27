@@ -1,0 +1,56 @@
+form {
+  font-family: Inter;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0px 0px 20px 0px #0000005e;
+  border-radius: 1.5rem;
+  padding: 1rem;
+  gap: 1rem;
+}
+
+.inputContainer {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.label {
+  font-family: Inter;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.select,
+.textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 0.4rem;
+  resize: none;
+  outline: none;
+}
+.errorContainer {
+  height: 0.4rem;
+}
+.error {
+  color: red;
+}
+
+.errorInput {
+  border: 1px solid red;
+}
+
+.submitButton {
+  background-color: #2e0052;
+  color: #fff;
+  border-radius: 1.3rem;
+  border: none;
+  padding: 0.5rem 1.7rem;
+  font-family: Roboto;
+  font-size: 1.2rem;
+  font-weight: 400;
+  cursor: pointer;
+}

@@ -1,28 +1,29 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import styles from "./MobileProductDetail.module.css";
 import MobFooter from "../../../components/mobFooter/MobFooter";
 import { FaStar } from "react-icons/fa";
-import products from "../../../products.json";
 import MobileSearch from "../../../components/mobileSearch/MobileSearch";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
 
-const MobProductDetail = ({ product }) => {
-  
-  const navigate = useNavigate()
-
-  useEffect(() => {}, []);
+const MobProductDetail = ({ product, buyNowHandler, addToCartHandler }) => {
+  const navigate = useNavigate();
 
   return (
     <>
       <MobileSearch />
       <div className={styles.container}>
-        <div className={styles.backArrow}>
-          <IoMdArrowRoundBack size={30}  onClick={() => navigate('/')}/>
+        <div className={styles.backArrow} onClick={() => navigate("/")}>
+          <IoMdArrowRoundBack size={30} />
         </div>
-        <button className={styles.buybtn}>Buy Now</button>
+        <button
+          className={styles.buybtn}
+          onClick={() => buyNowHandler(product._id)}
+        >
+          Buy Now
+        </button>
 
         {product === null ? (
           <h1>Loading...</h1>
@@ -76,8 +77,8 @@ const MobProductDetail = ({ product }) => {
           </>
         )}
         <div className={styles.buttons}>
-          <button>Add to cart</button>
-          <button>Buy Now</button>
+          <button onClick={addToCartHandler}>Add to cart</button>
+          <button onClick={() => buyNowHandler(product._id)}>Buy Now</button>
         </div>
       </div>
       <div className={styles.footer}>

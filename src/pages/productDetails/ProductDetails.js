@@ -14,7 +14,7 @@ import toast from "react-hot-toast";
 const ProductDetails = () => {
   const navigate = useNavigate();
   const { productId } = useParams();
-  const { BASE_URL, authorizationToken, isLoggedIn, setCartItemCount } =
+  const { BASE_URL, authorizationToken, isLoggedIn, setCartItemCount,setOrderFromCart } =
     useAuth();
   const [product, setProduct] = useState(null);
   const [navData, setNavData] = useState({
@@ -57,15 +57,15 @@ const ProductDetails = () => {
     if (!isLoggedIn) {
       navigate("/auth");
     } else {
-      // navigate(`/checkout/${productId}`);
-      toast.error(`wait for implementation ${productId}`);
+      setOrderFromCart(false)
+      navigate(`/checkout/${productId}`);
     }
   };
 
   return (
     <>
       <div className={styles.mobileDetailsFile}>
-        <MobProductDetail product={product} />
+        <MobProductDetail product={product} addToCartHandler={addToCartHandler} buyNowHandler={buyNowHandler} />
       </div>
       <div className={styles.mainContainer}>
         <section className={styles.preNavbar}>

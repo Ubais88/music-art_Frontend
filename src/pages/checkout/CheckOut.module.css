@@ -311,6 +311,13 @@
     gap: 0.5rem;
   }
 
+  .nameField,
+  .addressField {
+    width: 90vw;
+    border-radius: 0.4rem;
+    padding: 0.5rem 0.3rem;
+  }
+
   .checkoutSteps > div > span:first-of-type {
     font-size: 1.2rem;
   }

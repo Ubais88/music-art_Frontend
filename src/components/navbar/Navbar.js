@@ -1,13 +1,15 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import musicIcon from "../../assets/musicIcon.svg";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import styles from "./Navbar.module.css";
 import { useAuth } from "../../store/auth";
 import { cartLength } from "../../apis/cart/Cart";
 import { useNavigate } from "react-router-dom";
+import Profile from "../profile/Profile";
 
 const Navbar = ({ navData }) => {
   const navigate = useNavigate();
+  const [showProfile, setShowProfile] = useState(false);
   const {
     BASE_URL,
     authorizationToken,
@@ -59,7 +61,21 @@ const Navbar = ({ navData }) => {
               {(navData && navData.brand) !== "view Cart" && cartItemCount}
             </span>
           </div>
-          {!navData && <div className={styles.userName}>UB</div>}
+          {!navData && (
+            <div className={styles.profileMain}>
+              <div
+                className={styles.userName}
+                onClick={() => setShowProfile((prev) => !prev)}
+              >
+                UB
+              </div>
+              {showProfile && (
+                <div className={styles.profileModal}>
+                  <Profile />
+                </div>
+              )}
+            </div>
+          )}
         </div>
       )}
     </>

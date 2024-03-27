@@ -2,44 +2,19 @@ import styles from "./LaptopCart.module.css";
 import PreNavbar from "../../../components/preNavbar/PreNavbar";
 import Footer from "../../../components/footer/Footer";
 import bag from "../../../assets/bag.svg";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import BackButton from "../../../components/backButton/BackButton";
 import Navbar from "../../../components/navbar/Navbar";
 import { useNavigate } from "react-router-dom";
-import { cartProducts, updateCartQuantity } from "../../../apis/cart/Cart";
-import { useAuth } from "../../../store/auth";
+import { updateCartQuantity } from "../../../apis/cart/Cart";
 
-const Cart = () => {
+
+const Cart = ({ products, setProducts , totalAmount }) => {
   const navigate = useNavigate();
-  const { BASE_URL, authorizationToken, isLoggedIn, setCartItemCount } =
-    useAuth();
-  const [products, setProducts] = useState(null);
-  const [totalAmount, setTotalAmount] = useState({
-    totalAmount: "",
-    withConveniencefee: "",
-  });
   const [navData, setNavData] = useState({
     brand: "",
     model: "",
   });
-
-  const userCart = async () => {
-    const response = await cartProducts(BASE_URL, authorizationToken);
-
-    setProducts(response.cart);
-    setTotalAmount({
-      totalAmount: response.totalAmount,
-      withConveniencefee: response.withConveniencefee,
-    });
-    setNavData({
-      brand: "view Cart",
-      model: "",
-    });
-  };
-
-  useEffect(() => {
-    userCart();
-  }, []);
 
   const handleQuantityChange = (index, productId, event) => {
     const quantity = event.target.value;
@@ -48,7 +23,6 @@ const Cart = () => {
     updatedProducts[index].quantity = quantity;
     setProducts(updatedProducts);
   };
-
   return (
     <>
       <section className={styles.cartContainer}>
@@ -138,7 +112,12 @@ const Cart = () => {
                     <span>Total Amount</span>
                     <span>₹{totalAmount.withConveniencefee}</span>
                   </div>
-                  <button className={styles.placeOrderBtn} onClick={() => navigate('/checkout')}>PLACE ORDER</button>
+                  <button
+                    className={styles.placeOrderBtn}
+                    onClick={() => navigate("/checkout")}
+                  >
+                    PLACE ORDER
+                  </button>
                 </div>
               </div>
             </div>

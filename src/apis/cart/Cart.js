@@ -44,6 +44,24 @@ export const cartProducts = async (BASE_URL, authorizationToken) => {
   }
 };
 
+export const directInCart = async (BASE_URL, authorizationToken, productId) => {
+  try {
+    const response = await axios.get(
+      `${BASE_URL}/cart/direct-in-cart/${productId}`,
+      {
+        headers: { Authorization: authorizationToken },
+      }
+    );
+    // console.log(response);
+    return response.data;
+  } catch (error) {
+    if (error) {
+      console.log("error: ", error);
+      return error.response;
+    }
+  }
+};
+
 export const updateCartQuantity = async (
   BASE_URL,
   authorizationToken,
@@ -83,9 +101,8 @@ export const orderplaced = async (
         headers: { Authorization: authorizationToken },
       }
     );
-    console.log("resopnse", response.data);
+    console.log("response", response.data);
     return response.data;
-
   } catch (error) {
     if (error) {
       console.log("error: ", error);

@@ -7,25 +7,29 @@ export const addToCart = async (BASE_URL, authorizationToken, productId) => {
       { productId },
       { headers: { Authorization: authorizationToken } }
     );
-    return response;
+    return response.data;
   } catch (error) {
-    if (error) {
-      console.log("error: ", error);
-      return error.response;
-    }
+    console.error("Error adding to cart:", error);
+    return error.response ? error.response.data : { success: false, message: "Something went wrong" };
   }
 };
+
 
 export const cartLength = async (BASE_URL, authorizationToken) => {
   try {
     const response = await axios.get(`${BASE_URL}/cart/cart-length`, {
       headers: { Authorization: authorizationToken },
     });
-    return response;
-  } catch (error) {
-    if (error) {
-      return error.response.data;
+
+    if (response.status === 200) {
+      return response.data;
+    } else {
+      console.error("Error fetching cart length:", response.data.message);
+      return { success: false, message: response.data.message };
     }
+  } catch (error) {
+    console.error("Error fetching cart length:", error);
+    return { success: false, message: "Something went wrong" };
   }
 };
 
@@ -34,13 +38,16 @@ export const cartProducts = async (BASE_URL, authorizationToken) => {
     const response = await axios.get(`${BASE_URL}/cart/cart-items`, {
       headers: { Authorization: authorizationToken },
     });
-      console.log("response: ",  response);
-    return response.data;
-  } catch (error) {
-    if (error) {
-      console.log("error: ",  error.response);
-      return error.response.data;
+    // console.log("response: " , response)
+    if (response.status === 200) {
+      return response.data;
+    } else {
+      console.error("Error fetching cart products:", response.data.message);
+      return { success: false, message: response.data.message };
     }
+  } catch (error) {
+    console.error("Error fetching cart products:", error);
+    return { success: false, message: "Something went wrong" };
   }
 };
 
@@ -52,11 +59,11 @@ export const directInCart = async (BASE_URL, authorizationToken, productId) => {
         headers: { Authorization: authorizationToken },
       }
     );
+    console.log("directincart",response)
     return response.data;
   } catch (error) {
-    if (error) {
-      return error.response.data;
-    }
+    console.error("Error fetching product from cart:", error);
+    return { success: false, message: "Failed to fetch product from cart" };
   }
 };
 
@@ -99,12 +106,11 @@ export const orderplaced = async (
         headers: { Authorization: authorizationToken },
       }
     );
-    console.log("response", response.data);
+    console.log("Response from placing order:", response.data);
     return response.data;
   } catch (error) {
-    if (error) {
-      console.log("error: ", error);
-      return error.response;
-    }
+    console.error("Error placing order:", error);
+    return error.response ? error.response.data : { success: false, message: "Something went wrong" };
   }
 };
+

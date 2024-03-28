@@ -16,12 +16,19 @@ const Product = ({ item, view }) => {
       navigate("/auth");
       return;
     }
-    const response = await addToCart(BASE_URL, authorizationToken, productId);
-    if (response.status === 200) {
-      toast.success(response.data.message);
-      setCartItemCount((prev) => prev + 1);
-    } else {
-      toast.error(response.data.message);
+
+    try {
+      const response = await addToCart(BASE_URL, authorizationToken, productId);
+
+      if (response && response.success) {
+        toast.success(response.message);
+        setCartItemCount((prev) => prev + 1);
+      } else {
+        toast.error(response.message || "Failed to add item to cart");
+      }
+    } catch (error) {
+      console.error("Error adding item to cart:", error);
+      toast.error("Failed to add item to cart. Please try again later.");
     }
   };
 

@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
   const navigate = useNavigate();
-  const { BASE_URL, authorizationToken , setSelectedItem } = useAuth();
+  const { BASE_URL, authorizationToken, setSelectedItem } = useAuth();
   const [products, setProducts] = useState(null);
   const [totalAmount, setTotalAmount] = useState({
     totalAmount: "",
@@ -17,21 +17,28 @@ const Cart = () => {
   });
 
   const userCart = async () => {
-    const response = await cartProducts(BASE_URL, authorizationToken);
-    if (response.success) {
-      setProducts(response.cart);
-      setTotalAmount({
-        totalAmount: response.totalAmount,
-        withConveniencefee: response.withConveniencefee,
-      });
-    } else {
-      toast.error(response.data.message);
+    try {
+      const response = await cartProducts(BASE_URL, authorizationToken);
+      if (response.success) {
+        setProducts(response.cart);
+        setTotalAmount({
+          totalAmount: response.totalAmount,
+          withConveniencefee: response.withConveniencefee,
+        });
+      } else {
+        toast.error(response.message);
+        // navigate("/");
+      }
+    } catch (error) {
+      console.error("Error fetching user cart:", error);
+      toast.error("Error fetching user cart. Please try again later.");
       navigate("/");
     }
   };
+
   useEffect(() => {
     userCart();
-    setSelectedItem('cart')
+    setSelectedItem("cart");
   }, []);
 
   return (

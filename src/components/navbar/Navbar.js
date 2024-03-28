@@ -21,12 +21,17 @@ const Navbar = ({ navData }) => {
   } = useAuth();
 
   const cartQuantity = async () => {
-    const response = await cartLength(BASE_URL, authorizationToken);
-    if (response.status === 200) {
-      setCartItemCount(response.data.cartLength);
-    }
-    else{
-      toast.error(response.message)
+    try {
+      const response = await cartLength(BASE_URL, authorizationToken);
+      if (response.success) {
+        setCartItemCount(response.cartLength);
+      } else {
+        console.error(response.message)
+        // toast.error(response.message);
+      }
+    } catch (error) {
+      console.error("Error fetching cart quantity:", error);
+      toast.error("Error fetching cart quantity. Please try again later.");
     }
   };
 
@@ -60,7 +65,7 @@ const Navbar = ({ navData }) => {
           <a
             className={styles.navLink}
             onClick={() => navigate("/my-invoices")}
-            style={{cursor: 'pointer'}}
+            style={{ cursor: "pointer" }}
           >
             Invoice
           </a>

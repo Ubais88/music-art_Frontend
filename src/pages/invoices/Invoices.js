@@ -25,14 +25,19 @@ const Invoices = () => {
   });
 
   const fetchInvoice = async () => {
-    const response = await fetchAllInvoices(BASE_URL, authorizationToken);
-    if (response.success) {
-      setInvoices(response.orders);
-    } else {
-      toast.error(response.data.message);
-      navigate("/");
+    try {
+      const response = await fetchAllInvoices(BASE_URL, authorizationToken);
+      if (response.success) {
+        setInvoices(response.orders);
+      } else {
+        toast.error(response.message || "Failed to fetch invoices");
+      }
+    } catch (error) {
+      console.error("Error fetching invoices:", error);
+      toast.error("Failed to fetch invoices. Please try again later.");
     }
   };
+  
 
   useEffect(() => {
     fetchInvoice();

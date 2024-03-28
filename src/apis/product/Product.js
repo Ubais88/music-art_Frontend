@@ -20,12 +20,17 @@ export const allProducts = async (
         sortBy,
       },
     });
-    return response;
-  } catch (error) {
-    if (error) {
-      // console.log("error: ", error);
-      return error.response.data;
+    console.log(response)
+    if (response.status === 200) {
+      return response.data;
+    } else {
+      const message = response.data.message;
+      console.log("Error fetching products:", message);
+      return { success: false, message };
     }
+  } catch (error) {
+    console.error("Error fetching products:", error);
+    return { success: false, message: "Something went wrong" };
   }
 };
 
@@ -48,21 +53,14 @@ export const fetchAllInvoices = async (BASE_URL, authorizationToken) => {
     const response = await axios.get(`${BASE_URL}/product/get-orders`, {
       headers: { Authorization: authorizationToken },
     });
-    console.log(response.data)
     return response.data;
   } catch (error) {
-    if (error) {
-      // console.log("error: ", error.response);
-      return error.response;
-    }
+    console.error("Error fetching all invoices:", error);
+    return error.response ? error.response.data : { success: false, message: "Something went wrong" };
   }
 };
 
-export const fetchOneInvoice = async (
-  BASE_URL,
-  authorizationToken,
-  orderId
-) => {
+export const fetchOneInvoice = async (BASE_URL, authorizationToken, orderId) => {
   try {
     const response = await axios.get(
       `${BASE_URL}/product/get-order/${orderId}`,
@@ -70,12 +68,10 @@ export const fetchOneInvoice = async (
         headers: { Authorization: authorizationToken },
       }
     );
-    console.log(response.data);
     return response.data;
   } catch (error) {
-    if (error) {
-      console.log("error: ", error);
-      return error.response.data;
-    }
+    console.error("Error fetching one invoice:", error);
+    return error.response ? error.response.data : { success: false, message: "Something went wrong" };
   }
 };
+

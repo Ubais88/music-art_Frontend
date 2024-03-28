@@ -27,8 +27,9 @@ const Dashboard = () => {
   const [price, setPrice] = useState("");
   const [sortBy, setSortBy] = useState("");
   const [showFeedBack, setShowFeedBack] = useState(false);
-  setSelectedItem("home");
-  const productFetch = async () => {
+  // setSelectedItem("home");
+const productFetch = async () => {
+  try {
     const response = await allProducts(
       BASE_URL,
       headphoneType,
@@ -38,14 +39,19 @@ const Dashboard = () => {
       search,
       sortBy
     );
-    if (response && response.data && response.data.products) {
-      setProduct(response.data.products);
+      console.log("response: ", response)
+    if (response && response.products) {
+      setProduct(response.products);
     } else {
-      // console.error("Products data is undefined or null." ,response);
+      console.error("Products data is undefined or null.", response);
       toast.error(response.message);
     }
-    // setProduct(response.data.products || []);
-  };
+  } catch (error) {
+    console.error("Error fetching products:", error);
+    toast.error("Error fetching products. Please try again later.");
+  }
+};
+
 
   useEffect(() => {
     productFetch();

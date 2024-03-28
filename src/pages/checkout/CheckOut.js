@@ -33,57 +33,75 @@ const CheckOut = () => {
   const [errors, setErrors] = useState({});
 
   const userCart = async (productId) => {
-    let response;
-    if (!productId) {
-      response = await cartProducts(BASE_URL, authorizationToken);
-      if (response.success) {
-        const cart = response.cart || [];
-        if (cart.length > 0) {
-          setProducts(cart);
+    try {
+      let response;
+      if (!productId) {
+        response = await cartProducts(BASE_URL, authorizationToken);
+        if (response.success) {
+          const cart = response.cart || [];
+          if (cart.length > 0) {
+            setProducts(cart);
+            setTotalAmount({
+              totalAmount: response.totalAmount,
+              withConveniencefee: response.withConveniencefee,
+            });
+            const firstProduct = cart[0].product || {};
+            showDataHandler(firstProduct);
+          } else {
+            toast.error("Cart is empty");
+            navigate(-1);
+          }
+        } else {
+          toast.error(response.message);
+          // navigate("/");
+        }
+      } else {
+        response = await directInCart(BASE_URL, authorizationToken, productId);
+        if (response.success) {
+          setProducts([response.product]);
           setTotalAmount({
             totalAmount: response.totalAmount,
             withConveniencefee: response.withConveniencefee,
           });
-          const firstProduct = cart[0].product || {};
-          showDataHandler(firstProduct);
+          showDataHandler(response.product);
         } else {
-          toast.error("Cart is empty");
+          toast.error(response.message);
+          // navigate("/");
         }
-      } else {
-        toast.error(response.message);
-        navigate("/");
       }
-    } else {
-      response = await directInCart(BASE_URL, authorizationToken, productId);
-      if (response.success) {
-        setProducts([response.product]);
-        setTotalAmount({
-          totalAmount: response.totalAmount,
-          withConveniencefee: response.withConveniencefee,
-        });
-        showDataHandler(response.product);
-      } else {
-        toast.error(response.message);
-        navigate("/");
-      }
+    } catch (error) {
+      console.error("Error fetching user cart:", error);
+      toast.error("Error fetching user cart. Please try again later.");
+      navigate("/");
     }
   };
 
   const fetchInvoice = async () => {
-    const response = await fetchOneInvoice(
-      BASE_URL,
-      authorizationToken,
-      orderId
-    );
-    setName(response.order.name);
-    setAddress(response.order.address);
-    setPaymentMethod(response.order.paymentMethod);
-    setTotalAmount({
-      totalAmount: response.order.totalAmount,
-      withConveniencefee: parseInt(response.order.totalAmount) + 45,
-    });
-    setProducts(response.order.products);
-    showDataHandler(response.order.products[0]);
+    try {
+      const response = await fetchOneInvoice(
+        BASE_URL,
+        authorizationToken,
+        orderId
+      );
+      if (response.success) {
+        const order = response.order;
+        setName(order.name);
+        setAddress(order.address);
+        setPaymentMethod(order.paymentMethod);
+        setTotalAmount({
+          totalAmount: order.totalAmount,
+          withConveniencefee: parseInt(order.totalAmount) + 45,
+        });
+        setProducts(order.products);
+        showDataHandler(order.products[0]);
+      } else {
+        toast.error(response.message || "Failed to fetch invoice");
+        navigate(-1);
+      }
+    } catch (error) {
+      toast.error("Failed to fetch invoice details. Please try again later.");
+      navigate(-1);
+    }
   };
 
   useEffect(() => {
@@ -129,23 +147,28 @@ const CheckOut = () => {
 
   const handlePlaceOrder = async () => {
     if (isValid()) {
-      const response = await orderplaced(
-        BASE_URL,
-        authorizationToken,
-        name,
-        address,
-        paymentMethod,
-        orderFromCart,
-        !orderFromCart && productId
-      );
-      if (response.status) {
-        setCartItemCount(0);
-        toast.success(response.message);
-        setOrderFromCart(true);
-        navigate("/orderplaced/success");
-      } else {
-        toast.error(response.message);
-        navigate("/");
+      try {
+        const response = await orderplaced(
+          BASE_URL,
+          authorizationToken,
+          name,
+          address,
+          paymentMethod,
+          orderFromCart,
+          !orderFromCart && productId
+        );
+
+        if (response.status) {
+          setCartItemCount(0);
+          toast.success(response.message);
+          setOrderFromCart(true);
+          navigate("/orderplaced/success");
+        } else {
+          toast.error(response.message || "Failed to place order");
+        }
+      } catch (error) {
+        console.error("Error placing order:", error);
+        toast.error("Failed to place order. Please try again later.");
       }
     }
   };

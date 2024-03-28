@@ -14,8 +14,14 @@ import toast from "react-hot-toast";
 const ProductDetails = () => {
   const navigate = useNavigate();
   const { productId } = useParams();
-  const { BASE_URL, authorizationToken, isLoggedIn, setCartItemCount,setOrderFromCart } =
-    useAuth();
+  const [selectedImage, setSelectedImage] = useState(null);
+  const {
+    BASE_URL,
+    authorizationToken,
+    isLoggedIn,
+    setCartItemCount,
+    setOrderFromCart,
+  } = useAuth();
   const [product, setProduct] = useState(null);
   const [navData, setNavData] = useState({
     brand: "",
@@ -30,6 +36,7 @@ const ProductDetails = () => {
         brand: response.productdetails.brand,
         model: response.productdetails.model,
       });
+      setSelectedImage(response.productdetails.images[0]);
     } else {
       console.log("add toast in details", response);
     }
@@ -57,7 +64,7 @@ const ProductDetails = () => {
     if (!isLoggedIn) {
       navigate("/auth");
     } else {
-      setOrderFromCart(false)
+      setOrderFromCart(false);
       navigate(`/checkout/${productId}`);
     }
   };
@@ -65,7 +72,11 @@ const ProductDetails = () => {
   return (
     <>
       <div className={styles.mobileDetailsFile}>
-        <MobProductDetail product={product} addToCartHandler={addToCartHandler} buyNowHandler={buyNowHandler} />
+        <MobProductDetail
+          product={product}
+          addToCartHandler={addToCartHandler}
+          buyNowHandler={buyNowHandler}
+        />
       </div>
       <div className={styles.mainContainer}>
         <section className={styles.preNavbar}>
@@ -90,11 +101,19 @@ const ProductDetails = () => {
               </div>
               <section className={styles.productSection}>
                 <div className={styles.imageBox}>
-                  <img src={product.images[0]} alt="headphoneIcon" />
+                  <img src={selectedImage} alt="headphoneIcon" />
                   <div className={styles.smallImages}>
-                    <img src={product.images[1]} alt="headphoneIcon" />
-                    <img src={product.images[2]} alt="headphoneIcon" />
-                    <img src={product.images[3]} alt="headphoneIcon" />
+                    {product.images.map(
+                      (image, index) =>
+                        selectedImage !== image && (
+                          <img
+                            key={index}
+                            src={image}
+                            alt="headphoneIcon"
+                            onClick={() => setSelectedImage(image)}
+                          />
+                        )
+                    )}
                   </div>
                 </div>
                 <div className={styles.productInfo}>

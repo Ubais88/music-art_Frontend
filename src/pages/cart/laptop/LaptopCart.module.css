@@ -12,6 +12,7 @@
 
 .section2 {
   margin-top: 1rem;
+  min-height: 70vh;
 }
 
 .title {
@@ -170,4 +171,8 @@
   font-size: 1.7vw;
   font-weight: 500;
   cursor: pointer;
+}
+
+.footer{
+  margin-top: auto;
 }

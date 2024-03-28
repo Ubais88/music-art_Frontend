@@ -6,10 +6,12 @@ import { useAuth } from "../../store/auth";
 import { cartLength } from "../../apis/cart/Cart";
 import { useNavigate } from "react-router-dom";
 import Profile from "../profile/Profile";
+import toast from "react-hot-toast";
 
 const Navbar = ({ navData }) => {
   const navigate = useNavigate();
   const [showProfile, setShowProfile] = useState(false);
+  const [nameLetter, setNameLetter] = useState();
   const {
     BASE_URL,
     authorizationToken,
@@ -23,10 +25,25 @@ const Navbar = ({ navData }) => {
     if (response.status === 200) {
       setCartItemCount(response.data.cartLength);
     }
+    else{
+      toast.error(response.message)
+    }
   };
 
   useEffect(() => {
-    cartQuantity();
+    if (isLoggedIn) {
+      cartQuantity();
+      const name = localStorage.getItem("name");
+      if (!name) return "";
+      const parts = name.split(" ");
+      let initials = parts[0].charAt(0);
+      if (parts.length > 1) {
+        initials += parts[parts.length - 1].charAt(0);
+      } else {
+        initials += parts[0].charAt(1) || "";
+      }
+      setNameLetter(initials.toUpperCase());
+    }
   }, []);
 
   const cartHandler = () => {
@@ -43,6 +60,7 @@ const Navbar = ({ navData }) => {
           <a
             className={styles.navLink}
             onClick={() => navigate("/my-invoices")}
+            style={{cursor: 'pointer'}}
           >
             Invoice
           </a>
@@ -58,7 +76,7 @@ const Navbar = ({ navData }) => {
             <MdOutlineShoppingCart size={35} />
             <span>
               View Cart{" "}
-              {(navData && navData.brand) !== "view Cart" && cartItemCount}
+              {(navData && navData.model) !== "View Cart" && cartItemCount}
             </span>
           </div>
           {!navData && (
@@ -67,7 +85,7 @@ const Navbar = ({ navData }) => {
                 className={styles.userName}
                 onClick={() => setShowProfile((prev) => !prev)}
               >
-                UB
+                {nameLetter}
               </div>
               {showProfile && (
                 <div className={styles.profileModal}>

@@ -26,6 +26,7 @@ main {
   justify-content: center;
   overflow: auto;
   padding: 1rem;
+  margin-bottom: 4rem;
 }
 
 .invoiceContainer {

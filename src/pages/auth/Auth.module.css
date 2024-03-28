@@ -78,8 +78,20 @@
   display: none;
 }
 
-@media screen and (min-width: 300px) and (max-width: 480px){
 
+.footer{
+  /* position: fixed; */
+  width: 100%;
+  bottom: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+@media screen and (min-width: 300px) and (max-width: 480px){
+  .topContainer{
+    min-height: 100vh;
+  }
   .welcome {
     display: block;
     text-align: left;
@@ -115,7 +127,10 @@
     text-decoration: underline;
     cursor: pointer;
   }
-  
+  .footer{
+    position: fixed;
+    bottom: 0;
+  }
   .newAccount {
     width: 90vw;
   }

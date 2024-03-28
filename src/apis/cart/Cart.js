@@ -24,8 +24,7 @@ export const cartLength = async (BASE_URL, authorizationToken) => {
     return response;
   } catch (error) {
     if (error) {
-      console.log("error: ", error);
-      return error.response;
+      return error.response.data;
     }
   }
 };
@@ -35,11 +34,12 @@ export const cartProducts = async (BASE_URL, authorizationToken) => {
     const response = await axios.get(`${BASE_URL}/cart/cart-items`, {
       headers: { Authorization: authorizationToken },
     });
+      console.log("response: ",  response);
     return response.data;
   } catch (error) {
     if (error) {
-      console.log("error: ", error);
-      return error.response;
+      console.log("error: ",  error.response);
+      return error.response.data;
     }
   }
 };
@@ -52,12 +52,10 @@ export const directInCart = async (BASE_URL, authorizationToken, productId) => {
         headers: { Authorization: authorizationToken },
       }
     );
-    // console.log(response);
     return response.data;
   } catch (error) {
     if (error) {
-      console.log("error: ", error);
-      return error.response;
+      return error.response.data;
     }
   }
 };

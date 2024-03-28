@@ -13,12 +13,14 @@
   font-size: 2.4rem;
   font-weight: 400;
   color: #000000;
+  width: 100%;
 }
 
 .inputGroup {
   display: flex;
   flex-direction: column;
   gap: 0.5vh;
+  width: 100%;
 }
 
 .label {
@@ -48,6 +50,7 @@
   border-radius: 0.4rem;
   font-size: 1.1rem;
   font-weight: 500;
+  width: 100%;
 }
 
 .continueButton {
@@ -60,6 +63,7 @@
   text-align: center;
   color: #ffffff;
   cursor: pointer;
+  width: 100%;
 }
 
 .errorContainer{

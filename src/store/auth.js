@@ -10,17 +10,21 @@ export const AuthProvider = ({ children }) => {
   const [invoicefrom, setInvoiceForm] = useState(false);
   const [cartItemCount, setCartItemCount] = useState(0);
   const [orderFromCart, setOrderFromCart] = useState(true);
+  const [selectedItem, setSelectedItem] = useState("home");
+  const [search, setSearch] = useState("");
   const authorizationToken = `Bearer ${token}`;
 
-  const storeTokenInLS = (serverToken) => {
+  const storeTokenInLS = (serverToken, name) => {
     setToken(serverToken);
     localStorage.setItem("token", serverToken);
+    localStorage.setItem("name", name);
   };
 
   // logout - remove token from local storage
   const LogoutUser = () => {
     setToken("");
     localStorage.removeItem("token");
+    localStorage.removeItem("name");
   };
 
   const isLoggedIn = !!token;
@@ -41,6 +45,10 @@ export const AuthProvider = ({ children }) => {
         setInvoiceForm,
         orderFromCart,
         setOrderFromCart,
+        search,
+        setSearch,
+        selectedItem,
+        setSelectedItem,
       }}
     >
       {children}

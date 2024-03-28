@@ -11,8 +11,19 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   cursor: pointer;
+}
+.iconHeader{
+  display: flex;
+  flex-direction: column;
+  height: 80%;
+}
+
+.border{
+  border-top: 4px solid #2E0052;
+  width: 4rem;
+  border-radius: 1rem;
 }
 
 .footerItem > span,
@@ -38,6 +49,8 @@
   color: #fff;
   font-family: Roboto;
   font-weight: 500;
+  width: 1rem;
+  text-align: center;
 }
 
 .userIcon {

@@ -12,7 +12,7 @@ const MobileCart = ({ products, totalAmount }) => {
       <MobileSearch />
       <div className={styles.container}>
         <div className={styles.backButton}>
-          <IoMdArrowRoundBack size={30} onClick={() => navigate("/")} />
+          <IoMdArrowRoundBack size={30} onClick={() => navigate(-1)} />
         </div>
         {products === null || products.length === 0 ? (
           <center

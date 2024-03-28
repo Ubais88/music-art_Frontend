@@ -16,7 +16,6 @@ const Product = ({ item, view }) => {
       navigate("/auth");
       return;
     }
-
     const response = await addToCart(BASE_URL, authorizationToken, productId);
     if (response.status === 200) {
       toast.success(response.data.message);

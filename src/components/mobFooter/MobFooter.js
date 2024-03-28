@@ -1,57 +1,114 @@
-import React from "react";
+import React, { useState } from "react";
 import { GoHome } from "react-icons/go";
 import { MdOutlineAddShoppingCart } from "react-icons/md";
 import loginUser from "../../assets/loginuser.png";
 import loginVector from "../../assets/loginVector.png";
 import styles from "./MobFooter.module.css";
-import { CiUser } from "react-icons/ci";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../store/auth";
+import invoice from "../../assets/mobInvoice.png";
 
 const MobFooter = () => {
   const navigate = useNavigate();
-  const { isLoggedIn, LogoutUser, cartItemCount } = useAuth();
+  const { isLoggedIn, LogoutUser, cartItemCount , selectedItem, setSelectedItem } = useAuth();
 
   const logoutHandler = () => {
     LogoutUser();
   };
+
   const loginHandler = () => {
     navigate("/auth");
   };
 
   return (
     <div className={styles.container}>
-      <div className={styles.footerItem} onClick={() => navigate("/")}>
-        <GoHome color="#2E0052" size={30} />
-        <span>Home</span>
-      </div>
-      <div className={styles.footerItem}>
-        <div className={styles.cartContainer} onClick={() => navigate("/cart")}>
-          <MdOutlineAddShoppingCart color="#2E0052" size={30} />
-          <span className={styles.cartQuantity}>{cartItemCount}</span>
+      <div
+        className={`${styles.footerItem} ${
+          selectedItem === "home" && styles.selected
+        }`}
+        onClick={() => {
+          navigate("/");
+          setSelectedItem("home");
+        }}
+      >
+        <div
+          className={`${selectedItem === "home" ? styles.border : ""}`}
+        ></div>
+        <div className={styles.iconHeader}>
+          <GoHome color="#2E0052" size={30} />
+          <span>Home</span>
         </div>
-        <span>Cart</span>
       </div>
-      <div className={styles.footerItem}>
-        {isLoggedIn ? (
-          <div className={styles.authMain} onClick={logoutHandler}>
+      <div
+        className={`${styles.footerItem}`}
+        onClick={() => {
+          navigate("/cart");
+          setSelectedItem("cart");
+        }}
+      >
+        <div
+          className={`${selectedItem === "cart" ? styles.border : ""}`}
+        ></div>
+        <div className={styles.iconHeader}>
+          <div className={styles.cartContainer}>
+            <MdOutlineAddShoppingCart color="#2E0052" size={30} />
+            <span className={styles.cartQuantity}>{cartItemCount}</span>
+          </div>
+          <span>Cart</span>
+        </div>
+      </div>
+      <div
+        className={`${styles.footerItem}`}
+        onClick={() => {
+          navigate("/my-invoices");
+          setSelectedItem("invoice");
+        }}
+      >
+        <div
+          className={`${selectedItem === "invoice" ? styles.border : ""}`}
+        ></div>
+        <div className={styles.iconHeader}>
+          <div className={styles.authMain}>
             <img
-              src={loginVector}
-              alt="mobilefooter"
+              src={invoice}
+              alt="mobileinvoice"
               className={styles.userIcon}
             />
-            <span>Logout</span>
+            <span>Invoice</span>
           </div>
-        ) : (
-          <div className={styles.authMain} onClick={loginHandler}>
-            <img
-              src={loginUser}
-              alt="mobilefooter"
-              className={styles.userIcon}
-            />
-            <span>Login</span>
-          </div>
-        )}
+        </div>
+      </div>
+      <div
+        className={`${styles.footerItem}`}
+        onClick={() => {
+          isLoggedIn ? logoutHandler() : loginHandler();
+          setSelectedItem("login");
+        }}
+      >
+        <div
+          className={`${selectedItem === "login" ? styles.border : ""}`}
+        ></div>
+        <div className={styles.iconHeader}>
+          {isLoggedIn ? (
+            <div className={styles.authMain}>
+              <img
+                src={loginVector}
+                alt="mobilefooter"
+                className={styles.userIcon}
+              />
+              <span>Logout</span>
+            </div>
+          ) : (
+            <div className={styles.authMain}>
+              <img
+                src={loginUser}
+                alt="mobilefooter"
+                className={styles.userIcon}
+              />
+              <span>Login</span>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

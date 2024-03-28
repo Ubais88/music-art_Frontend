@@ -4,9 +4,12 @@ import MobileCart from "./mobile/MobileCart";
 import styles from "./Cart.module.css";
 import { useAuth } from "../../store/auth";
 import { cartProducts } from "../../apis/cart/Cart";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
-  const { BASE_URL, authorizationToken } = useAuth();
+  const navigate = useNavigate();
+  const { BASE_URL, authorizationToken , setSelectedItem } = useAuth();
   const [products, setProducts] = useState(null);
   const [totalAmount, setTotalAmount] = useState({
     totalAmount: "",
@@ -15,14 +18,20 @@ const Cart = () => {
 
   const userCart = async () => {
     const response = await cartProducts(BASE_URL, authorizationToken);
-    setProducts(response.cart);
-    setTotalAmount({
-      totalAmount: response.totalAmount,
-      withConveniencefee: response.withConveniencefee,
-    });
+    if (response.success) {
+      setProducts(response.cart);
+      setTotalAmount({
+        totalAmount: response.totalAmount,
+        withConveniencefee: response.withConveniencefee,
+      });
+    } else {
+      toast.error(response.data.message);
+      navigate("/");
+    }
   };
   useEffect(() => {
     userCart();
+    setSelectedItem('cart')
   }, []);
 
   return (

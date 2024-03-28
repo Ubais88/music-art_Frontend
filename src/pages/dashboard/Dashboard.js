@@ -14,20 +14,20 @@ import MobileSearch from "../../components/mobileSearch/MobileSearch";
 import { useAuth } from "../../store/auth";
 import { allProducts } from "../../apis/product/Product";
 import chatbox from "../../assets/chatbox.png";
-import Chatbox from "../../components/chatbox/Chatbox";
+import Feedback from "../../components/feedback/Feedback";
+import toast from "react-hot-toast";
 
 const Dashboard = () => {
-  const { loading, BASE_URL } = useAuth();
+  const { loading, BASE_URL, search, setSearch, setSelectedItem } = useAuth();
   const [view, setView] = useState("grid");
   const [product, setProduct] = useState([]);
   const [headphoneType, setHeadphoneType] = useState("");
   const [company, setCompany] = useState("");
   const [color, setColor] = useState("");
   const [price, setPrice] = useState("");
-  const [search, setSearch] = useState("");
   const [sortBy, setSortBy] = useState("");
   const [showFeedBack, setShowFeedBack] = useState(false);
-
+  setSelectedItem("home");
   const productFetch = async () => {
     const response = await allProducts(
       BASE_URL,
@@ -38,7 +38,13 @@ const Dashboard = () => {
       search,
       sortBy
     );
-    setProduct(response.data.products);
+    if (response && response.data && response.data.products) {
+      setProduct(response.data.products);
+    } else {
+      // console.error("Products data is undefined or null." ,response);
+      toast.error(response.message);
+    }
+    // setProduct(response.data.products || []);
   };
 
   useEffect(() => {
@@ -66,7 +72,6 @@ const Dashboard = () => {
   };
 
   const handleSortChange = (event) => {
-    console.log("sorttt", event.target.value);
     setSortBy(event.target.value);
   };
 
@@ -137,10 +142,9 @@ const Dashboard = () => {
                   <option value="" disabled hidden>
                     Headphone type
                   </option>
-                  <option value="featured">Featured</option>
+                  <option value="">Featured</option>
                   <option value="In-ear headphone">In-ear headphone</option>
                   <option value="On-ear headphone">On-ear headphobe</option>
-
                   <option value="Over-ear headphone">Over-ear headphone</option>
                 </select>
 
@@ -153,7 +157,7 @@ const Dashboard = () => {
                   <option value="" disabled hidden>
                     Company
                   </option>
-                  <option value="featured">Featured</option>
+                  <option value="">Featured</option>
                   <option value="jbl">JBL</option>
                   <option value="sony">Sony</option>
                   <option value="boat">Boat</option>
@@ -170,7 +174,7 @@ const Dashboard = () => {
                   <option value="" disabled hidden>
                     Colour
                   </option>
-                  <option value="featured">Featured</option>
+                  <option value="">Featured</option>
                   <option value="blue">Blue</option>
                   <option value="black">Black</option>
                   <option value="white">White</option>
@@ -185,7 +189,7 @@ const Dashboard = () => {
                   <option value="" disabled hidden>
                     Price
                   </option>
-                  <option value="featured">Featured</option>
+                  <option value="">Featured</option>
                   <option value="0-1000">₹0-₹1000</option>
                   <option value="1000-2000">₹1,000-₹10,000</option>
                   <option value="10000-20000">₹10000-₹20000</option>
@@ -200,7 +204,7 @@ const Dashboard = () => {
                   onChange={handleSortChange}
                   defaultValue=""
                 >
-                  <option value="featured">Featured</option>
+                  <option value="">Featured</option>
                   <option value="PriceLowest">Price:Lowest</option>
                   <option value="PriceHighest">Price:Highest</option>
                   <option value="a-z">Name:(A-Z)</option>
@@ -228,7 +232,7 @@ const Dashboard = () => {
       <div className={styles.feedBackContainer}>
         {showFeedBack && (
           <div className={styles.feedback}>
-            <Chatbox />
+            <Feedback setShowFeedBack={setShowFeedBack} />
           </div>
         )}
         <div

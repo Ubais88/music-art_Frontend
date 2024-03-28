@@ -1,4 +1,5 @@
 import React from "react";
+import ProtectedRoute from "./ProtectedRoute.js";
 import Dashboard from "./pages/dashboard/Dashboard";
 import ProductDetails from "./pages/productDetails/ProductDetails";
 import Cart from "./pages/cart/Cart";
@@ -11,12 +12,6 @@ import { Route, Routes } from "react-router-dom";
 const App = () => {
   return (
     <div>
-      {/* <Dashboard /> */}
-      {/* <ProductDetails/> */}
-      {/* <Cart/> */}
-      {/* <Checkout/> */}
-      {/* <OrderSuccess/> */}
-      {/* <Invoices/> */}
       <Routes>
         <Route path="/" element={<Dashboard />} />
         <Route path="/auth" element={<Auth />} />
@@ -24,12 +19,15 @@ const App = () => {
           path="/product-details/:productId"
           element={<ProductDetails />}
         />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/checkout" element={<Checkout />} />
-        <Route path="/orderplaced/success" element={<OrderSuccess />} />
-        <Route path="/my-invoices" element={<Invoices />} />
-        <Route path="/view-invoice/:orderId" element={<Checkout />} />
-        <Route path="/checkout/:productId" element={<Checkout />} />
+
+        <Route element={<ProtectedRoute />}>
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/orderplaced/success" element={<OrderSuccess />} />
+          <Route path="/my-invoices" element={<Invoices />} />
+          <Route path="/view-invoice/:orderId" element={<Checkout />} />
+          <Route path="/checkout/:productId" element={<Checkout />} />
+        </Route>
       </Routes>
     </div>
   );

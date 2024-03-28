@@ -21,6 +21,7 @@ const PreNavbar = () => {
 
   const logoutClickHandler = () => {
     LogoutUser();
+    navigate('/')
   }
 
   return (

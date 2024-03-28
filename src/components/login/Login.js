@@ -49,7 +49,7 @@ const Login = () => {
           emailOrNumber: "",
           password: "",
         });
-        storeTokenInLS(response.data.token);
+        storeTokenInLS(response.data.token , response.data.name);
         toast.success("Login successful");
         navigate('/')
       } else {

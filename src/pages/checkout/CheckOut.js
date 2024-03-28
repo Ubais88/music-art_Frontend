@@ -16,13 +16,15 @@ import { fetchOneInvoice } from "../../apis/product/Product";
 const CheckOut = () => {
   const navigate = useNavigate();
   const { orderId, productId } = useParams();
-  const { BASE_URL, authorizationToken, orderFromCart, setCartItemCount,setOrderFromCart } =
-    useAuth();
+  const {
+    BASE_URL,
+    authorizationToken,
+    orderFromCart,
+    setCartItemCount,
+    setOrderFromCart,
+  } = useAuth();
   const [products, setProducts] = useState([]);
-  const [totalAmount, setTotalAmount] = useState({
-    totalAmount: "",
-    withConveniencefee: "",
-  });
+  const [totalAmount, setTotalAmount] = useState({});
   const [showData, setShowData] = useState({});
   const [navData, setNavData] = useState({});
   const [name, setName] = useState("");
@@ -34,22 +36,36 @@ const CheckOut = () => {
     let response;
     if (!productId) {
       response = await cartProducts(BASE_URL, authorizationToken);
-      if (response.cart.length) {
-        setProducts(response.cart);
+      if (response.success) {
+        const cart = response.cart || [];
+        if (cart.length > 0) {
+          setProducts(cart);
+          setTotalAmount({
+            totalAmount: response.totalAmount,
+            withConveniencefee: response.withConveniencefee,
+          });
+          const firstProduct = cart[0].product || {};
+          showDataHandler(firstProduct);
+        } else {
+          toast.error("Cart is empty");
+        }
+      } else {
+        toast.error(response.message);
+        navigate("/");
+      }
+    } else {
+      response = await directInCart(BASE_URL, authorizationToken, productId);
+      if (response.success) {
+        setProducts([response.product]);
         setTotalAmount({
           totalAmount: response.totalAmount,
           withConveniencefee: response.withConveniencefee,
         });
-        showDataHandler(response.cart[0].product);
+        showDataHandler(response.product);
+      } else {
+        toast.error(response.message);
+        navigate("/");
       }
-    } else {
-      response = await directInCart(BASE_URL, authorizationToken, productId);
-      setProducts([response.product]);
-      setTotalAmount({
-        totalAmount: response.totalAmount,
-        withConveniencefee: response.withConveniencefee,
-      });
-      showDataHandler(response.product);
     }
   };
 
@@ -74,14 +90,14 @@ const CheckOut = () => {
     if (orderId) {
       fetchInvoice();
       setNavData({
-        brand: "Invoices",
-        model: "",
+        brand: "",
+        model: "Invoices",
       });
     } else {
       userCart(productId);
       setNavData({
-        brand: "Checkout",
-        model: "",
+        brand: "",
+        model: "Checkout",
       });
     }
   }, []);
@@ -113,7 +129,6 @@ const CheckOut = () => {
 
   const handlePlaceOrder = async () => {
     if (isValid()) {
-      console.log("orderFromCart", orderFromCart);
       const response = await orderplaced(
         BASE_URL,
         authorizationToken,
@@ -124,10 +139,13 @@ const CheckOut = () => {
         !orderFromCart && productId
       );
       if (response.status) {
-        setCartItemCount(0)
+        setCartItemCount(0);
         toast.success(response.message);
         setOrderFromCart(true);
         navigate("/orderplaced/success");
+      } else {
+        toast.error(response.message);
+        navigate("/");
       }
     }
   };
@@ -140,7 +158,7 @@ const CheckOut = () => {
       <div className={styles.MobNavbar}>
         <MobNavbar />
       </div>
-      <div className={styles.backArrow} onClick={() => navigate("/")}>
+      <div className={styles.backArrow} onClick={() => navigate(-1)}>
         <IoMdArrowRoundBack size={30} />
       </div>
 
@@ -157,7 +175,7 @@ const CheckOut = () => {
         </h2>
 
         {products.length < 1 ? (
-          <h1>Loading</h1>
+          <h1 className={styles.noProduct}>No Product To Show</h1>
         ) : (
           <>
             <main className={styles.main}>
@@ -170,7 +188,7 @@ const CheckOut = () => {
                       placeholder="Enter Name"
                       className={`${styles.nameField} ${
                         errors.name && styles.errorInput
-                      }`}
+                      } `}
                       value={name}
                       onChange={(e) => {
                         setName(e.target.value);
@@ -186,22 +204,30 @@ const CheckOut = () => {
                         <div className={styles.error}>{errors.name}</div>
                       )}
                     </div>
-                    <input
-                      type="text"
-                      placeholder="Enter Delivery Address"
-                      className={`${styles.addressField} ${
-                        errors.address && styles.errorInput
-                      }`}
-                      value={address}
-                      onChange={(e) => {
-                        setAddress(e.target.value);
-                        setErrors({
-                          ...errors,
-                          address: "",
-                        });
-                      }}
-                      readOnly={!!orderId}
-                    />
+                    {!orderId ? (
+                      <input
+                        type="text"
+                        placeholder="Enter Delivery Address"
+                        className={`${styles.addressField} ${
+                          errors.address && styles.errorInput
+                        }`}
+                        value={address}
+                        onChange={(e) => {
+                          setAddress(e.target.value);
+                          setErrors({
+                            ...errors,
+                            address: "",
+                          });
+                        }}
+                      />
+                    ) : (
+                      <textarea
+                        className={`${styles.addressField}`}
+                        value={address}
+                        rows={3}
+                        readOnly={!!orderId}
+                      ></textarea>
+                    )}
                     <div className={styles.errorHeader}>
                       {errors.address && (
                         <div className={styles.error}>{errors.address}</div>

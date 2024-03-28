@@ -14,7 +14,7 @@ const Register = () => {
     password: "",
   });
   const [errors, setErrors] = useState({});
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -54,9 +54,8 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (isFormValid()) {
-      console.log("Valid:", formData);
       const response = await register(formData, BASE_URL);
-      console.log("response.status", response);
+      // console.log("response.status", response);
       if (response.status === 200) {
         setFormData({
           name: "",
@@ -64,9 +63,9 @@ const Register = () => {
           mobile: "",
           password: "",
         });
-        storeTokenInLS(response.data.token);
+        storeTokenInLS(response.data.token, response.data.user.name);
         toast.success("Signup successful");
-        navigate('/')
+        navigate("/");
       } else {
         toast.error(response.message);
       }

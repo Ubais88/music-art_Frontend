@@ -1,7 +1,11 @@
 import React, { useState } from "react";
-import styles from "./Chatbox.module.css";
+import styles from "./Feedback.module.css";
+import { useAuth } from "../../store/auth";
+import { sendFeedback } from "../../apis/auth/Feedback";
+import toast from "react-hot-toast";
 
-const Chatbox = () => {
+const Feedback = ({ setShowFeedBack }) => {
+  const { BASE_URL, authorizationToken } = useAuth();
   const [feedbackType, setFeedbackType] = useState("");
   const [feedbackMessage, setFeedbackMessage] = useState("");
   const [errors, setErrors] = useState({});
@@ -36,11 +40,21 @@ const Chatbox = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (isFormValid()) {
-      console.log("Feedback Type:", feedbackType);
-      console.log("Feedback Message:", feedbackMessage);
+      const response = await sendFeedback(
+        BASE_URL,
+        authorizationToken,
+        feedbackType,
+        feedbackMessage
+      );
+      if (response.success) {
+        toast.success(response.message);
+      } else {
+        toast.error(response.message);
+      }
+      setShowFeedBack(false);
       setFeedbackType("");
       setFeedbackMessage("");
     }
@@ -95,4 +109,4 @@ const Chatbox = () => {
   );
 };
 
-export default Chatbox;
+export default Feedback;

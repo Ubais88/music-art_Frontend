@@ -119,11 +119,11 @@
 }
 
 .sortOptions {
-  /* width: 15vw; */
+  width: 17vw;
   height: 100%;
   border: 0.15rem solid #e1e1e1;
   border-radius: 50px;
-  padding: 1rem;
+  padding: 0.6rem;
   font-size: 1rem;
   font-weight: 400;
   display: flex;
@@ -133,6 +133,7 @@
 .sortSelect {
   background-color: transparent;
   font-weight: 400;
+  width: 8rem;
 }
 
 .productGrid {
@@ -157,9 +158,9 @@
   z-index: 245;
 }
 
-.feedback{
+.feedback {
   position: fixed;
-  bottom:16%;
+  bottom: 16%;
   right: 1%;
 }
 
@@ -197,7 +198,8 @@
 
 @media screen and (min-width: 300px) and (max-width: 480px) {
   .navbar,
-  .headerSection {
+  .headerSection,
+  .feedBackContainer {
     display: none;
   }
 
@@ -260,6 +262,7 @@
     height: 6vh;
     flex-direction: row-reverse;
     overflow-y: auto;
+    direction: ltr;
   }
 
   .viewOptions {
@@ -282,8 +285,12 @@
   }
 
   .sortOptions {
+    width: 100%;
     border: 0.89px solid #e1e1e1;
     border-radius: 0.4rem;
+    >span{
+      width: 100%;
+    }
   }
 
   .productGrid {

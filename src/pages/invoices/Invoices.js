@@ -12,10 +12,12 @@ import { IoMdArrowRoundBack } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../store/auth";
 import { fetchAllInvoices } from "../../apis/product/Product";
+import toast from "react-hot-toast";
 
 const Invoices = () => {
   const navigate = useNavigate();
-  const { BASE_URL, authorizationToken ,setOrderFromCart, setInvoiceForm} = useAuth();
+  const { BASE_URL, authorizationToken, setInvoiceForm, setSelectedItem } =
+    useAuth();
   const [invoices, setInvoices] = useState([]);
   const [navData, setNavData] = useState({
     brand: "",
@@ -24,12 +26,17 @@ const Invoices = () => {
 
   const fetchInvoice = async () => {
     const response = await fetchAllInvoices(BASE_URL, authorizationToken);
-    console.log("response in page:", response.orders);
-    setInvoices(response.orders);
+    if (response.success) {
+      setInvoices(response.orders);
+    } else {
+      toast.error(response.data.message);
+      navigate("/");
+    }
   };
 
   useEffect(() => {
     fetchInvoice();
+    setSelectedItem("invoice");
   }, []);
 
   const viewInvoiceHandler = (orderId) => {
@@ -51,7 +58,7 @@ const Invoices = () => {
       <div className={styles.backButton}>
         <BackButton />
       </div>
-      <div className={styles.backArrow}>
+      <div className={styles.backArrow} onClick={() => navigate(-1)}>
         <IoMdArrowRoundBack size={30} />
       </div>
       <div className={styles.invoiceHeader}>
@@ -63,8 +70,8 @@ const Invoices = () => {
       ) : (
         <main className={styles.main}>
           {invoices.map((invoice) => (
-            <>
-              <div className={styles.invoiceContainer} key={invoice._id}>
+            <React.Fragment key={invoice._id}>
+              <div className={styles.invoiceContainer}>
                 <div className={styles.left}>
                   <img
                     className={styles.invoiceImage}
@@ -73,7 +80,11 @@ const Invoices = () => {
                   />
                   <div className={styles.invoiceInfo}>
                     <p className={styles.invoiceName}>{invoice.name}</p>
-                    <p className={styles.invoiceAddress}>{invoice.address}</p>
+                    <p className={styles.invoiceAddress}>
+                      {invoice.address.length > 25
+                        ? invoice.address.substring(0, 25) + "..."
+                        : invoice.address}
+                    </p>
                   </div>
                 </div>
                 <div className={styles.right}>
@@ -86,7 +97,7 @@ const Invoices = () => {
                 </div>
               </div>
               <div className={styles.divider}></div>
-            </>
+            </React.Fragment>
           ))}
         </main>
       )}

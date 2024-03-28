@@ -7,13 +7,14 @@ import BackButton from "../../../components/backButton/BackButton";
 import Navbar from "../../../components/navbar/Navbar";
 import { useNavigate } from "react-router-dom";
 import { updateCartQuantity } from "../../../apis/cart/Cart";
+import { useAuth } from "../../../store/auth";
 
-
-const Cart = ({ products, setProducts , totalAmount }) => {
+const Cart = ({ products, setProducts, totalAmount }) => {
+  const { BASE_URL, authorizationToken } = useAuth();
   const navigate = useNavigate();
   const [navData, setNavData] = useState({
     brand: "",
-    model: "",
+    model: "View Cart",
   });
 
   const handleQuantityChange = (index, productId, event) => {
@@ -75,7 +76,6 @@ const Cart = ({ products, setProducts , totalAmount }) => {
                             handleQuantityChange(index, item.product._id, e)
                           }
                         >
-                          {/* <option disabled>{item.quantity}</option> */}
                           {[1, 2, 3, 4, 5, 6, 7, 8].map((val, index) => (
                             <option key={index} value={val}>
                               {val}
@@ -124,7 +124,7 @@ const Cart = ({ products, setProducts , totalAmount }) => {
           )}
         </section>
       </main>
-      <section>
+      <section className={styles.footer}>
         <Footer />
       </section>
     </>

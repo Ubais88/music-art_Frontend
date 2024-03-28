@@ -61,6 +61,10 @@
   font-size: 2rem;
   font-weight: 500;
   border-radius: 50%;
-  padding: 0.7rem;
   cursor: pointer;
+  width: 3.7rem; 
+  height: 3.7rem; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
 }

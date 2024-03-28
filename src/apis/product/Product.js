@@ -23,7 +23,7 @@ export const allProducts = async (
     return response;
   } catch (error) {
     if (error) {
-      console.log("error: ", error);
+      // console.log("error: ", error);
       return error.response.data;
     }
   }
@@ -48,12 +48,12 @@ export const fetchAllInvoices = async (BASE_URL, authorizationToken) => {
     const response = await axios.get(`${BASE_URL}/product/get-orders`, {
       headers: { Authorization: authorizationToken },
     });
-    // console.log(response.data)
+    console.log(response.data)
     return response.data;
   } catch (error) {
     if (error) {
-      console.log("error: ", error);
-      return error.response.data;
+      // console.log("error: ", error.response);
+      return error.response;
     }
   }
 };

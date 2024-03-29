@@ -23,19 +23,13 @@ const ProductDetails = () => {
     setOrderFromCart,
   } = useAuth();
   const [product, setProduct] = useState(null);
-  const [navData, setNavData] = useState({
-    brand: "",
-    model: "",
-  });
+  const [navData, setNavData] = useState("");
 
   const productDetailsFetch = async () => {
     const response = await productDetails(BASE_URL, productId);
     if (response.success) {
       setProduct(response.productdetails);
-      setNavData({
-        brand: response.productdetails.brand,
-        model: response.productdetails.model,
-      });
+      setNavData(response.productdetails.productName);
       setSelectedImage(response.productdetails.images[0]);
     } else {
       console.log("add toast in details", response);
@@ -118,7 +112,7 @@ const ProductDetails = () => {
                 </div>
                 <div className={styles.productInfo}>
                   <h1 className={styles.productTitle}>
-                    {product.brand} {product.model}
+                    {product.productName}
                   </h1>
                   <div className={styles.ratingBox}>
                     {[...Array(parseInt(product.rating))].map((_, index) => (

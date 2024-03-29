@@ -11,24 +11,24 @@ const PreNavbar = () => {
 
   const loginHandler = () => {
     setLogin(true);
-    navigate('/auth')
+    navigate("/auth");
   };
 
   const logoutHandler = () => {
     setLogin(false);
-    navigate('/auth')
+    navigate("/auth");
   };
 
   const logoutClickHandler = () => {
     LogoutUser();
-    navigate('/')
-  }
+    navigate("/");
+  };
 
   return (
     <header className={styles.header}>
       <div className={styles.contactInfo}>
         <TbPhoneCall size={20} />
-        <span>912121131313</span>
+        <span>{localStorage.getItem("mobile") || "912121131313"}</span>
       </div>
       <div className={styles.promotion}>
         <span>Get 50% off on selected items | Shop Now</span>

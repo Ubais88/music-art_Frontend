@@ -19,10 +19,7 @@ const Invoices = () => {
   const { BASE_URL, authorizationToken, setInvoiceForm, setSelectedItem } =
     useAuth();
   const [invoices, setInvoices] = useState([]);
-  const [navData, setNavData] = useState({
-    brand: "",
-    model: "Invoice",
-  });
+  const [navData, setNavData] = useState("Invoice");
 
   const fetchInvoice = async () => {
     try {

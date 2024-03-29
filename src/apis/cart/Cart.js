@@ -10,10 +10,11 @@ export const addToCart = async (BASE_URL, authorizationToken, productId) => {
     return response.data;
   } catch (error) {
     console.error("Error adding to cart:", error);
-    return error.response ? error.response.data : { success: false, message: "Something went wrong" };
+    return error.response
+      ? error.response.data
+      : { success: false, message: "Something went wrong" };
   }
 };
-
 
 export const cartLength = async (BASE_URL, authorizationToken) => {
   try {
@@ -28,8 +29,13 @@ export const cartLength = async (BASE_URL, authorizationToken) => {
       return { success: false, message: response.data.message };
     }
   } catch (error) {
-    console.error("Error fetching cart length:", error);
-    return { success: false, message: "Something went wrong" };
+    if (error.response.status === 401) {
+      console.log(error.response.status);
+      return error.response;
+    } else {
+      console.error("Error fetching cart length:", error);
+      return { success: false, message: "Something went wrong" };
+    }
   }
 };
 
@@ -38,11 +44,9 @@ export const cartProducts = async (BASE_URL, authorizationToken) => {
     const response = await axios.get(`${BASE_URL}/cart/cart-items`, {
       headers: { Authorization: authorizationToken },
     });
-    // console.log("response: " , response)
     if (response.status === 200) {
       return response.data;
     } else {
-      console.error("Error fetching cart products:", response.data.message);
       return { success: false, message: response.data.message };
     }
   } catch (error) {
@@ -59,7 +63,7 @@ export const directInCart = async (BASE_URL, authorizationToken, productId) => {
         headers: { Authorization: authorizationToken },
       }
     );
-    console.log("directincart",response)
+    console.log("directincart", response);
     return response.data;
   } catch (error) {
     console.error("Error fetching product from cart:", error);
@@ -110,7 +114,8 @@ export const orderplaced = async (
     return response.data;
   } catch (error) {
     console.error("Error placing order:", error);
-    return error.response ? error.response.data : { success: false, message: "Something went wrong" };
+    return error.response
+      ? error.response.data
+      : { success: false, message: "Something went wrong" };
   }
 };
-

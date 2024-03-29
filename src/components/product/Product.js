@@ -54,7 +54,7 @@ const Product = ({ item, view }) => {
           </div>
           <div className={styles.productInfo}>
             <span className={styles.productName}>
-              {item.brand} {item.model}
+              {item.productName}
             </span>
             <span className={styles.productPrice}>Price-₹ {item.price}</span>
             <span className={styles.productDetails}>
@@ -76,7 +76,7 @@ const Product = ({ item, view }) => {
 
           <div className={styles.productListInfo}>
             <span className={styles.productListName}>
-              {item.brand} {item.model}
+              {item.productName}
             </span>
             <span className={styles.productListPrice}>
               Price - ₹ {item.price}

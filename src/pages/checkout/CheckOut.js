@@ -26,7 +26,7 @@ const CheckOut = () => {
   const [products, setProducts] = useState([]);
   const [totalAmount, setTotalAmount] = useState({});
   const [showData, setShowData] = useState({});
-  const [navData, setNavData] = useState({});
+  const [navData, setNavData] = useState();
   const [name, setName] = useState("");
   const [address, setAddress] = useState("");
   const [paymentMethod, setPaymentMethod] = useState("");
@@ -107,22 +107,16 @@ const CheckOut = () => {
   useEffect(() => {
     if (orderId) {
       fetchInvoice();
-      setNavData({
-        brand: "",
-        model: "Invoices",
-      });
+      setNavData("Invoices");
     } else {
       userCart(productId);
-      setNavData({
-        brand: "",
-        model: "Checkout",
-      });
+      setNavData("Checkout");
     }
   }, []);
 
   const showDataHandler = (product) => {
     setShowData({
-      brand: product.brand,
+      productName: product.productName,
       color: product.color,
       available: product.available,
     });
@@ -325,7 +319,7 @@ const CheckOut = () => {
                     </div>
                     <div>
                       <span className={styles.productDetails}>
-                        {showData.brand} {showData.model}
+                        {showData.productName}
                       </span>
                       <span className={styles.productDetails}>
                         Colour: {showData.color}

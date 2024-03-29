@@ -46,6 +46,9 @@ const Register = () => {
     if (!formData.mobile) {
       newErrors.mobile = "Mobile is required";
     }
+    if (formData.mobile.length !== 10) {
+      newErrors.mobile = "Mobile must 10 Digit";
+    }
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -63,7 +66,11 @@ const Register = () => {
           mobile: "",
           password: "",
         });
-        storeTokenInLS(response.data.token, response.data.user.name);
+        storeTokenInLS(
+          response.data.token,
+          response.data.user.name,
+          response.data.user.mobile
+        );
         toast.success("Signup successful");
         navigate("/");
       } else {
@@ -83,7 +90,7 @@ const Register = () => {
         <input
           type="text"
           name="name"
-          className={`${styles.input} ${errors.mobile && styles.errorInput}`}
+          className={`${styles.input} ${errors.name && styles.errorInput}`}
           value={formData.name}
           onChange={handleInputChange}
         />
@@ -111,7 +118,7 @@ const Register = () => {
         <input
           type="text"
           name="email"
-          className={`${styles.input} ${errors.mobile && styles.errorInput}`}
+          className={`${styles.input} ${errors.email && styles.errorInput}`}
           value={formData.email}
           onChange={handleInputChange}
         />
@@ -124,7 +131,7 @@ const Register = () => {
         <input
           type="password"
           name="password"
-          className={`${styles.input} ${errors.mobile && styles.errorInput}`}
+          className={`${styles.input} ${errors.password && styles.errorInput}`}
           value={formData.password}
           onChange={handleInputChange}
         />

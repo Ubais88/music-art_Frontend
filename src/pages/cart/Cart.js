@@ -30,7 +30,6 @@ const Cart = () => {
         // navigate("/");
       }
     } catch (error) {
-      console.error("Error fetching user cart:", error);
       toast.error("Error fetching user cart. Please try again later.");
       navigate("/");
     }

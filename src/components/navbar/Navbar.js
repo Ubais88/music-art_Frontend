@@ -18,15 +18,21 @@ const Navbar = ({ navData }) => {
     isLoggedIn,
     cartItemCount,
     setCartItemCount,
+    LogoutUser,
   } = useAuth();
 
   const cartQuantity = async () => {
     try {
       const response = await cartLength(BASE_URL, authorizationToken);
-      if (response.success) {
+      if (response.status === 401) {
+        LogoutUser();
+        toast.error("Token is invalid or expired")
+        navigate("/");
+      }
+      else if (response.success) {
         setCartItemCount(response.cartLength);
       } else {
-        console.error(response.message)
+        console.error(response.message);
         // toast.error(response.message);
       }
     } catch (error) {
@@ -71,7 +77,7 @@ const Navbar = ({ navData }) => {
           </a>
         ) : (
           <a className={styles.navLink} style={{ marginLeft: "0" }}>
-            /{navData.brand} {navData.model}
+            / {navData}
           </a>
         )}
       </div>
@@ -79,10 +85,7 @@ const Navbar = ({ navData }) => {
         <div className={styles.cartContainer}>
           <div className={styles.cartWrapper} onClick={cartHandler}>
             <MdOutlineShoppingCart size={35} />
-            <span>
-              View Cart{" "}
-              {(navData && navData.model) !== "View Cart" && cartItemCount}
-            </span>
+            <span>View Cart {navData !== "View Cart" && cartItemCount}</span>
           </div>
           {!navData && (
             <div className={styles.profileMain}>

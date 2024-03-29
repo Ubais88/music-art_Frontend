@@ -44,12 +44,13 @@ const Login = () => {
     e.preventDefault();
     if (isFormValid()) {
       const response = await login(formData, BASE_URL);
+      console.log(response.data)
       if (response.status === 200) {
         setFormData({
           emailOrNumber: "",
           password: "",
         });
-        storeTokenInLS(response.data.token , response.data.name);
+        storeTokenInLS(response.data.token , response.data.name , response.data.mobile);
         toast.success("Login successful");
         navigate('/')
       } else {

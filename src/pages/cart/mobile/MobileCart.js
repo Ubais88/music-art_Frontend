@@ -28,7 +28,7 @@ const MobileCart = ({ products, totalAmount }) => {
                   <img src={item.product.images[0]} alt="headphoneimg" />
                   <div className={styles.productDetails}>
                     <span>
-                      {item.product.brand} {item.product.model}
+                      {item.product.productName}
                     </span>
                     <span>₹{item.product.price}</span>
                     <span>Clour : {item.product.color}</span>

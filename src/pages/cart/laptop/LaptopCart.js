@@ -12,10 +12,7 @@ import { useAuth } from "../../../store/auth";
 const Cart = ({ products, setProducts, totalAmount }) => {
   const { BASE_URL, authorizationToken } = useAuth();
   const navigate = useNavigate();
-  const [navData, setNavData] = useState({
-    brand: "",
-    model: "View Cart",
-  });
+  const [navData, setNavData] = useState("View Cart")
 
   const handleQuantityChange = (index, productId, event) => {
     const quantity = event.target.value;
@@ -56,7 +53,7 @@ const Cart = ({ products, setProducts, totalAmount }) => {
                       <img src={item.product.images[0]} alt="productImage" />
                       <div className={styles.details}>
                         <span>
-                          {item.product.brand} {item.product.model}
+                          {item.product.productName}
                         </span>
                         <span className={styles.color}>
                           Color: {item.product.color}

@@ -40,7 +40,7 @@ const MobProductDetail = ({ product, buyNowHandler, addToCartHandler }) => {
             </div>
             <div className={styles.detailContainer}>
               <h1 className={styles.title}>
-                {product.brand} {product.model}
+                {product.productName}
               </h1>
               <div className={styles.ratingBox}>
                 {[...Array(parseInt(product.rating))].map((_, index) => (

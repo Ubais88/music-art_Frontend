@@ -14,10 +14,11 @@ export const AuthProvider = ({ children }) => {
   const [search, setSearch] = useState("");
   const authorizationToken = `Bearer ${token}`;
 
-  const storeTokenInLS = (serverToken, name) => {
+  const storeTokenInLS = (serverToken, name , mobile) => {
     setToken(serverToken);
     localStorage.setItem("token", serverToken);
     localStorage.setItem("name", name);
+    localStorage.setItem("mobile", mobile);
   };
 
   // logout - remove token from local storage
@@ -25,6 +26,7 @@ export const AuthProvider = ({ children }) => {
     setToken("");
     localStorage.removeItem("token");
     localStorage.removeItem("name");
+    localStorage.removeItem("mobile");
   };
 
   const isLoggedIn = !!token;

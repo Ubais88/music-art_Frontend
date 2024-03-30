@@ -6,7 +6,6 @@ export const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(localStorage.getItem("token") || "");
   const [login, setLogin] = useState(true);
-  const [loading, setLoading] = useState(false);
   const [invoicefrom, setInvoiceForm] = useState(false);
   const [cartItemCount, setCartItemCount] = useState(0);
   const [orderFromCart, setOrderFromCart] = useState(true);
@@ -14,7 +13,7 @@ export const AuthProvider = ({ children }) => {
   const [search, setSearch] = useState("");
   const authorizationToken = `Bearer ${token}`;
 
-  const storeTokenInLS = (serverToken, name , mobile) => {
+  const storeTokenInLS = (serverToken, name, mobile) => {
     setToken(serverToken);
     localStorage.setItem("token", serverToken);
     localStorage.setItem("name", name);

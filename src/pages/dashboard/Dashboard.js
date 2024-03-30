@@ -18,7 +18,7 @@ import Feedback from "../../components/feedback/Feedback";
 import toast from "react-hot-toast";
 
 const Dashboard = () => {
-  const { loading, BASE_URL, search, setSearch, setSelectedItem } = useAuth();
+  const { loading, BASE_URL, search, setSearch , setSelectedItem } = useAuth();
   const [view, setView] = useState("grid");
   const [product, setProduct] = useState([]);
   const [headphoneType, setHeadphoneType] = useState("");
@@ -27,31 +27,30 @@ const Dashboard = () => {
   const [price, setPrice] = useState("");
   const [sortBy, setSortBy] = useState("");
   const [showFeedBack, setShowFeedBack] = useState(false);
-  // setSelectedItem("home");
-const productFetch = async () => {
-  try {
-    const response = await allProducts(
-      BASE_URL,
-      headphoneType,
-      company,
-      color,
-      price,
-      search,
-      sortBy
-    );
-      console.log("response: ", response)
-    if (response && response.products) {
-      setProduct(response.products);
-    } else {
-      console.error("Products data is undefined or null.", response);
-      toast.error(response.message);
-    }
-  } catch (error) {
-    console.error("Error fetching products:", error);
-    toast.error("Error fetching products. Please try again later.");
-  }
-};
 
+  const productFetch = async () => {
+    try {
+      const response = await allProducts(
+        BASE_URL,
+        headphoneType,
+        company,
+        color,
+        price,
+        search,
+        sortBy
+      );
+      // console.log("response: ", response)
+      if (response && response.products) {
+        setProduct(response.products);
+      } else {
+        console.error("Products data is undefined or null.", response);
+        toast.error(response.message);
+      }
+    } catch (error) {
+      console.error("Error fetching products:", error);
+      toast.error("Error fetching products. Please try again later.");
+    }
+  };
 
   useEffect(() => {
     productFetch();
@@ -80,6 +79,9 @@ const productFetch = async () => {
   const handleSortChange = (event) => {
     setSortBy(event.target.value);
   };
+  useEffect(() => {
+    setSelectedItem("home");
+  }, [])
 
   return (
     <>
@@ -108,7 +110,7 @@ const productFetch = async () => {
         </section>
 
         {loading ? (
-          <h1>Loading</h1>
+          <span class="loader"></span>
         ) : (
           <>
             <section className={styles.searchSection}>

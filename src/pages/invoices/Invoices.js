@@ -16,7 +16,7 @@ import toast from "react-hot-toast";
 
 const Invoices = () => {
   const navigate = useNavigate();
-  const { BASE_URL, authorizationToken, setInvoiceForm, setSelectedItem } =
+  const { BASE_URL, authorizationToken, setInvoiceForm, setSelectedItem , isLoggedIn } =
     useAuth();
   const [invoices, setInvoices] = useState([]);
   const [navData, setNavData] = useState("Invoice");
@@ -37,6 +37,7 @@ const Invoices = () => {
   
 
   useEffect(() => {
+    
     fetchInvoice();
     setSelectedItem("invoice");
   }, []);

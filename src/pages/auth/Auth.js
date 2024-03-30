@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Auth.module.css";
 import musicIcon from "../../assets/musicIcon.svg";
 import Footer from "../../components/footer/Footer";
@@ -6,9 +6,17 @@ import Register from "../../components/register/Register";
 import Login from "../../components/login/Login";
 import MobNavbar from "../../components/mobNavbar/MobNavbar";
 import { useAuth } from "../../store/auth";
+import { useNavigate } from "react-router-dom";
 
 const Auth = () => {
-  const { login, setLogin } = useAuth();
+  const navigate = useNavigate()
+  const { login, setLogin , isLoggedIn } = useAuth();
+
+  useEffect(() => {
+    if(isLoggedIn){
+      navigate('/')
+    }
+  })
 
   return (
     <div className={styles.topContainer}>

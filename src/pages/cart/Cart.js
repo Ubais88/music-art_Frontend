@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 const Cart = () => {
   const navigate = useNavigate();
   const { BASE_URL, authorizationToken, setSelectedItem } = useAuth();
+  const [ loading , setLoading] = useState(false)
   const [products, setProducts] = useState(null);
   const [totalAmount, setTotalAmount] = useState({
     totalAmount: "",
@@ -19,6 +20,7 @@ const Cart = () => {
   const userCart = async () => {
     try {
       const response = await cartProducts(BASE_URL, authorizationToken);
+      setLoading(false);
       if (response.success) {
         setProducts(response.cart);
         setTotalAmount({
@@ -36,6 +38,7 @@ const Cart = () => {
   };
 
   useEffect(() => {
+    setLoading(true)
     userCart();
     setSelectedItem("cart");
   }, []);
@@ -44,6 +47,7 @@ const Cart = () => {
     <>
       <div className={styles.laptop}>
         <LaptopCart
+        loading={loading}
           userCart={userCart}
           products={products}
           setProducts={setProducts}
@@ -53,6 +57,7 @@ const Cart = () => {
       <div className={styles.mobile}>
         <MobileCart
           userCart={userCart}
+          loading={loading}
           products={products}
           setProducts={setProducts}
           totalAmount={totalAmount}

@@ -44,7 +44,7 @@ const Login = () => {
     e.preventDefault();
     if (isFormValid()) {
       const response = await login(formData, BASE_URL);
-      console.log(response.data)
+      // console.log(response.data)
       if (response.status === 200) {
         setFormData({
           emailOrNumber: "",

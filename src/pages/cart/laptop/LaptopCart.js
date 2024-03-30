@@ -9,18 +9,20 @@ import { useNavigate } from "react-router-dom";
 import { updateCartQuantity } from "../../../apis/cart/Cart";
 import { useAuth } from "../../../store/auth";
 
-const Cart = ({ products, setProducts, totalAmount }) => {
+const Cart = ({ products, loading , setProducts, totalAmount }) => {
   const { BASE_URL, authorizationToken } = useAuth();
-  const navigate = useNavigate();
-  const [navData, setNavData] = useState("View Cart")
 
-  const handleQuantityChange = (index, productId, event) => {
+  const navigate = useNavigate();
+  const [navData, setNavData] = useState("View Cart");
+
+  const handleQuantityChange = (index, loading, productId, event) => {
     const quantity = event.target.value;
     updateCartQuantity(BASE_URL, authorizationToken, quantity, productId);
     const updatedProducts = [...products];
     updatedProducts[index].quantity = quantity;
     setProducts(updatedProducts);
   };
+
   return (
     <>
       <section className={styles.cartContainer}>
@@ -38,7 +40,9 @@ const Cart = ({ products, setProducts, totalAmount }) => {
             <img src={bag} alt="cartbagicon" />
             <span>My Cart</span>
           </title>
-          {products === null || products.length === 0 ? (
+          {loading ? (
+            <span className="loader"></span>
+          ) : products === null || products.length === 0 ? (
             <center
               style={{ marginTop: "10vh", fontWeight: "500", fontSize: "3vw" }}
             >
@@ -52,9 +56,7 @@ const Cart = ({ products, setProducts, totalAmount }) => {
                     <div className={styles.productInfo}>
                       <img src={item.product.images[0]} alt="productImage" />
                       <div className={styles.details}>
-                        <span>
-                          {item.product.productName}
-                        </span>
+                        <span>{item.product.productName}</span>
                         <span className={styles.color}>
                           Color: {item.product.color}
                         </span>

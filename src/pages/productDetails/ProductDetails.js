@@ -32,7 +32,7 @@ const ProductDetails = () => {
       setNavData(response.productdetails.productName);
       setSelectedImage(response.productdetails.images[0]);
     } else {
-      console.log("add toast in details", response);
+      console.log("add toast for details", response);
     }
   };
 

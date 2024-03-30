@@ -5,7 +5,7 @@ import { sendFeedback } from "../../apis/auth/Feedback";
 import toast from "react-hot-toast";
 
 const Feedback = ({ setShowFeedBack }) => {
-  const { BASE_URL, authorizationToken } = useAuth();
+  const { BASE_URL, isLoggedIn, authorizationToken } = useAuth();
   const [feedbackType, setFeedbackType] = useState("");
   const [feedbackMessage, setFeedbackMessage] = useState("");
   const [errors, setErrors] = useState({});
@@ -42,17 +42,21 @@ const Feedback = ({ setShowFeedBack }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (isFormValid()) {
-      const response = await sendFeedback(
-        BASE_URL,
-        authorizationToken,
-        feedbackType,
-        feedbackMessage
-      );
-      if (response.success) {
-        toast.success(response.message);
-      } else {
-        toast.error(response.message);
+    if (!isLoggedIn) {
+      toast.error("Please log in to give feedback.");
+    } else {
+      if (isFormValid()) {
+        const response = await sendFeedback(
+          BASE_URL,
+          authorizationToken,
+          feedbackType,
+          feedbackMessage
+        );
+        if (response.success) {
+          toast.success(response.message);
+        } else {
+          toast.error(response.message);
+        }
       }
       setShowFeedBack(false);
       setFeedbackType("");

@@ -4,6 +4,7 @@
   flex-direction: column;
   align-items: center;
   gap: 4vh;
+  border: 2px solid red;
 }
 
 .title {
@@ -110,7 +111,7 @@
   }
 
   .container {
-    padding: 1rem;
+    gap: 1rem;
     margin-bottom: 3rem;
   }
   

@@ -125,7 +125,7 @@ const CheckOut = () => {
   const isValid = () => {
     const newErrors = {};
 
-    if (!name) {
+    if (!name.trim()) {
       newErrors.name = "Name is required";
     }
     if (!address) {

@@ -85,6 +85,7 @@ export const updateCartQuantity = async (
         headers: { Authorization: authorizationToken },
       }
     );
+    return response.data;
   } catch (error) {
     if (error) {
       console.log("error: ", error);

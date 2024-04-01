@@ -14,6 +14,7 @@ const MobFooter = () => {
 
   const logoutHandler = () => {
     LogoutUser();
+    setSelectedItem("home");
   };
 
   const loginHandler = () => {

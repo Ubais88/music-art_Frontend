@@ -158,6 +158,10 @@
   z-index: 245;
 }
 
+.siteFooter{
+  margin-top: 1.5rem;
+}
+
 .feedback {
   position: fixed;
   bottom: 16%;

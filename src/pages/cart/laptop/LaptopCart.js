@@ -9,18 +9,37 @@ import { useNavigate } from "react-router-dom";
 import { updateCartQuantity } from "../../../apis/cart/Cart";
 import { useAuth } from "../../../store/auth";
 
-const Cart = ({ products, loading , setProducts, totalAmount }) => {
+const Cart = ({
+  products,
+  loading,
+  setProducts,
+  totalAmount,
+  setTotalAmount,
+}) => {
   const { BASE_URL, authorizationToken } = useAuth();
 
   const navigate = useNavigate();
   const [navData, setNavData] = useState("View Cart");
 
-  const handleQuantityChange = (index, loading, productId, event) => {
+  const handleQuantityChange = async (index, productId, event) => {
     const quantity = event.target.value;
-    updateCartQuantity(BASE_URL, authorizationToken, quantity, productId);
-    const updatedProducts = [...products];
-    updatedProducts[index].quantity = quantity;
-    setProducts(updatedProducts);
+    const response = await updateCartQuantity(
+      BASE_URL,
+      authorizationToken,
+      quantity,
+      productId
+    );
+    console.log("Cart response:", response);
+    if (response.success) {
+      const updatedProducts = [...products];
+      updatedProducts[index].quantity = quantity;
+      updatedProducts[index].totalAmount = response.updatedPrice;
+      setProducts(updatedProducts);
+      setTotalAmount({
+        totalAmount: response.totalAmount,
+        withConveniencefee: response.withConveniencefee,
+      });
+    }
   };
 
   return (

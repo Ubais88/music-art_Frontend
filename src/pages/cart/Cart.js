@@ -12,10 +12,7 @@ const Cart = () => {
   const { BASE_URL, authorizationToken, setSelectedItem } = useAuth();
   const [ loading , setLoading] = useState(false)
   const [products, setProducts] = useState(null);
-  const [totalAmount, setTotalAmount] = useState({
-    totalAmount: "",
-    withConveniencefee: "",
-  });
+  const [totalAmount, setTotalAmount] = useState({});
 
   const userCart = async () => {
     try {
@@ -52,6 +49,7 @@ const Cart = () => {
           products={products}
           setProducts={setProducts}
           totalAmount={totalAmount}
+          setTotalAmount={setTotalAmount}
         />
       </div>
       <div className={styles.mobile}>

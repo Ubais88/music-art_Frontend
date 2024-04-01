@@ -41,7 +41,7 @@ const MobileCart = ({ products, totalAmount }) => {
               </span>
               <summary>
                 <span>Total:</span>
-                <span>₹ {totalAmount.totalAmount}</span>
+                <span>₹ {totalAmount.withConveniencefee}</span>
               </summary>
             </div>
             <div className={styles.totalAmountAndOrderBtn}>

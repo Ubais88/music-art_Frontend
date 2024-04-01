@@ -28,8 +28,7 @@ const Cart = ({
       authorizationToken,
       quantity,
       productId
-    );
-    console.log("Cart response:", response);
+    ); 
     if (response.success) {
       const updatedProducts = [...products];
       updatedProducts[index].quantity = quantity;

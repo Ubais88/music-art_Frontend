@@ -63,7 +63,6 @@ export const directInCart = async (BASE_URL, authorizationToken, productId) => {
         headers: { Authorization: authorizationToken },
       }
     );
-    console.log("directincart", response);
     return response.data;
   } catch (error) {
     console.error("Error fetching product from cart:", error);

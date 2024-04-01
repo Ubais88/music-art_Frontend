@@ -34,7 +34,8 @@
   justify-content: space-between;
 }
 
-.productList {
+.productList,
+.baseTotal {
   width: 72%;
   height: 100%;
   display: flex;
@@ -63,7 +64,10 @@
   border-radius: 0.3rem;
 }
 
-.details,.price,.quantity,.total {
+.details,
+.price,
+.quantity,
+.total {
   display: flex;
   flex-direction: column;
   gap: 0.5vh;
@@ -98,11 +102,11 @@
 .quantity > select {
   margin-top: 0.4rem;
   border: none;
-  border: 1px solid #BEBEBE;
+  border: 1px solid #bebebe;
   border-radius: 0.25rem;
   cursor: pointer;
 }
-.details{
+.details {
   display: flex;
   gap: 1rem;
 }
@@ -124,8 +128,8 @@
   margin: 1vh 0 1.5vh 0;
 }
 
-
-.priceDetail ,.amountFormat {
+.priceDetail,
+.amountFormat {
   display: flex;
   justify-content: space-between;
   color: #000000;
@@ -146,7 +150,7 @@
 }
 
 .amountFormat {
-  font-family: Roboto; 
+  font-family: Roboto;
 }
 
 .totalAmount > div > span:first-of-type {
@@ -173,6 +177,16 @@
   cursor: pointer;
 }
 
-.footer{
+.baseTotal {
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem 0 12rem;
+  font-family: Roboto;
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
+.footer {
   margin-top: auto;
 }

@@ -15,6 +15,8 @@ const Cart = ({
   setProducts,
   totalAmount,
   setTotalAmount,
+  setCartQuantity,
+  cartQuantity,
 }) => {
   const { BASE_URL, authorizationToken } = useAuth();
 
@@ -28,12 +30,13 @@ const Cart = ({
       authorizationToken,
       quantity,
       productId
-    ); 
+    );
     if (response.success) {
       const updatedProducts = [...products];
       updatedProducts[index].quantity = quantity;
       updatedProducts[index].totalAmount = response.updatedPrice;
       setProducts(updatedProducts);
+      setCartQuantity(response.cartLength)
       setTotalAmount({
         totalAmount: response.totalAmount,
         withConveniencefee: response.withConveniencefee,
@@ -139,6 +142,10 @@ const Cart = ({
               </div>
             </div>
           )}
+          <div className={styles.baseTotal}>
+            <span>{cartQuantity} Item</span>
+            <span>₹{totalAmount.totalAmount}</span>
+          </div>
         </section>
       </main>
       <section className={styles.footer}>

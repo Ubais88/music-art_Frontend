@@ -12,6 +12,7 @@ const Cart = () => {
   const { BASE_URL, authorizationToken, setSelectedItem } = useAuth();
   const [ loading , setLoading] = useState(false)
   const [products, setProducts] = useState(null);
+  const [cartQuantity , setCartQuantity] = useState(0)
   const [totalAmount, setTotalAmount] = useState({});
 
   const userCart = async () => {
@@ -24,6 +25,7 @@ const Cart = () => {
           totalAmount: response.totalAmount,
           withConveniencefee: response.withConveniencefee,
         });
+        setCartQuantity(response.cartLength);
       } else {
         toast.error(response.message);
         // navigate("/");
@@ -50,6 +52,8 @@ const Cart = () => {
           setProducts={setProducts}
           totalAmount={totalAmount}
           setTotalAmount={setTotalAmount}
+          setCartQuantity={setCartQuantity}
+          cartQuantity={cartQuantity}
         />
       </div>
       <div className={styles.mobile}>

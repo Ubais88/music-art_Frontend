@@ -8,6 +8,7 @@ import OrderSuccess from "./pages/orderSuccess/OrderSucess";
 import Invoices from "./pages/invoices/Invoices";
 import Auth from "./pages/auth/Auth";
 import { Route, Routes } from "react-router-dom";
+import Component from "./Component.js"
 
 const App = () => {
   return (
@@ -27,6 +28,7 @@ const App = () => {
           <Route path="/my-invoices" element={<Invoices />} />
           <Route path="/view-invoice/:orderId" element={<Checkout />} />
           <Route path="/checkout/:productId" element={<Checkout />} />
+          <Route path="/new" element={<Component />} />
         </Route>
       </Routes>
     </div>
